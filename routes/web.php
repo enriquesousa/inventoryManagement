@@ -3,7 +3,12 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Pos\SupplierController;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +45,10 @@ Route::controller(AdminController::class)->group(function () {
 
     Route::get('/admin/change/password', 'ChangePassword')->name('admin.change.password');
     Route::post('/admin/update/password', 'UpdatePassword')->name('admin.update.password');
+});
+
+Route::controller(SupplierController::class)->group(function () {
+    Route::get('/list/supplier', 'ListSupplier')->name('list.supplier');
+    
 });
 

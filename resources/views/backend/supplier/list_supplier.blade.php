@@ -1,6 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
     <div class="page-content">
         <div class="container-fluid">
 
@@ -86,12 +85,16 @@
                                             {{-- Acciones --}}
                                             <td>
                                                 {{-- Edit --}}
-                                                <a href="#" class="btn btn-info sm"
+                                                <a href="{{ route('edit.supplier', $item->id) }}" class="btn btn-info sm"
                                                     title="Edit Data"><i class="fas fa-edit"></i></a>
 
+                                                {{-- Details --}}
+                                                <a href="{{ route('show.supplier', $item->id) }}" class="btn btn-success sm"
+                                                    title="Details Data"><i class="fas fa-eye"></i></a>
+
                                                 {{-- Delete --}}
-                                                <a href="#" class="btn btn-danger sm"
-                                                    title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="#" class="btn btn-danger sm" title="Delete Data"
+                                                    id="delete"><i class="fas fa-trash-alt"></i></a>
                                             </td>
 
                                         </tr>
@@ -109,5 +112,4 @@
         </div> <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
-
 @endsection

@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Agregar <strong>Proveedor</strong></h4>
+                        <h4 class="mb-sm-0">Detalles <strong>Proveedor</strong></h4>
                         <div class="page-title-right">
 
                             <a href="{{ route('list.supplier') }}" class="btn btn-success waves-effect waves-light"><i class="dripicons-return"></i> Regresar a Lista de Proveedores</a>
@@ -29,18 +29,21 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Agregar <strong>Proveedor</strong></h4>
-                            <p class="card-title-desc">Llene el <code>formulario</code> para agregar un nuevo proveedor.</p>
+                            <h4 class="card-title">Detalles <strong>Proveedor</strong></h4>
+                            <p class="card-title-desc">Ver detalles del <code>Proveedor</code>.</p>
 
-                            <form id="myForm" method="post" action="{{ route('store.supplier') }}" enctype="multipart/form-data">
+                            <form id="myForm">
                                 @csrf
 
+
+                                {{-- ID --}}
+                                <input type="hidden" name="id" value="{{ $supplier->id }}">
 
                                 {{-- Nombre Proveedor --}}
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-2 col-form-label">Nombre Proveedor</label>
                                     <div class="col-sm-10 form-group">
-                                        <input class="form-control" name="name" type="text">
+                                        <input class="form-control" name="name" type="text" value="{{ $supplier->name }}" readonly>
                                     </div>
                                 </div>
 
@@ -48,7 +51,7 @@
                                 <div class="row mb-3">
                                     <label for="mobile_no" class="col-sm-2 col-form-label">Teléfono</label>
                                     <div class="col-sm-10 form-group">
-                                        <input class="form-control" name="mobile_no" type="text">
+                                        <input class="form-control" name="mobile_no" type="text" value="{{ $supplier->mobile_no }}" readonly>
                                     </div>
                                 </div>
 
@@ -56,7 +59,7 @@
                                 <div class="row mb-3">
                                     <label for="email" class="col-sm-2 col-form-label">Correo Electrónico</label>
                                     <div class="col-sm-10 form-group">
-                                        <input class="form-control" name="email" type="email">
+                                        <input class="form-control" name="email" type="email" value="{{ $supplier->email }}" readonly>
                                     </div>
                                 </div>
 
@@ -64,16 +67,39 @@
                                 <div class="row mb-3">
                                     <label for="address" class="col-sm-2 col-form-label">Dirección</label>
                                     <div class="col-sm-10 form-group">
-                                        <input class="form-control" name="address" type="text">
+                                        <input class="form-control" name="address" type="text" value="{{ $supplier->address }}" readonly>
                                     </div>
                                 </div>
 
-
-                                {{-- Guardar --}}
+                                {{-- Estatus --}}
                                 <div class="row mb-3">
-                                    <label for="portfolio_image" class="col-sm-2 col-form-label"></label>
-                                    <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="ri-save-3-line"></i> Guardar</button>
+                                    <label for="status" class="col-sm-2 col-form-label">Estatus</label>
+                                    <div class="col-sm-10 form-group">
+                                        <input class="form-control" name="status" type="text" value="{{ $supplier->status }}" readonly>
+                                    </div>
+                                </div>
+
+                                {{-- Created By --}}
+                                <div class="row mb-3">
+                                    <label for="created_by" class="col-sm-2 col-form-label">Creado Por</label>
+                                    <div class="col-sm-10 form-group">
+                                        <input class="form-control" name="created_by" type="text" value="{{ $supplier->created_by }}" readonly>
+                                    </div>
+                                </div>
+
+                                {{-- updated by --}}
+                                <div class="row mb-3">
+                                    <label for="updated_by" class="col-sm-2 col-form-label">Actualizado Por</label>
+                                    <div class="col-sm-10 form-group">
+                                        <input class="form-control" name="updated_by" type="text" value="{{ $supplier->updated_by }}" readonly>
+                                    </div>
+                                </div>
+
+                                {{-- created at --}}
+                                <div class="row mb-3">
+                                    <label for="created_at" class="col-sm-2 col-form-label">Creado</label>
+                                    <div class="col-sm-10 form-group">
+                                        <input class="form-control" name="created_at" type="text" value="{{ $supplier->created_at }}" readonly>
                                     </div>
                                 </div>
 

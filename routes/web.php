@@ -51,9 +51,9 @@ Route::controller(SupplierController::class)->group(function () {
     Route::get('/list/supplier', 'ListSupplier')->name('list.supplier');
     Route::get('/add/supplier', 'AddSupplier')->name('add.supplier');
     Route::post('/store/supplier', 'StoreSupplier')->name('store.supplier');
-    // Route::get('/edit/supplier/{id}', 'EditSupplier')->name('edit.supplier');
-    // Route::post('/update/supplier/{id}', 'UpdateSupplier')->name('update.supplier');
+    Route::get('/edit/supplier/{id}', 'EditSupplier')->name('edit.supplier');
+    Route::post('/update/supplier/{id}', 'UpdateSupplier')->name('update.supplier');
+    Route::get('/show/supplier/{id}', 'ShowSupplier')->name('show.supplier');
     // Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
-    
 });
 

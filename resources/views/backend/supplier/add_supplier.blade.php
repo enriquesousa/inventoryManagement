@@ -37,53 +37,40 @@
 
 
                                 {{-- Nombre Proveedor --}}
-                                <div class="row mb-3 form-group">
+                                <div class="row mb-3">
                                     <label for="name" class="col-sm-2 col-form-label">Nombre Proveedor</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10 form-group">
                                         <input class="form-control" name="name" type="text">
                                     </div>
                                 </div>
 
                                 {{-- Teléfono --}}
-                                <div class="row mb-3 form-group">
+                                <div class="row mb-3">
                                     <label for="mobile_no" class="col-sm-2 col-form-label">Teléfono</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10 form-group">
                                         <input class="form-control" name="mobile_no" type="text">
                                     </div>
                                 </div>
 
                                 {{-- Correo Electrónico --}}
-                                <div class="row mb-3 form-group">
+                                <div class="row mb-3">
                                     <label for="email" class="col-sm-2 col-form-label">Correo Electrónico</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10 form-group">
                                         <input class="form-control" name="email" type="email">
                                     </div>
                                 </div>
 
                                 {{-- Dirección --}}
-                                <div class="row mb-3 form-group">
+                                <div class="row mb-3">
                                     <label for="address" class="col-sm-2 col-form-label">Dirección</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10 form-group">
                                         <input class="form-control" name="address" type="text">
                                     </div>
                                 </div>
 
-                                {{-- Status --}}
-                                <div class="row mb-3 form-group">
-                                    <label for="status" class="col-sm-2 col-form-label">Estatus</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" name="status" aria-label="Default select example">
-                                            <option selected>Seleccione Estatus</option>
-                                            <option value="1">Activo</option>
-                                            <option value="0">Inactivo</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
 
                                 {{-- Guardar --}}
-                                <div class="row mb-3 form-group">
+                                <div class="row mb-3">
                                     <label for="portfolio_image" class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="ri-save-3-line"></i> Guardar</button>
@@ -120,9 +107,6 @@
                     address: {
                         required: true,
                     },
-                    status: {
-                        required: true,
-                    },
                    
                 },
                 messages: {
@@ -137,9 +121,6 @@
                     },
                     address: {
                         required: 'La dirección es requerida',
-                    },
-                    status: {
-                        required: 'El estatus es requerido',
                     },
                     
                 },

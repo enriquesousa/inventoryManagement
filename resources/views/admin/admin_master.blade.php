@@ -205,6 +205,10 @@
     <!-- Datatable init js -->
     <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
+    {{-- Para Validar Formularios --}}
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+    
+
 </body>
 
 </html>

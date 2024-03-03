@@ -17,6 +17,11 @@ class SupplierController extends Controller
     }
 
 
+    // AddSupplier
+    public function AddSupplier(){
+        return view('backend.supplier.add_supplier');
+    }
+
 
 
 

@@ -11,7 +11,7 @@
                         <h4 class="mb-sm-0">Lista de <strong>Proveedores</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="#" class="btn btn-success waves-effect waves-light"><i
+                            <a href="{{ route('add.supplier') }}" class="btn btn-success waves-effect waves-light"><i
                                     class="fas fa-plus-circle"></i> Agregar Proveedor</a>
                         </div>
 

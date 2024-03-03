@@ -93,7 +93,7 @@
                                                     title="Details Data"><i class="fas fa-eye"></i></a>
 
                                                 {{-- Delete --}}
-                                                <a href="#" class="btn btn-danger sm" title="Delete Data"
+                                                <a href="{{ route('delete.supplier', $item->id) }}" class="btn btn-danger sm" title="Delete Data"
                                                     id="delete"><i class="fas fa-trash-alt"></i></a>
                                             </td>
 

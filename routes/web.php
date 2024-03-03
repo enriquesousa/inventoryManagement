@@ -54,6 +54,6 @@ Route::controller(SupplierController::class)->group(function () {
     Route::get('/edit/supplier/{id}', 'EditSupplier')->name('edit.supplier');
     Route::post('/update/supplier/{id}', 'UpdateSupplier')->name('update.supplier');
     Route::get('/show/supplier/{id}', 'ShowSupplier')->name('show.supplier');
-    // Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
+    Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
 });
 

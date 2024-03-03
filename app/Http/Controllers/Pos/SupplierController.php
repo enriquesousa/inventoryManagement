@@ -81,5 +81,18 @@ class SupplierController extends Controller
     }
 
 
+    // DeleteSupplier
+    public function DeleteSupplier($id){
+
+        Supplier::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Proveedor Eliminado Correctamente',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
 
 }

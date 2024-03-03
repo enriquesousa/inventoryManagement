@@ -207,6 +207,10 @@
 
     {{-- Para Validar Formularios --}}
     <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+
+    {{-- Sweetalert, para mensajes de confirmación en botones de Eliminar en vista --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('backend/assets/js/code.js') }}"></script>
     
 
 </body>

@@ -51,6 +51,18 @@
                     </ul>
                 </li>
 
+                <!-- Clientes -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-user-3-line"></i>
+                        <span>Clientes</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('list.customer') }}">Lista</a></li>
+                        <li><a href="#">Agregar</a></li>
+                    </ul>
+                </li>
+
 
 
 

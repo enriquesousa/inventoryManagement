@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2024 at 06:55 PM
+-- Generation Time: Mar 04, 2024 at 11:57 AM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventory`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `customer_image` varchar(255) DEFAULT NULL,
+  `mobile_no` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `customer_image`, `mobile_no`, `email`, `address`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'Justine Flowers', 'upload/customer_images/1792616658976687.jpg', '6644568956', 'fitap@mailinator.com', '917 New Freeway', 1, 1, 1, '2024-03-04 17:14:26', '2024-03-04 18:44:54'),
+(2, 'Chandler Roberson', 'upload/customer_images/1792619813188577.jpg', '6648524152', 'xohus@mailinator.com', '982 Fabien Parkway', 1, 1, 1, '2024-03-04 17:31:13', '2024-03-04 18:09:26'),
+(3, 'Bevis Flowers', 'upload/customer_images/1792619342931056.jpg', '6661237898', 'viguza@mailinator.com', '58 South Fabien Extension', 1, 1, NULL, '2024-03-04 17:57:06', NULL),
+(4, 'John White', 'upload/customer_images/1792619368279354.jpg', '6551238596', 'pozybylu@mailinator.com', '801 Fabien Street', 1, 1, NULL, '2024-03-04 17:57:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -58,7 +88,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_03_02_103306_create_suppliers_table', 2);
+(5, '2024_03_02_103306_create_suppliers_table', 2),
+(6, '2024_03_04_060414_create_customers_table', 3);
 
 -- --------------------------------------------------------
 
@@ -153,6 +184,12 @@ INSERT INTO `users` (`id`, `name`, `username`, `profile_image`, `email`, `email_
 --
 
 --
+-- Indexes for table `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -198,6 +235,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -207,7 +250,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

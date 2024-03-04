@@ -60,7 +60,7 @@ Route::controller(SupplierController::class)->group(function () {
 Route::controller(CustomerController::class)->group(function () {
     Route::get('/list/customer', 'ListCustomer')->name('list.customer');
     Route::get('/add/customer', 'AddCustomer')->name('add.customer');
-    // Route::post('/store/customer', 'StoreCustomer')->name('store.customer');
+    Route::post('/store/customer', 'StoreCustomer')->name('store.customer');
     // Route::get('/edit/customer/{id}', 'EditCustomer')->name('edit.customer');
     // Route::post('/update/customer/{id}', 'UpdateCustomer')->name('update.customer');
     // Route::get('/show/customer/{id}', 'ShowCustomer')->name('show.customer');

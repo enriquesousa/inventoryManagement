@@ -198,6 +198,21 @@
         @endif
     </script>
 
+    {{-- Para que funcione los Datatable --}}
+    <!-- Required datatable js -->
+    <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- Datatable init js -->
+    <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
+
+    {{-- Para Validar Formularios --}}
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+
+    {{-- Sweetalert, para mensajes de confirmación en botones de Eliminar en vista --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+    
+
 </body>
 
 </html>

@@ -47,7 +47,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.supplier') }}">Lista</a></li>
-                        <li><a href="#">Agregar</a></li>
+                        <li><a href="{{ route('add.supplier') }}">Agregar</a></li>
                     </ul>
                 </li>
 

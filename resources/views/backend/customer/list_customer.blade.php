@@ -88,14 +88,14 @@
                                             <td>
                                                 {{-- Edit --}}
                                                 <a href="{{ route('edit.customer', $item->id) }}" class="btn btn-info sm"
-                                                    title="Edit Data"><i class="fas fa-edit"></i></a>
+                                                    title="Editar"><i class="fas fa-edit"></i></a>
 
                                                 {{-- Details --}}
                                                 <a href="{{ route('show.customer', $item->id) }}" class="btn btn-success sm"
-                                                    title="Details Data"><i class="fas fa-eye"></i></a>
+                                                    title="Detalle"><i class="fas fa-eye"></i></a>
 
                                                 {{-- Delete --}}
-                                                <a href="{{ route('delete.supplier', $item->id) }}" class="btn btn-danger sm" title="Delete Data"
+                                                <a href="{{ route('delete.customer', $item->id) }}" class="btn btn-danger sm" title="Eliminar"
                                                     id="delete"><i class="fas fa-trash-alt"></i></a>
                                             </td>
 

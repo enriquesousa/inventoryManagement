@@ -64,6 +64,8 @@ Route::controller(CustomerController::class)->group(function () {
     Route::get('/edit/customer/{id}', 'EditCustomer')->name('edit.customer');
     Route::post('/update/customer', 'UpdateCustomer')->name('update.customer');
     Route::get('/show/customer/{id}', 'ShowCustomer')->name('show.customer');
-    // Route::get('/delete/customer/{id}', 'DeleteCustomer')->name('delete.customer');
+    Route::get('/delete/customer/{id}', 'DeleteCustomer')->name('delete.customer');
 });
+
+
 

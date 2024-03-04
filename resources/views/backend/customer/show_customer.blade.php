@@ -90,6 +90,14 @@
                                     </div>
                                 </div>
 
+                                {{-- updated at --}}
+                                <div class="row mb-3">
+                                    <label for="updated_at" class="col-sm-2 col-form-label">Actualizado</label>
+                                    <div class="col-sm-10 form-group">
+                                        <input class="form-control" name="updated_at" type="text" value="{{ $customer->updated_at }}" readonly>
+                                    </div>
+                                </div>
+
 
                                 {{-- Display Image --}}
                                 <div class="row mb-3">

@@ -119,9 +119,23 @@ class CustomerController extends Controller
         $customer = Customer::findOrFail($id);
         return view('backend.customer.show_customer', compact('customer'));
     }
+
+    // DeleteCustomer
+    public function DeleteCustomer($id){
+
+        $customer = Customer::findOrFail($id);
+        unlink(public_path($customer->customer_image)); // para borrar la imagen anterior
+
+        $customer = Customer::findOrFail($id)->delete();
+
+
+        $notification = array(
+            'message' => 'Cliente eliminado con éxito',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
     
-
-
 
     
 }

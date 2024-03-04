@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\UnitController;
 
 
 
@@ -65,6 +66,11 @@ Route::controller(CustomerController::class)->group(function () {
     Route::post('/update/customer', 'UpdateCustomer')->name('update.customer');
     Route::get('/show/customer/{id}', 'ShowCustomer')->name('show.customer');
     Route::get('/delete/customer/{id}', 'DeleteCustomer')->name('delete.customer');
+});
+
+Route::controller(UnitController::class)->group(function () {
+    Route::get('/list/unit', 'ListUnit')->name('list.unit');
+   
 });
 
 

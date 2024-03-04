@@ -57,5 +57,71 @@ class CustomerController extends Controller
         return redirect()->route('list.customer')->with($notification);
     }
 
+    // EditCustomer
+    public function EditCustomer($id){
+        $customer = Customer::findOrFail($id);
+        return view('backend.customer.edit_customer', compact('customer'));
+    }
+
+    // UpdateCustomer
+    public function UpdateCustomer(Request $request){
+
+        $customer_id = $request->id;
+        $old_image = $request->old_image;
+
+        if($request->file('customer_image')){
+
+            $image = $request->file('customer_image');
+            unlink(public_path($old_image)); // para borrar la imagen anterior
+
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $image = ImageManager::imagick()->read($image);
+            $image->resize(200, 200)->save('upload/customer_images/'.$name_gen);
+            $save_url = 'upload/customer_images/'.$name_gen;    
+
+            Customer::findOrFail($customer_id)->update([
+                'name' => $request->name,
+                'mobile_no' => $request->mobile_no,
+                'email' => $request->email,
+                'address' => $request->address,
+                'customer_image' => $save_url,
+                'updated_by' => Auth::user()->id,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Cliente con Imagen actualizado con éxito',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('list.customer')->with($notification);
+
+        }else{
+            Customer::findOrFail($customer_id)->update([
+                'name' => $request->name,
+                'mobile_no' => $request->mobile_no,
+                'email' => $request->email,
+                'address' => $request->address,
+                'updated_by' => Auth::user()->id,
+                'updated_at' => Carbon::now(),
+            ]);
+
+            $notification = array(
+                'message' => 'Cliente actualizado con éxito',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('list.customer')->with($notification);
+        }
+
+    }
+
+    // ShowCustomer
+    public function ShowCustomer($id){
+        $customer = Customer::findOrFail($id);
+        return view('backend.customer.show_customer', compact('customer'));
+    }
+    
+
+
+
     
 }

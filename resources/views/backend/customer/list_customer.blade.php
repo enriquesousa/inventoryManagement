@@ -55,13 +55,13 @@
                                             {{-- Serie --}}
                                             <td>{{ $key + 1 }}</td>
 
-                                            {{-- Proveedor --}}
+                                            {{-- Cliente --}}
                                             <td>{{ $item->name }}</td>
 
                                             {{-- Imagen --}}
                                             <td>
-                                                <img src="{{ asset($item->customer_image) }}" style="width: 60px; height: 50px;"></td>
-                                            <td>
+                                                <img src="{{ asset($item->customer_image) }}" style="width: 60px; height: 50px;">
+                                            </td>
 
                                             {{-- Correo --}}
                                             <td>{{ $item->email }}</td>
@@ -87,11 +87,11 @@
                                             {{-- Acciones --}}
                                             <td>
                                                 {{-- Edit --}}
-                                                <a href="{{ route('edit.supplier', $item->id) }}" class="btn btn-info sm"
+                                                <a href="{{ route('edit.customer', $item->id) }}" class="btn btn-info sm"
                                                     title="Edit Data"><i class="fas fa-edit"></i></a>
 
                                                 {{-- Details --}}
-                                                <a href="{{ route('show.supplier', $item->id) }}" class="btn btn-success sm"
+                                                <a href="{{ route('show.customer', $item->id) }}" class="btn btn-success sm"
                                                     title="Details Data"><i class="fas fa-eye"></i></a>
 
                                                 {{-- Delete --}}

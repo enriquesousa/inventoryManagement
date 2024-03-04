@@ -18,5 +18,12 @@ class CustomerController extends Controller
         return view('backend.customer.list_customer', compact('customers'));
     }
 
+    // AddCustomer
+    public function AddCustomer(){
+        return view('backend.customer.add_customer');
+    }
 
+
+
+    
 }

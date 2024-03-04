@@ -59,7 +59,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.customer') }}">Lista</a></li>
-                        <li><a href="#">Agregar</a></li>
+                        <li><a href="{{ route('add.customer') }}">Agregar</a></li>
                     </ul>
                 </li>
 

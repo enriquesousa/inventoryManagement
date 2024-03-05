@@ -9,6 +9,7 @@ use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\CategoryController;
+use App\Http\Controllers\Pos\ProductController;
 
 
 /*
@@ -87,5 +88,18 @@ Route::controller(CategoryController::class)->group(function () {
     // Route::get('/show/category/{id}', 'ShowCategory')->name('show.category');
     Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
 });
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/list/product', 'ListProduct')->name('list.product');
+    Route::get('/add/product', 'AddProduct')->name('add.product');
+    // Route::post('/store/product', 'StoreProduct')->name('store.product');
+    // Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
+    // Route::post('/update/product/{id}', 'UpdateProduct')->name('update.product');
+    // Route::get('/show/product/{id}', 'ShowProduct')->name('show.product');
+    // Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+});
+
+
+
 
 

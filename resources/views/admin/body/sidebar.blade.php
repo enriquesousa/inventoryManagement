@@ -11,8 +11,8 @@
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">
-                <img src="{{ (!empty($adminData->profile_image) ? url('upload/admin_images/'.$adminData->profile_image) : url('upload/no_image.jpg')) }}" alt=""
-                    class="avatar-md rounded-circle">
+                <img src="{{ !empty($adminData->profile_image) ? url('upload/admin_images/' . $adminData->profile_image) : url('upload/no_image.jpg') }}"
+                    alt="" class="avatar-md rounded-circle">
             </div>
             <div class="mt-3">
                 <h4 class="font-size-16 mb-1">{{ $adminData->name }}</h4>
@@ -34,7 +34,7 @@
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
-                            {{-- <span class="badge rounded-pill bg-success float-end">3</span> --}}
+                        {{-- <span class="badge rounded-pill bg-success float-end">3</span> --}}
                         <span>Panel</span>
                     </a>
                 </li>
@@ -75,8 +75,8 @@
                     </ul>
                 </li>
 
-                 <!-- Categorías -->
-                 <li>
+                <!-- Categorías -->
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-function-line"></i>
                         <span>Categorías</span>
@@ -84,6 +84,18 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.category') }}">Lista</a></li>
                         <li><a href="{{ route('add.category') }}">Agregar</a></li>
+                    </ul>
+                </li>
+
+                <!-- Productos -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-shopping-basket-2-line"></i>
+                        <span>Productos</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('list.product') }}">Lista</a></li>
+                        <li><a href="{{ route('add.product') }}">Agregar</a></li>
                     </ul>
                 </li>
 
@@ -307,4 +319,3 @@
     </div>
 </div>
 <!-- Left Sidebar End -->
-

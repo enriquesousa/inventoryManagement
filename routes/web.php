@@ -72,10 +72,10 @@ Route::controller(UnitController::class)->group(function () {
     Route::get('/list/unit', 'ListUnit')->name('list.unit');
     Route::get('/add/unit', 'AddUnit')->name('add.unit');
     Route::post('/store/unit', 'StoreUnit')->name('store.unit');
-    // Route::get('/edit/unit/{id}', 'EditUnit')->name('edit.unit');
-    // Route::post('/update/unit/{id}', 'UpdateUnit')->name('update.unit');
+    Route::get('/edit/unit/{id}', 'EditUnit')->name('edit.unit');
+    Route::post('/update/unit/{id}', 'UpdateUnit')->name('update.unit');
     // Route::get('/show/unit/{id}', 'ShowUnit')->name('show.unit');
-    // Route::get('/delete/unit/{id}', 'DeleteUnit')->name('delete.unit');
+    Route::get('/delete/unit/{id}', 'DeleteUnit')->name('delete.unit');
 });
 
 

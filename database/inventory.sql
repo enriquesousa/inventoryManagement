@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 04, 2024 at 11:57 AM
+-- Generation Time: Mar 04, 2024 at 05:06 PM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -89,7 +89,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2024_03_02_103306_create_suppliers_table', 2),
-(6, '2024_03_04_060414_create_customers_table', 3);
+(6, '2024_03_04_060414_create_customers_table', 3),
+(7, '2024_03_04_152545_create_units_table', 4);
 
 -- --------------------------------------------------------
 
@@ -149,6 +150,31 @@ INSERT INTO `suppliers` (`id`, `name`, `mobile_no`, `email`, `address`, `status`
 (1, 'Uriel Crane', '6641235465', 'mynejoq@mailinator.com', 'ARTICULO 27 NO. 4100 7, A. CONSTITUCION', 1, 1, NULL, '2024-03-03 02:16:40', NULL),
 (2, 'Enrique Sousa', '6641880604', 'enrique.sousa@gmail.com', 'Voluptatem rerum do direccion', 1, 1, 1, '2024-03-03 02:18:18', '2024-03-03 02:53:16'),
 (5, 'Test', '6641880604', 'ruxyryfo@mailinator.com', 'ANT CARR A CHAPALA NUM 2748, ALAMO INDUSTRIAL, 45560', 1, 1, NULL, '2024-03-03 17:01:05', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `units`
+--
+
+CREATE TABLE `units` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `units`
+--
+
+INSERT INTO `units` (`id`, `name`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'Kg', 1, 1, 1, '2024-03-05 00:06:48', '2024-03-05 00:19:17'),
+(2, 'Gr', 1, 1, 1, '2024-03-05 00:06:58', '2024-03-05 00:19:13'),
+(3, 'Litros', 1, 1, 1, '2024-03-05 00:07:26', '2024-03-05 00:19:21');
 
 -- --------------------------------------------------------
 
@@ -223,6 +249,12 @@ ALTER TABLE `suppliers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `units`
+--
+ALTER TABLE `units`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -250,7 +282,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -263,6 +295,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `suppliers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `units`
+--
+ALTER TABLE `units`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

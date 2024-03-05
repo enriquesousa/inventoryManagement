@@ -21,7 +21,14 @@ class ProductController extends Controller
         return view('backend.product.list_product',compact('products'));
     }
 
-    
+    // AddProduct
+    public function AddProduct(){
+        $suppliers = Supplier::latest()->get();
+        $categories = Category::latest()->get();
+        $units = Unit::latest()->get();
+        return view('backend.product.add_product',compact('suppliers','categories','units'));
+    }
+
 
 
 }

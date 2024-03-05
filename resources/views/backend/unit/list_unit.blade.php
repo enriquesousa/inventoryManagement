@@ -10,7 +10,7 @@
                         <h4 class="mb-sm-0">Lista de <strong>Unidades</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('add.supplier') }}" class="btn btn-success waves-effect waves-light"><i
+                            <a href="{{ route('add.unit') }}" class="btn btn-success waves-effect waves-light"><i
                                     class="fas fa-plus-circle"></i> Agregar Unidad</a>
                         </div>
 
@@ -25,16 +25,16 @@
                         <div class="card-body">
 
                             <h4 class="card-title">Lista de <strong>Unidades</strong></h4>
-                            <p class="card-title-desc">Listado de <code>Unidades</code> solo nombre.</p>
+                            <p class="card-title-desc">Listado de <code>Unidades</code> Ej: Kg, Gr, L, M, Etc...</p>
 
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
                                     <tr>
-                                        <th>Serie</th>
+                                        <th with="5%">Serie</th>
                                         <th>Unidad</th>
-                                        <th>Acción</th>
+                                        <th with="20%">Acción</th>
                                     </tr>
                                 </thead>
 
@@ -81,5 +81,5 @@
         </div> <!-- container-fluid -->
     </div>
     <!-- End Page-content -->
-    
+
 @endsection

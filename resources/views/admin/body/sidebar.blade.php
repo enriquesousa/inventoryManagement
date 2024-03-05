@@ -71,7 +71,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.unit') }}">Lista</a></li>
-                        <li><a href="{{ route('add.customer') }}">Agregar</a></li>
+                        <li><a href="{{ route('add.unit') }}">Agregar</a></li>
                     </ul>
                 </li>
 

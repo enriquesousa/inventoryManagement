@@ -32,7 +32,7 @@
                             <h4 class="card-title">Agregar <strong>Producto</strong></h4>
                             <p class="card-title-desc">Llene el <code>formulario</code> para agregar un nuevo producto.</p>
 
-                            <form id="myForm" method="post" action="{{ route('store.supplier') }}"
+                            <form id="myForm" method="post" action="{{ route('store.product') }}"
                                 enctype="multipart/form-data">
                                 @csrf
 

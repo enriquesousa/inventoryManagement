@@ -29,6 +29,27 @@ class ProductController extends Controller
         return view('backend.product.add_product',compact('suppliers','categories','units'));
     }
 
+    // StoreProduct
+    public function StoreProduct(Request $request){
+
+        Product::insert([
+            'name' => $request->name,
+            'supplier_id' => $request->supplier_id,
+            'category_id' => $request->category_id,
+            'unit_id' => $request->unit_id,
+            'quantity' => '0',
+            'created_by' => Auth::user()->id,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Producto Añadido Correctamente',
+            'alert-type' => 'success'
+        );
+        
+        return redirect()->route('list.product')->with($notification);
+    }
+
 
 
 }

@@ -55,14 +55,17 @@
                                                 <img src="{{ asset($item->portfolio_image) }}" style="width: 60px; height: 50px;"></td>
                                             <td> --}}
 
+                                            {{-- Producto --}}
+                                            <td>{{ $item->name }}</td>
+
                                             {{-- Proveedor --}}
-                                            <td>{{ $item->supplier_id }}</td>
+                                            <td>{{ $item->supplier->name }}</td>
 
                                             {{-- Unidades --}}
-                                            <td>{{ $item->unit_id }}</td>
+                                            <td>{{ $item->unit->name }}</td>
 
                                             {{-- Categoría --}}
-                                            <td>{{ $item->category_id }}</td>
+                                            <td>{{ $item->category->name }}</td>
                                           
 
                                             {{-- Acciones --}}

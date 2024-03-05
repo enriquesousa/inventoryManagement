@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Agregar <strong>Categoría</strong></h4>
+                        <h4 class="mb-sm-0">Editar <strong>Categoría</strong></h4>
                         <div class="page-title-right">
 
                             <a href="{{ route('list.category') }}" class="btn btn-success waves-effect waves-light"><i class="dripicons-return"></i> Regresar a Lista de Categorías</a>
@@ -29,10 +29,10 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Agregar <strong>Categoría</strong></h4>
-                            <p class="card-title-desc">Llene el campo de <code>nombre</code> con la categoría que desee, Ej: Computadoras, Cemento, Fotografía,  Etc...</p>
+                            <h4 class="card-title">Editar <strong>Categoría</strong></h4>
+                            <p class="card-title-desc">Edite campo de <code>categoría</code>.</p>
 
-                            <form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data">
+                            <form id="myForm" method="post" action="{{ route('update.category', $category->id) }}" enctype="multipart/form-data">
                                 @csrf
 
 
@@ -40,17 +40,17 @@
                                 <div class="row mb-3">
                                     <label for="name" class="col-sm-2 col-form-label">Nombre Categoría</label>
                                     <div class="col-sm-10 form-group">
-                                        <input class="form-control" name="name" type="text" autofocus>
+                                        <input class="form-control" name="name" type="text" value="{{ $category->name }}" autofocus>
                                     </div>
                                 </div>
 
                          
 
-                                {{-- Guardar --}}
+                                {{-- Actualizar --}}
                                 <div class="row mb-3">
                                     <label for="portfolio_image" class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="ri-save-3-line"></i> Guardar</button>
+                                        <button type="submit" class="btn btn-primary waves-effect waves-light"><i class="ri-save-3-line"></i> Actualizar</button>
                                     </div>
                                 </div>
 

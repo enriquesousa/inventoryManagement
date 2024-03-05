@@ -42,7 +42,7 @@
                 <!-- Proveedores -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-building-2-line"></i>
+                        <i class="mdi mdi-factory"></i>
                         <span>Proveedores</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -66,7 +66,7 @@
                 <!-- Unidades -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-booklet-line"></i>
+                        <i class="mdi mdi-tape-measure"></i>
                         <span>Unidades</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -78,7 +78,7 @@
                  <!-- Categorías -->
                  <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-archive-drawer-line"></i>
+                        <i class="ri-function-line"></i>
                         <span>Categorías</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">

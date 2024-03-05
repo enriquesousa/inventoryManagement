@@ -55,7 +55,7 @@
                                             {{-- Acciones --}}
                                             <td>
                                                 {{-- Edit --}}
-                                                <a href="{{ route('edit.unit', $item->id) }}" class="btn btn-info sm"
+                                                <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info sm"
                                                     title="Editar"><i class="fas fa-edit"></i></a>
 
                                                 {{-- Details --}}
@@ -63,7 +63,7 @@
                                                     title="Details Data"><i class="fas fa-eye"></i></a> --}}
 
                                                 {{-- Delete --}}
-                                                <a href="{{ route('delete.unit', $item->id) }}" class="btn btn-danger sm" title="Eliminar"
+                                                <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger sm" title="Eliminar"
                                                     id="delete"><i class="fas fa-trash-alt"></i></a>
                                             </td>
 

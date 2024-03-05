@@ -71,12 +71,12 @@
                                             {{-- Acciones --}}
                                             <td>
                                                 {{-- Edit --}}
-                                                <a href="{{ route('edit.supplier', $item->id) }}" class="btn btn-info sm"
+                                                <a href="{{ route('edit.product', $item->id) }}" class="btn btn-info sm"
                                                     title="Edit Data"><i class="fas fa-edit"></i></a>
 
                                                 {{-- Details --}}
-                                                <a href="{{ route('show.supplier', $item->id) }}" class="btn btn-success sm"
-                                                    title="Details Data"><i class="fas fa-eye"></i></a>
+                                                {{-- <a href="{{ route('show.supplier', $item->id) }}" class="btn btn-success sm"
+                                                    title="Details Data"><i class="fas fa-eye"></i></a> --}}
 
                                                 {{-- Delete --}}
                                                 <a href="{{ route('delete.supplier', $item->id) }}" class="btn btn-danger sm" title="Delete Data"

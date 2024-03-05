@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\UnitController;
-
+use App\Http\Controllers\Pos\CategoryController;
 
 
 /*
@@ -78,5 +78,14 @@ Route::controller(UnitController::class)->group(function () {
     Route::get('/delete/unit/{id}', 'DeleteUnit')->name('delete.unit');
 });
 
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/list/category', 'ListCategory')->name('list.category');
+    Route::get('/add/category', 'AddCategory')->name('add.category');
+    // Route::post('/store/category', 'StoreCategory')->name('store.category');
+    // Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
+    // Route::post('/update/category/{id}', 'UpdateCategory')->name('update.category');
+    // Route::get('/show/category/{id}', 'ShowCategory')->name('show.category');
+    // Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+});
 
 

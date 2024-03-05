@@ -63,7 +63,7 @@ class ProductController extends Controller
     public function UpdateProduct(Request $request){
 
         $product_id = $request->id;
-        
+
         Product::findOrFail($product_id)->update([
             'name' => $request->name,
             'supplier_id' => $request->supplier_id,
@@ -80,6 +80,19 @@ class ProductController extends Controller
         
         return redirect()->route('list.product')->with($notification);
 
+    }
+
+    // DeleteProduct
+    public function DeleteProduct($id){
+
+        Product::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Producto Eliminado Correctamente',
+            'alert-type' => 'success'
+        );
+        
+        return redirect()->back()->with($notification);
     }
 
 

@@ -32,9 +32,9 @@
 
                                 <thead>
                                     <tr>
-                                        <th with="5%">Serie</th>
+                                        <th width="5%">Serie</th>
                                         <th>Unidad</th>
-                                        <th with="20%">Acción</th>
+                                        <th width="20%">Acción</th>
                                     </tr>
                                 </thead>
 

@@ -1,0 +1,14 @@
+{
+	"files": [
+		{
+			"path": "resources/views/backend/unit/list_unit.blade.php",
+			"bookmarks": [
+				{
+					"line": 34,
+					"column": 47,
+					"label": "width en tabla"
+				}
+			]
+		}
+	]
+}

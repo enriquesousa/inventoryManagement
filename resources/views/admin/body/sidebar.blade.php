@@ -102,7 +102,7 @@
                 <!-- Compras -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-currency-line"></i>
+                        <i class="ri-shopping-bag-line"></i>
                         <span>Compras</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">

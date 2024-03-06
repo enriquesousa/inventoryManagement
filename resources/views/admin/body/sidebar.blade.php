@@ -99,6 +99,18 @@
                     </ul>
                 </li>
 
+                <!-- Compras -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-currency-line"></i>
+                        <span>Compras</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('list.purchase') }}">Lista</a></li>
+                        <li><a href="{{ route('add.product') }}">Agregar</a></li>
+                    </ul>
+                </li>
+
 
 
 

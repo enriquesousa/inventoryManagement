@@ -10,6 +10,7 @@ use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\ProductController;
+use App\Http\Controllers\Pos\PurchaseController;
 
 
 /*
@@ -97,6 +98,16 @@ Route::controller(ProductController::class)->group(function () {
     Route::post('/update/product', 'UpdateProduct')->name('update.product');
     // Route::get('/show/product/{id}', 'ShowProduct')->name('show.product');
     Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+});
+
+Route::controller(PurchaseController::class)->group(function () {
+    Route::get('/list/purchase', 'ListPurchase')->name('list.purchase');
+    Route::get('/add/purchase', 'AddPurchase')->name('add.purchase');
+    // Route::post('/store/purchase', 'StorePurchase')->name('store.purchase');
+    // Route::get('/edit/purchase/{id}', 'EditPurchase')->name('edit.purchase');
+    // Route::post('/update/purchase/{id}', 'UpdatePurchase')->name('update.purchase');
+    // Route::get('/show/purchase/{id}', 'ShowPurchase')->name('show.purchase');
+    // Route::get('/delete/purchase/{id}', 'DeletePurchase')->name('delete.purchase');
 });
 
 

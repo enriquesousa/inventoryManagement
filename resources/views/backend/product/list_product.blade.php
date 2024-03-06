@@ -33,6 +33,7 @@
                                 <thead>
                                     <tr>
                                         <th>Serie</th>
+                                        <th>ID</th>
                                         <th>Producto</th>
                                         <th>Proveedor</th>
                                         <th>Unidades</th>
@@ -49,6 +50,9 @@
 
                                             {{-- Serie --}}
                                             <td>{{ $key + 1 }}</td>
+
+                                            {{-- ID --}}
+                                            <td>{{ $item->id }}</td>
 
                                             {{-- Imagen --}}
                                             {{-- <td>

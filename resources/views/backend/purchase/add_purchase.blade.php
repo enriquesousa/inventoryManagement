@@ -73,8 +73,9 @@
                                 <div class="col-md-4">
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Categoría</label>
+
                                         <select name="category_id" id="category_id" class="form-select" aria-label="Default select example">
-                                        <option selected="">Seleccionar una Categoría</option>
+                                            <option selected="">Seleccionar una Categoría</option>
                         
                                         </select>
                                     </div>
@@ -111,5 +112,24 @@
         </div>
     </div>
 
-   
+    <script type="text/javascript">
+        $(function(){
+            $(document).on('change','#supplier_id',function(){
+                var supplier_id = $(this).val();
+                $.ajax({
+                    url:"{{ route('get-category') }}", //la ruta nos regresa datos de la tabla products
+                    type: "GET",
+                    data:{supplier_id:supplier_id},
+                    success:function(data){
+                        var html = '<option value="">Seleccionar Categoría</option>';
+                        $.each(data,function(key,v){
+                            html += '<option value=" '+v.category_id+' "> '+v.category.name+'</option>';
+                        });
+                        $('#category_id').html(html);
+                    }
+                })
+            });
+        });
+    </script>
+
 @endsection

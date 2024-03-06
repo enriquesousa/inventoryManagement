@@ -9,6 +9,16 @@
 					"label": "width en tabla"
 				}
 			]
+		},
+		{
+			"path": "resources/views/backend/purchase/add_purchase.blade.php",
+			"bookmarks": [
+				{
+					"line": 114,
+					"column": 31,
+					"label": "JS en vista add compras para seleccion de categorias"
+				}
+			]
 		}
 	]
 }

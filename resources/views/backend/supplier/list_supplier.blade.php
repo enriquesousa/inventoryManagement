@@ -34,6 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th>Serie</th>
+                                        <th>ID</th>
                                         <th>Proveedor</th>
                                         <th>Correo</th>
                                         <th>Teléfono</th>
@@ -52,6 +53,9 @@
 
                                             {{-- Serie --}}
                                             <td>{{ $key + 1 }}</td>
+
+                                            {{-- ID --}}
+                                            <td>{{ $item->id }}</td>
 
                                             {{-- Imagen --}}
                                             {{-- <td>

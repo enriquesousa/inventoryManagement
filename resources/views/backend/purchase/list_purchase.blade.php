@@ -10,7 +10,7 @@
                         <h4 class="mb-sm-0">Lista de <strong>Compras</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('add.product') }}" class="btn btn-success waves-effect waves-light"><i
+                            <a href="{{ route('add.purchase') }}" class="btn btn-success waves-effect waves-light"><i
                                     class="fas fa-plus-circle"></i> Agregar Compra</a>
                         </div>
 
@@ -88,7 +88,7 @@
 
                                             {{-- Acciones --}}
                                             <td>
-                                                
+
                                                 {{-- Delete --}}
                                                 <a href="{{ route('delete.product', $item->id) }}" class="btn btn-danger sm" title="Delete Data"
                                                     id="delete"><i class="fas fa-trash-alt"></i></a>

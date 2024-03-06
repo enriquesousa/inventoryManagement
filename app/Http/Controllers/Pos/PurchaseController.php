@@ -21,6 +21,16 @@ class PurchaseController extends Controller
         return view('backend.purchase.list_purchase',compact('allData'));
     }
 
+    // AddPurchase
+    public function AddPurchase(){
+
+       $suppliers = Supplier::all();
+       $categories = Category::all();
+       $units = Unit::all();
+        
+       return view('backend.purchase.add_purchase',compact('suppliers','categories','units'));
+    }
+
 
 
 }

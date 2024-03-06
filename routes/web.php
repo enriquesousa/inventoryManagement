@@ -11,6 +11,7 @@ use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\DefaultController;
 
 
 /*
@@ -108,6 +109,12 @@ Route::controller(PurchaseController::class)->group(function () {
     // Route::post('/update/purchase/{id}', 'UpdatePurchase')->name('update.purchase');
     // Route::get('/show/purchase/{id}', 'ShowPurchase')->name('show.purchase');
     // Route::get('/delete/purchase/{id}', 'DeletePurchase')->name('delete.purchase');
+});
+
+// DefaultController - Para las rutas Ajax
+Route::controller(DefaultController::class)->group(function () {
+    Route::get('/get-category', 'GetCategory')->name('get-category');
+    
 });
 
 

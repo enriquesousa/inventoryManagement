@@ -14,7 +14,7 @@
 			"path": "resources/views/backend/purchase/add_purchase.blade.php",
 			"bookmarks": [
 				{
-					"line": 121,
+					"line": 169,
 					"column": 31,
 					"label": "JS en vista add compras para seleccion de categorias"
 				}

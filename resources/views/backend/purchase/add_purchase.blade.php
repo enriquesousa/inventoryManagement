@@ -26,6 +26,8 @@
 
                 <div class="col-lg-12">
                     <div class="card">
+
+                        {{-- Compra --}}
                         <div class="card-body">
 
                             <h4 class="card-title">Agregar <strong>Compra</strong></h4>
@@ -110,6 +112,52 @@
                             </div>
 
                         </div>
+
+                        {{-- Tabla --}}
+                        <div class="card-body">
+
+                            <form method="" action="">
+                                @csrf
+
+                                <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
+                                    <thead>
+                                        <tr>
+                                            <th>Categoría</th>
+                                            <th>Nombre Producto</th>
+                                            <th>Piezas/KG</th>
+                                            <th>Precio Unitario</th>
+                                            <th>Descripción</th>
+                                            <th>Precio Total</th>
+                                            <th>Acción</th> 
+                                        </tr>
+                                    </thead>
+                    
+                                    <tbody id="addRow" class="addRow">
+                    
+                                    </tbody>
+                    
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5"></td>
+                                            <td>
+                                                <input type="text" name="estimated_amount" value="0" id="estimated_amount" class="form-control estimated_amount" readonly style="background-color: #ddd;" >
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                    
+                                    </tbody>
+
+                                </table>
+                                <br>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info" id="storeButton"> Comprar</button>
+                                </div>
+                    
+                            </form>
+
+                        </div>
+
                     </div>
                 </div>
 

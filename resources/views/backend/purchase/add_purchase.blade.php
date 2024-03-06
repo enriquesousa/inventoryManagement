@@ -1,6 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
     {{-- Jquery CDN Para poder usar JS --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -38,7 +37,8 @@
                                 <div class="col-md-4">
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Fecha</label>
-                                         <input class="form-control example-date-input" name="date" type="date"  id="date">
+                                        <input class="form-control example-date-input" name="date" type="date"
+                                            id="date">
                                     </div>
                                 </div>
 
@@ -46,7 +46,8 @@
                                 <div class="col-md-4">
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Compra #</label>
-                                         <input class="form-control example-date-input" name="purchase_no" type="text"  id="purchase_no">
+                                        <input class="form-control example-date-input" name="purchase_no" type="text"
+                                            id="purchase_no">
                                     </div>
                                 </div>
 
@@ -55,9 +56,10 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Proveedor</label>
 
-                                        <select id="supplier_id" name="supplier_id" class="form-select" aria-label="Default select example">
+                                        <select id="supplier_id" name="supplier_id" class="form-select"
+                                            aria-label="Default select example">
                                             <option selected="">Seleccionar un Proveedor</option>
-                                            @foreach($suppliers as $item)
+                                            @foreach ($suppliers as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
@@ -74,9 +76,10 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Categoría</label>
 
-                                        <select name="category_id" id="category_id" class="form-select" aria-label="Default select example">
+                                        <select name="category_id" id="category_id" class="form-select"
+                                            aria-label="Default select example">
                                             <option selected="">Seleccionar una Categoría</option>
-                        
+
                                         </select>
                                     </div>
                                 </div>
@@ -86,9 +89,10 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Producto</label>
 
-                                        <select name="product_id" id="product_id" class="form-select" aria-label="Default select example">
+                                        <select name="product_id" id="product_id" class="form-select"
+                                            aria-label="Default select example">
                                             <option selected="">Seleccionar un producto</option>
-                        
+
                                         </select>
                                     </div>
                                 </div>
@@ -96,8 +100,10 @@
                                 {{-- Add More --}}
                                 <div class="col-md-4">
                                     <div class="md-3">
-                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">  </label>
-                                        <input type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light" value="Agregar mas">
+                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">
+                                        </label>
+                                        <input type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light"
+                                            value="Agregar mas">
                                     </div>
                                 </div>
 
@@ -112,20 +118,49 @@
         </div>
     </div>
 
+    {{-- JS para el manejo de categorías --}}
     <script type="text/javascript">
-        $(function(){
-            $(document).on('change','#supplier_id',function(){
+        $(function() {
+            $(document).on('change', '#supplier_id', function() {
                 var supplier_id = $(this).val();
                 $.ajax({
-                    url:"{{ route('get-category') }}", //la ruta nos regresa datos de la tabla products
+                    url: "{{ route('get-category') }}", //la ruta nos regresa datos de la tabla products
                     type: "GET",
-                    data:{supplier_id:supplier_id},
-                    success:function(data){
+                    data: {
+                        supplier_id: supplier_id
+                    },
+                    success: function(data) {
                         var html = '<option value="">Seleccionar Categoría</option>';
-                        $.each(data,function(key,v){
-                            html += '<option value=" '+v.category_id+' "> '+v.category.name+'</option>';
+                        $.each(data, function(key, v) {
+                            html += '<option value=" ' + v.category_id + ' "> ' + v
+                                .category.name + '</option>';
                         });
                         $('#category_id').html(html);
+                    }
+                })
+            });
+        });
+    </script>
+
+    {{-- JS para el manejo de productos --}}
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('change', '#category_id', function() {
+                var category_id = $(this).val();
+                var supplier_id = $('#supplier_id').val();
+                $.ajax({
+                    url: "{{ route('get-product') }}", //la ruta nos regresa datos de la tabla products
+                    type: "GET",
+                    data: {
+                        category_id: category_id,
+                        supplier_id: supplier_id
+                    },
+                    success: function(data) {
+                        var html = '<option value="">Seleccionar Producto</option>';
+                        $.each(data, function(key, v) {
+                            html += '<option value=" ' + v.id + ' "> ' + v.name + '</option>';
+                        });
+                        $('#product_id').html(html);
                     }
                 })
             });

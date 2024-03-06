@@ -35,6 +35,17 @@ class DefaultController extends Controller
         return response()->json($allCategory);
     }
 
+    // GetProduct
+    public function GetProduct(Request $request){
+
+        $category_id = $request->category_id;
+        $supplier_id = $request->supplier_id;
+
+        $allProduct = Product::where('supplier_id',$supplier_id)->where('category_id',$category_id)->get();
+        
+        return response()->json($allProduct);
+    }
+
 
 
 }

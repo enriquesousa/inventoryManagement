@@ -114,6 +114,7 @@ Route::controller(PurchaseController::class)->group(function () {
 // DefaultController - Para las rutas Ajax
 Route::controller(DefaultController::class)->group(function () {
     Route::get('/get-category', 'GetCategory')->name('get-category');
+    Route::get('/get-product', 'GetProduct')->name('get-product');
     
 });
 

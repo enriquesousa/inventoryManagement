@@ -102,10 +102,8 @@
                                 {{-- Add More --}}
                                 <div class="col-md-4">
                                     <div class="md-3">
-                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">
-                                        </label>
-                                        <input type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light"
-                                            value="Agregar mas">
+                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">  </label>
+                                        <i class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore"> Agregar</i>
                                     </div>
                                 </div>
 
@@ -167,7 +165,7 @@
         </div>
     </div>
 
-    {{-- JS para desplegar datos en tabla en: <tbody id="addRow" class="addRow"> --}}
+    {{-- Preparar el Handlebars Template para la tabla que sera desplegada en: <tbody id="addRow" class="addRow"> --}}
     <script id="document-template" type="text/x-handlebars-template">
 
         <tr class="delete_add_more_item" id="delete_add_more_item">
@@ -208,6 +206,53 @@
         
         </tr>
         
+    </script>
+
+    {{-- JS para desplegar datos en tabla --}}
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $(document).on("click",".addeventmore", function(){
+
+                var date = $('#date').val();
+                var purchase_no = $('#purchase_no').val();
+                var supplier_id = $('#supplier_id').val();
+                var category_id  = $('#category_id').val();
+                var category_name = $('#category_id').find('option:selected').text();
+                var product_id = $('#product_id').val();
+                var product_name = $('#product_id').find('option:selected').text();
+
+                if(date == ''){
+                    $.notify("La Fecha es Requerida" ,  {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(purchase_no == ''){
+                    $.notify("El numero de compra es Requerido" ,  {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(supplier_id == ''){
+                    $.notify("El Proveedor es Requerido" ,  {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(category_id == ''){
+                    $.notify("La Categoría es Requerida" ,  {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(product_id == ''){
+                    $.notify("El Producto es Requerido" ,  {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                var source = $("document-template").html();
+                var tamplate = Handlebars.compile(source);
+
+            })
+        })
     </script>
 
     {{-- JS para el manejo de categorías --}}

@@ -134,6 +134,7 @@
 
                                     </tbody>
 
+                                    {{-- Total de las Compras - estimated_amount --}}
                                     <tbody>
                                         <tr>
                                             <td colspan="5"></td>
@@ -208,7 +209,7 @@
         
     </script>
 
-    {{-- JS para desplegar datos en tabla --}}
+    {{-- JS para desplegar datos en tabla y desplegar el template de handlebars --}}
     <script type="text/javascript">
 
         $(document).ready(function(){
@@ -222,6 +223,7 @@
                 var category_name = $('#category_id').find('option:selected').text();
                 var product_id = $('#product_id').val();
                 var product_name = $('#product_id').find('option:selected').text();
+
 
                 if(date == ''){
                     $.notify("La Fecha es Requerida" ,  {globalPosition: 'top right', className:'error' });
@@ -248,11 +250,58 @@
                     return false;
                 }
 
-                var source = $("document-template").html();
-                var tamplate = Handlebars.compile(source);
+                var source = $("#document-template").html();
+                var template = Handlebars.compile(source);
 
-            })
-        })
+                var data = {
+                    date:date,
+                    purchase_no:purchase_no,
+                    supplier_id:supplier_id,
+                    category_id:category_id,
+                    category_name:category_name,
+                    product_id:product_id,
+                    product_name:product_name
+                 };
+                 var html = template(data);
+                 $("#addRow").append(html); 
+            });
+
+            $(document).on("click",".removeeventmore", function(){
+                $(this).closest(".delete_add_more_item").remove();
+                totalAmountPrice();
+            });
+
+            $(document).on('keyup click','.unit_price,.buying_qty', function(){
+                var unit_price = $(this).closest("tr").find("input.unit_price").val();
+                var qty = $(this).closest("tr").find("input.buying_qty").val();
+                var total = unit_price * qty;
+                $(this).closest("tr").find("input.buying_price").val(total);
+                totalAmountPrice();
+            });
+
+            // Calculate sum of Amount in Invoice 
+            function totalAmountPrice(){
+                var sum = 0;
+                $(".buying_price").each(function(){
+                    var value = $(this).val();
+                    if(!isNaN(value) && value.length != 0){
+                        sum += parseFloat(value);
+                    }
+                });
+
+                $('#estimated_amount').val(formatCurrency(sum));
+            };
+            
+            // Para convertir numero en moneda
+            const formatCurrency = (number, symbol = '$') => {
+                // Add thousands separator
+                const formattedNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+                // Format the number as a currency string
+                return `${symbol} ${formattedNumber}`;
+            };
+
+        });
     </script>
 
     {{-- JS para el manejo de categorías --}}

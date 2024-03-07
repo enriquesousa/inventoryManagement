@@ -14,12 +14,17 @@
 			"path": "resources/views/backend/purchase/add_purchase.blade.php",
 			"bookmarks": [
 				{
-					"line": 168,
+					"line": 169,
 					"column": 69,
 					"label": "handlebars"
 				},
 				{
-					"line": 258,
+					"line": 294,
+					"column": 46,
+					"label": "convertir numero en moneda JS money"
+				},
+				{
+					"line": 307,
 					"column": 31,
 					"label": "JS en vista add compras para seleccion de categorias"
 				}

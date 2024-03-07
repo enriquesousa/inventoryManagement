@@ -218,6 +218,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
+    {{-- Para usar Handlebars --}}
+    <script src="{{ asset('backend/assets/js/handlebars.js') }}"></script>
+    {{-- notify cdn js para mensajes --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 
 </body>
 

@@ -7,11 +7,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Lista de <strong>Compras</strong></h4>
+                        <h4 class="mb-sm-0">Lista de <strong>Compras Pendientes</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('add.purchase') }}" class="btn btn-success waves-effect waves-light"><i
-                                    class="fas fa-plus-circle"></i> Agregar Compra</a>
+                            <a href="{{ route('list.purchase') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="dripicons-return"></i> Regresar a Lista de Compras
+                            </a>                                    
                         </div>
 
                     </div>
@@ -24,8 +25,8 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Lista de <strong>Compras</strong></h4>
-                            <p class="card-title-desc">Listado de <code>Compras</code>.</p>
+                            <h4 class="card-title">Lista de <strong>Compras Pendientes</strong></h4>
+                            <p class="card-title-desc">Listado de <code>Compras Pendientes</code>.</p>
 
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -95,15 +96,15 @@
 
                                                 {{-- Solo desplegar el botón de Eliminar si el estatus esta es pendiente --}}
                                                 @if ($item->status == 0)
-                                                    {{-- Delete --}}
-                                                    <a href="{{ route('delete.purchase', $item->id) }}" 
+                                                    {{-- Approve --}}
+                                                    <a href="#" 
                                                        class="btn btn-danger sm" 
-                                                       title="Eliminar"
-                                                       id="delete">
-                                                       <i class="fas fa-trash-alt"></i>
+                                                       title="Aprobar"
+                                                       id="ApproveBtn">
+                                                       <i class="fas fa-check-circle"></i>
                                                     </a>
                                                 @endif
-
+                                                
                                             </td>
 
                                         </tr>

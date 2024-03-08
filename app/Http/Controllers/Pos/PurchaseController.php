@@ -91,6 +91,13 @@ class PurchaseController extends Controller
 
     }
 
+    // PendingPurchase
+    public function PendingPurchase()
+    {
+        $allData = Purchase::where('status', '0')->orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+        return view('backend.purchase.pending_purchase', compact('allData'));
+    }
+
 
 
 }

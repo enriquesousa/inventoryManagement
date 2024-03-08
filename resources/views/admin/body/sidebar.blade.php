@@ -108,6 +108,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.purchase') }}">Lista</a></li>
                         <li><a href="{{ route('add.purchase') }}">Agregar</a></li>
+                        <li><a href="{{ route('pending.purchase') }}">Aprobar</a></li>
                     </ul>
                 </li>
 

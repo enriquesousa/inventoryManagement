@@ -29,6 +29,16 @@
 					"label": "JS en vista add compras para seleccion de categorias"
 				}
 			]
+		},
+		{
+			"path": "resources/views/backend/purchase/list_purchase.blade.php",
+			"bookmarks": [
+				{
+					"line": 64,
+					"column": 136,
+					"label": "date en vista"
+				}
+			]
 		}
 	]
 }

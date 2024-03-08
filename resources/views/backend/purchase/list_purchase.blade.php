@@ -62,26 +62,30 @@
                                             <td>{{ $item->purchase_no }}</td>
 
                                             {{-- Fecha --}}
-                                            <td>{{ $item->date }}</td>
+                                            {{-- <td>{{ \Carbon\Carbon::parse($item->date)->locale('es')->isoFormat('D[/]MMM[/]YYYY') }}</td> --}}
+                                            <td>{{ date('d-m-Y', strtotime($item->date)) }}</td>
 
                                             {{-- Proveedor --}}
-                                            <td>{{ $item->supplier_id }}</td>
+                                            <td>{{ $item->supplier->name }}</td>
 
                                             {{-- Categoría --}}
-                                            <td>{{ $item->category_id }}</td>
+                                            <td>{{ $item->category->name }}</td>
 
                                             {{-- Cantidad --}}
                                             <td>{{ $item->buying_qty }}</td>
 
                                             {{-- Producto Nombre --}}
-                                            <td>{{ $item->product_id }}</td>
+                                            <td>{{ $item->product->name }}</td>
 
                                             {{-- Estatus --}}
                                             <td>
                                                 @if ($item->status == 1)
-                                                    <span class="badge rounded-pill bg-success">Aprobado</span>
+                                                    {{-- <span class="badge rounded-pill bg-success">Aprobado</span> --}}
+                                                    <span class="btn btn-success">Aprobado</span>
                                                 @else
-                                                    <span class="badge rounded-pill bg-warning">Pendiente</span>
+                                                    {{-- <span class="badge rounded-pill bg-warning">Pendiente</span> --}}
+                                                    <span class="btn btn-warning">Pendiente</span>
+                                                    {{-- <span class="badge bg-warning">Pendiente</span> --}}
                                                 @endif
                                             </td>
                                           

@@ -65,18 +65,17 @@ class PurchaseController extends Controller
                 $purchase->created_by = Auth::user()->id;
                 $purchase->status = '0';
                 $purchase->save();
-            } // end foreach
+            } // end for loop
 
-        } // end else 
+        } // end else
 
         $notification = array(
             'message' => 'Compra Agregada Exitosamente',
             'alert-type' => 'success'
         );
+
         return redirect()->route('list.purchase')->with($notification);
     }
-
-
 
 
 

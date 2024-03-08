@@ -108,7 +108,7 @@ Route::controller(PurchaseController::class)->group(function () {
     // Route::get('/edit/purchase/{id}', 'EditPurchase')->name('edit.purchase');
     // Route::post('/update/purchase/{id}', 'UpdatePurchase')->name('update.purchase');
     // Route::get('/show/purchase/{id}', 'ShowPurchase')->name('show.purchase');
-    // Route::get('/delete/purchase/{id}', 'DeletePurchase')->name('delete.purchase');
+    Route::get('/delete/purchase/{id}', 'DeletePurchase')->name('delete.purchase');
 });
 
 // DefaultController - Para las rutas Ajax

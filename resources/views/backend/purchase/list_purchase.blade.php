@@ -94,7 +94,7 @@
                                             <td>
 
                                                 {{-- Delete --}}
-                                                <a href="{{ route('delete.product', $item->id) }}" class="btn btn-danger sm" title="Delete Data"
+                                                <a href="{{ route('delete.purchase', $item->id) }}" class="btn btn-danger sm" title="Delete Data"
                                                     id="delete"><i class="fas fa-trash-alt"></i></a>
                                             </td>
 

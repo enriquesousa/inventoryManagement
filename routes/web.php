@@ -107,6 +107,7 @@ Route::controller(PurchaseController::class)->group(function () {
     Route::post('/store/purchase', 'StorePurchase')->name('store.purchase');
     Route::get('/delete/purchase/{id}', 'DeletePurchase')->name('delete.purchase');
     Route::get('/pending/purchase', 'PendingPurchase')->name('pending.purchase');
+    Route::get('/approved/purchase/{id}', 'ApprovedPurchase')->name('approve.purchase');
 });
 
 // DefaultController - Para las rutas Ajax

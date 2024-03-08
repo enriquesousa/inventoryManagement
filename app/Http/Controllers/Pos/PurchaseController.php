@@ -98,6 +98,29 @@ class PurchaseController extends Controller
         return view('backend.purchase.pending_purchase', compact('allData'));
     }
 
+    // ApprovedPurchase
+    public function ApprovedPurchase($id){
+
+        $purchase = Purchase::findOrFail($id);
+        $product = Product::where('id', $purchase->product_id)->first();
+        $product->quantity = ((float)($product->quantity)) + ((float)($purchase->buying_qty));
+        
+        if ($product->save()) {
+            
+            Purchase::findOrFail($id)->update([
+                'status' => '1'
+            ]);
+
+            $notification = array(
+                'message' => 'Compra Aprobada Exitosamente',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('list.purchase')->with($notification);
+        }
+       
+    }
+
 
 
 }

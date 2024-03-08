@@ -35,6 +35,7 @@
                                         <th>Serie</th>
                                         <th>ID</th>
                                         <th>Producto</th>
+                                        <th>Cantidad</th>
                                         <th>Proveedor</th>
                                         <th>Unidades</th>
                                         <th>Categoría</th>
@@ -61,6 +62,9 @@
 
                                             {{-- Producto --}}
                                             <td>{{ $item->name }}</td>
+
+                                            {{-- Cantidad --}}
+                                            <td>{{ $item->quantity }}</td>
 
                                             {{-- Proveedor --}}
                                             <td>{{ $item->supplier->name }}</td>

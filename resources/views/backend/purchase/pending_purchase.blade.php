@@ -12,7 +12,7 @@
                         <div class="page-title-right">
                             <a href="{{ route('list.purchase') }}" class="btn btn-success waves-effect waves-light">
                                 <i class="dripicons-return"></i> Regresar a Lista de Compras
-                            </a>                                    
+                            </a>
                         </div>
 
                     </div>
@@ -89,22 +89,24 @@
                                                     {{-- <span class="badge bg-warning">Pendiente</span> --}}
                                                 @endif
                                             </td>
-                                          
+
 
                                             {{-- Acciones --}}
                                             <td>
 
-                                                {{-- Solo desplegar el botón de Eliminar si el estatus esta es pendiente --}}
-                                                @if ($item->status == 0)
-                                                    {{-- Approve --}}
-                                                    <a href="#" 
-                                                       class="btn btn-danger sm" 
-                                                       title="Aprobar"
-                                                       id="ApproveBtn">
-                                                       <i class="fas fa-check-circle"></i>
+                                                @if ($item->status == '0')
+
+                                                    {{-- Aprobar --}}
+                                                    <a href="{{ route('approve.purchase', $item->id) }}" 
+                                                        class="btn btn-warning sm" 
+                                                        title="Aprobar"
+                                                        id="ApproveBtn">
+                                                        <i class="fas fa-check-circle"></i>
                                                     </a>
+
+
                                                 @endif
-                                                
+
                                             </td>
 
                                         </tr>

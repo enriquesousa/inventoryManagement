@@ -16,20 +16,67 @@ use Illuminate\Support\Carbon;
 class PurchaseController extends Controller
 {
     // ListPurchase
-    public function ListPurchase(){
-        $allData = Purchase::orderBy('date','desc')->orderBy('id','desc')->get();
-        return view('backend.purchase.list_purchase',compact('allData'));
+    public function ListPurchase()
+    {
+        $allData = Purchase::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+        return view('backend.purchase.list_purchase', compact('allData'));
     }
 
     // AddPurchase
-    public function AddPurchase(){
+    public function AddPurchase()
+    {
 
-       $suppliers = Supplier::all();
-       $categories = Category::all();
-       $units = Unit::all();
-        
-       return view('backend.purchase.add_purchase',compact('suppliers','categories','units'));
+        $suppliers = Supplier::all();
+        $categories = Category::all();
+        $units = Unit::all();
+
+        return view('backend.purchase.add_purchase', compact('suppliers', 'categories', 'units'));
     }
+
+    // StorePurchase
+    public function StorePurchase(Request $request)
+    {
+
+        if ($request->category_id == null) {
+
+            $notification = array(
+                'message' => 'Error tiene que agregar al menos un producto.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+
+        }else{
+
+            $count_category = count($request->category_id);
+            for ($i = 0; $i < $count_category; $i++) {
+                $purchase = new Purchase();
+                $purchase->date = date('Y-m-d', strtotime($request->date[$i]));
+                $purchase->purchase_no = $request->purchase_no[$i];
+                $purchase->supplier_id = $request->supplier_id[$i];
+                $purchase->category_id = $request->category_id[$i];
+
+                $purchase->product_id = $request->product_id[$i];
+                $purchase->buying_qty = $request->buying_qty[$i];
+                $purchase->unit_price = $request->unit_price[$i];
+                $purchase->buying_price = $request->buying_price[$i];
+                $purchase->description = $request->description[$i];
+
+                $purchase->created_by = Auth::user()->id;
+                $purchase->status = '0';
+                $purchase->save();
+            } // end foreach
+
+        } // end else 
+
+        $notification = array(
+            'message' => 'Compra Agregada Exitosamente',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('list.purchase')->with($notification);
+    }
+
+
 
 
 

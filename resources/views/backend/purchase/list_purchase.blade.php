@@ -81,7 +81,7 @@
                                                 @if ($item->status == 1)
                                                     <span class="badge rounded-pill bg-success">Aprobado</span>
                                                 @else
-                                                    <span class="badge rounded-pill bg-danger">Pendiente</span>
+                                                    <span class="badge rounded-pill bg-warning">Pendiente</span>
                                                 @endif
                                             </td>
                                           

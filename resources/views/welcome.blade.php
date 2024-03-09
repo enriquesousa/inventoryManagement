@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Login | Upcube - Admin & Dashboard Template</title>
+    <title>Lock screen | Upcube - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -28,67 +28,132 @@
 </head>
 
 <body class="auth-body-bg">
+
     <div class="bg-overlay"></div>
-    <div class="page-content">
-        <div class="container-fluid">
 
-            {{-- Logo EsWeb --}}
-            <center>
-                <img src="{{ asset('logo/logo.svg') }}" alt="" width="100">
-            </center>
+    <div class="wrapper-page">
+        <div class="container-fluid p-0">
+            <div class="card">
+                <div class="card-body">
 
-            <br><br>
 
-            {{-- si el usuario ya ha iniciado sesión --}}
-            @if (Auth::check())
-                <p class="text-white-50">El usuario: {{ Auth::user()->name }}, ya ha iniciado sesión</p>
-                <a href="{{ route('dashboard') }}" class="btn btn-success">Ir al Panel de Control</a>
-            @endif
 
-            <div class="row mt-5">
+                    <div class="p-3">
 
-                {{-- Columna 1 --}}
-                <div class="col-md-3">
+                        <form class="form-horizontal mt-3">
 
-                </div><!-- end col -->
+                            {{-- avatar --}}
+                            {{-- <div class="text-center mb-4">
+                                    <img src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}" class="rounded-circle avatar-lg img-thumbnail" alt="thumbnail">
+                                </div> --}}
 
-                {{-- Columna 2 --}}
-                <div class="col-md-3">
-                    <center>
-                        <a href="{{ route('login') }}">
-                            <img src="{{ asset('logo/inicia.png') }}" alt="" width="150">
-                        </a>
-                    </center>
-                </div><!-- end col -->
+                            <div class="user-profile text-center mt-3">
+                                <div class="">
+                                    <img src="{{ asset('logo/inventory.png') }}"class="rounded-circle avatar-lg img-thumbnail"
+                                        alt="thumbnail">
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="font-size-16 mb-1">Sistema Control de Inventario</h4>
+                                </div>
+                                <div class="text-center">
+                                    <a href="{{ url('https://gorgeous-puppy-eb536f.netlify.app/laravel/realestate/s03-multiauthbreeze/') }}" target="_blank">Ayuda</a>
+                                </div>
+                            </div>
 
-                {{-- Columna 3 --}}
-                <div class="col-md-3">
-                    <center>
-                        <a href="{{ route('register') }}">
-                            <img src="{{ asset('logo/registra.png') }}" alt="" width="150">
-                        </a>
-                    </center>
-                </div><!-- end col -->
+                            {{-- si el usuario ya ha iniciado sesión --}}
+                            @if (Auth::check())
+                                <div class="form-group mt-4 mb-0 row">
+                                    <div class="col-12 text-center">
+                                        <p class="text-white-50">El usuario: {{ Auth::user()->name }}, ya ha iniciado
+                                            sesión</p>
 
-                {{-- Columna 4 --}}
-                <div class="col-md-3">
+                                        <span class="text-muted"><i
+                                                class="ri-record-circle-line align-middle font-size-14 text-success"></i>En
+                                            Linea</span>
+                                        <br>
+                                        <br>
+                                        <a href="{{ route('dashboard') }}" class="btn btn-success">Ir a Panel de
+                                            Control</a>
+                                    </div>
+                                </div>
+                            @endif
 
-                </div><!-- end col -->
+                            {{-- Botón Login --}}
+                            <div class="form-group text-center row mt-3">
+                                <div class="col-12">
+                                    @if (Auth::check())
+                                    @else
+                                        <a href="{{ route('login') }}"
+                                            class="btn btn-info w-100 waves-effect waves-light">Iniciar Sesión</a>
+                                    @endif
+                                </div>
+                            </div>
 
-            </div>
-            <!-- end row -->
+                            {{-- Botón Registrarse --}}
+                            <div class="form-group text-center row mt-3">
+                                <div class="col-12">
+                                    @if (Auth::check())
+                                    @else
+                                        <a href="{{ route('register') }}"
+                                            class="btn btn-info w-100 waves-effect waves-light">Registrarse</a>
+                                    @endif
+                                </div>
+                            </div>
 
-            <div class="row mt-5">
-                <div class="col-md-12 text-center">
-                    <p>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</p>
-                    <p>© {{ date('Y') }}. Todos los derechos reservados</p>
+
+                        </form>
+
+                        <br>
+                        <br>
+
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <img src="{{ asset('logo/eswebLogo.svg') }}" alt="" height="60">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="container-fluid">
+                            <div class="row">
+
+                                <div class="col-sm-12 text-center">
+                                    <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>© EsWeb.
+                                </div>
+                                <br>
+                                <div class="col-sm-12">
+                                    <div class="text-center d-none d-sm-block">
+                                        Creado con <i class="mdi mdi-heart text-danger"></i> por EsWeb
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        {{-- Footer: Version de Laravel y PHP --}}
+                        <div class="form-group row mt-4">
+                            <div class="text-center">
+                                <small class="text-muted">Laravel v{{ Illuminate\Foundation\Application::VERSION }}
+                                    (PHP v{{ PHP_VERSION }})</small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
                 </div>
+                <!-- end cardbody -->
             </div>
-
-        </div> <!-- container-fluid -->
+            <!-- end card -->
+        </div>
     </div>
-    <!-- End Page-content -->
-
 
     <!-- JAVASCRIPT -->
     <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js') }}"></script>

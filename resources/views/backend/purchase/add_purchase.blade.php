@@ -58,7 +58,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Proveedor</label>
 
-                                        <select id="supplier_id" name="supplier_id" class="form-select"
+                                        <select id="supplier_id" name="supplier_id" class="form-select select2"
                                             aria-label="Default select example">
                                             <option selected="">Seleccionar un Proveedor</option>
                                             @foreach ($suppliers as $item)
@@ -78,7 +78,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Categoría</label>
 
-                                        <select name="category_id" id="category_id" class="form-select"
+                                        <select name="category_id" id="category_id" class="form-select select2"
                                             aria-label="Default select example">
                                             <option selected="">Seleccionar una Categoría</option>
 
@@ -91,7 +91,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Producto</label>
 
-                                        <select name="product_id" id="product_id" class="form-select"
+                                        <select name="product_id" id="product_id" class="form-select select2"
                                             aria-label="Default select example">
                                             <option selected="">Seleccionar un producto</option>
 

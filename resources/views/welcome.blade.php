@@ -34,9 +34,8 @@
     <div class="wrapper-page">
         <div class="container-fluid p-0">
             <div class="card">
+
                 <div class="card-body">
-
-
 
                     <div class="p-3">
 
@@ -55,9 +54,9 @@
                                 <div class="mt-3">
                                     <h4 class="font-size-16 mb-1">Sistema Control de Inventario</h4>
                                 </div>
-                                <div class="text-center">
+                                {{-- <div class="text-center">
                                     <a href="{{ url('https://gorgeous-puppy-eb536f.netlify.app/laravel/realestate/s03-multiauthbreeze/') }}" target="_blank">Ayuda</a>
-                                </div>
+                                </div> --}}
                             </div>
 
                             {{-- si el usuario ya ha iniciado sesión --}}
@@ -104,6 +103,34 @@
                         </form>
 
                         <br>
+
+                        <div id="accordion" class="custom-accordion">
+
+                            <div class="card mb-1 shadow-none">
+                                <a href="#collapseOne" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseOne">
+                                    <div class="card-header btn btn-warning w-100 waves-effect waves-light" id="headingOne">
+                                        <h6 class="text-center mb-0">
+                                            Ayuda
+                                            <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                                        </h6>
+                                    </div>
+                                </a>
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordion" style="">
+                                    <div class="card-body">
+                                        Para ingresar al sistema es necesario iniciar sesión, para utilizar el sistema en modo <strong>Demo</strong> puede iniciar sesión con las siguientes credenciales: <br>
+                                        <br>
+                                        <strong>Usuario: </strong>demo<br>
+                                        <strong>Contraseña: </strong>demo
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                            
+
+
                         <br>
 
 

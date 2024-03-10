@@ -112,6 +112,19 @@
                     </ul>
                 </li>
 
+                <!-- Recibos - Invoices -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-article-line"></i>
+                        <span>Recibos</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('list.invoice') }}">Lista</a></li>
+                        <li><a href="{{ route('add.purchase') }}">Agregar</a></li>
+                        <li><a href="{{ route('pending.purchase') }}">Aprobar</a></li>
+                    </ul>
+                </li>
+
 
 
 

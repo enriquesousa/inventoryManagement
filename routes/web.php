@@ -12,6 +12,7 @@ use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\DefaultController;
+use App\Http\Controllers\Pos\InvoiceController;
 
 
 /*
@@ -115,6 +116,12 @@ Route::controller(DefaultController::class)->group(function () {
     Route::get('/get-category', 'GetCategory')->name('get-category');
     Route::get('/get-product', 'GetProduct')->name('get-product');
     
+});
+
+
+Route::controller(InvoiceController::class)->group(function () {
+    Route::get('/list/invoice', 'ListInvoice')->name('list.invoice');
+
 });
 
 

@@ -115,12 +115,13 @@ Route::controller(PurchaseController::class)->group(function () {
 Route::controller(DefaultController::class)->group(function () {
     Route::get('/get-category', 'GetCategory')->name('get-category');
     Route::get('/get-product', 'GetProduct')->name('get-product');
-    
+    Route::get('/get-product-category', 'GetProductCategory')->name('get-product-category');
 });
 
 
 Route::controller(InvoiceController::class)->group(function () {
     Route::get('/list/invoice', 'ListInvoice')->name('list.invoice');
+    Route::get('/add/invoice', 'AddInvoice')->name('add.invoice');
 
 });
 

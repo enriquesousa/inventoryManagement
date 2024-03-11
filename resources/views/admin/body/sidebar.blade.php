@@ -120,7 +120,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.invoice') }}">Lista</a></li>
-                        <li><a href="{{ route('add.purchase') }}">Agregar</a></li>
+                        <li><a href="{{ route('add.invoice') }}">Agregar</a></li>
                         <li><a href="{{ route('pending.purchase') }}">Aprobar</a></li>
                     </ul>
                 </li>

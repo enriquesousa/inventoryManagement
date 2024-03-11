@@ -27,6 +27,19 @@ class InvoiceController extends Controller
         return view('backend.invoice.list_invoice', compact('allData'));
     }
 
+    // AddInvoice
+    public function AddInvoice(){
+
+        $suppliers = Supplier::all();
+        $categories = Category::all();
+        $units = Unit::all();
+
+        return view('backend.invoice.add_invoice', compact('suppliers', 'categories', 'units'));
+
+    }
 
 
+
+
+    
 }

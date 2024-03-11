@@ -116,6 +116,7 @@ Route::controller(DefaultController::class)->group(function () {
     Route::get('/get-category', 'GetCategory')->name('get-category');
     Route::get('/get-product', 'GetProduct')->name('get-product');
     Route::get('/get-product-category', 'GetProductCategory')->name('get-product-category');
+    Route::get('/check-product-stock', 'GetProductStock')->name('check-product-stock');
 });
 
 

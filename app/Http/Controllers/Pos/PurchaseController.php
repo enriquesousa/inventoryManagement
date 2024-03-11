@@ -116,7 +116,7 @@ class PurchaseController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('list.purchase')->with($notification);
+            return redirect()->route('pending.purchase')->with($notification);
         }
        
     }

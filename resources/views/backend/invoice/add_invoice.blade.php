@@ -1,6 +1,5 @@
 @extends('admin.admin_master')
 @section('admin')
-
     {{-- Jquery CDN Para poder usar JS --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -33,7 +32,7 @@
 
                             <h4 class="card-title">Agregar <strong>Factura</strong></h4>
                             <p class="card-title-desc">Llene el <code>formulario</code> para agregar una nueva factura.</p>
-                            
+
 
                             <div class="row">
 
@@ -42,7 +41,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Factura #</label>
                                         <input class="form-control example-date-input" name="invoice_no" type="text"
-                                            id="invoice_no" readonly style="background-color: lightgray">
+                                            value="{{ $invoice_no }}" id="invoice_no" readonly style="background-color: lightgray">
                                     </div>
                                 </div>
 
@@ -51,7 +50,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Fecha</label>
                                         <input class="form-control example-date-input" name="date" type="date"
-                                            id="date">
+                                            id="date" value="{{ $date }}">
                                     </div>
                                 </div>
 
@@ -87,8 +86,9 @@
                                 <div class="col-md-2">
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Almacén (Piezas/KG)</label>
-                                        <input class="form-control example-date-input" name="current_stock_qty" type="text"
-                                            id="current_stock_qty" readonly style="background-color: lightgray">
+                                        <input class="form-control example-date-input" name="current_stock_qty"
+                                            type="text" id="current_stock_qty" readonly
+                                            style="background-color: lightgray">
                                     </div>
                                 </div>
 
@@ -96,8 +96,11 @@
                                 {{-- Add More --}}
                                 <div class="col-md-1">
                                     <div class="md-3">
-                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">  </label>
-                                        <i class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore"> Agregar</i>
+                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">
+                                        </label>
+                                        <i
+                                            class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore">
+                                            Agregar</i>
                                     </div>
                                 </div>
 
@@ -206,42 +209,56 @@
 
     {{-- JS para desplegar datos en tabla y desplegar el template de handlebars --}}
     <script type="text/javascript">
+        $(document).ready(function() {
 
-        $(document).ready(function(){
-
-            $(document).on("click",".addeventmore", function(){
+            $(document).on("click", ".addeventmore", function() {
 
                 var date = $('#date').val();
                 var purchase_no = $('#purchase_no').val();
                 var supplier_id = $('#supplier_id').val();
-                var category_id  = $('#category_id').val();
+                var category_id = $('#category_id').val();
                 var category_name = $('#category_id').find('option:selected').text();
                 var product_id = $('#product_id').val();
                 var product_name = $('#product_id').find('option:selected').text();
 
 
-                if(date == ''){
-                    $.notify("La Fecha es Requerida" ,  {globalPosition: 'top right', className:'error' });
+                if (date == '') {
+                    $.notify("La Fecha es Requerida", {
+                        globalPosition: 'top right',
+                        className: 'error'
+                    });
                     return false;
                 }
 
-                if(purchase_no == ''){
-                    $.notify("El numero de compra es Requerido" ,  {globalPosition: 'top right', className:'error' });
+                if (purchase_no == '') {
+                    $.notify("El numero de compra es Requerido", {
+                        globalPosition: 'top right',
+                        className: 'error'
+                    });
                     return false;
                 }
 
-                if(supplier_id == ''){
-                    $.notify("El Proveedor es Requerido" ,  {globalPosition: 'top right', className:'error' });
+                if (supplier_id == '') {
+                    $.notify("El Proveedor es Requerido", {
+                        globalPosition: 'top right',
+                        className: 'error'
+                    });
                     return false;
                 }
 
-                if(category_id == ''){
-                    $.notify("La Categoría es Requerida" ,  {globalPosition: 'top right', className:'error' });
+                if (category_id == '') {
+                    $.notify("La Categoría es Requerida", {
+                        globalPosition: 'top right',
+                        className: 'error'
+                    });
                     return false;
                 }
 
-                if(product_id == ''){
-                    $.notify("El Producto es Requerido" ,  {globalPosition: 'top right', className:'error' });
+                if (product_id == '') {
+                    $.notify("El Producto es Requerido", {
+                        globalPosition: 'top right',
+                        className: 'error'
+                    });
                     return false;
                 }
 
@@ -249,24 +266,24 @@
                 var template = Handlebars.compile(source);
 
                 var data = {
-                    date:date,
-                    purchase_no:purchase_no,
-                    supplier_id:supplier_id,
-                    category_id:category_id,
-                    category_name:category_name,
-                    product_id:product_id,
-                    product_name:product_name
-                 };
-                 var html = template(data);
-                 $("#addRow").append(html); 
+                    date: date,
+                    purchase_no: purchase_no,
+                    supplier_id: supplier_id,
+                    category_id: category_id,
+                    category_name: category_name,
+                    product_id: product_id,
+                    product_name: product_name
+                };
+                var html = template(data);
+                $("#addRow").append(html);
             });
 
-            $(document).on("click",".removeeventmore", function(){
+            $(document).on("click", ".removeeventmore", function() {
                 $(this).closest(".delete_add_more_item").remove();
                 totalAmountPrice();
             });
 
-            $(document).on('keyup click','.unit_price,.buying_qty', function(){
+            $(document).on('keyup click', '.unit_price,.buying_qty', function() {
                 var unit_price = $(this).closest("tr").find("input.unit_price").val();
                 var qty = $(this).closest("tr").find("input.buying_qty").val();
                 var total = unit_price * qty;
@@ -275,18 +292,18 @@
             });
 
             // Calculate sum of Amount in Invoice 
-            function totalAmountPrice(){
+            function totalAmountPrice() {
                 var sum = 0;
-                $(".buying_price").each(function(){
+                $(".buying_price").each(function() {
                     var value = $(this).val();
-                    if(!isNaN(value) && value.length != 0){
+                    if (!isNaN(value) && value.length != 0) {
                         sum += parseFloat(value);
                     }
                 });
 
                 $('#estimated_amount').val(formatCurrency(sum));
             };
-            
+
             // Para convertir numero en moneda
             const formatCurrency = (number, symbol = '$') => {
                 // Add thousands separator
@@ -341,6 +358,25 @@
                                 '</option>';
                         });
                         $('#product_id').html(html);
+                    }
+                })
+            });
+        });
+    </script>
+
+    {{-- JS para el manejo desplegar stock de productos --}}
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('change', '#product_id', function() {
+                var product_id = $(this).val();
+                $.ajax({
+                    url: "{{ route('check-product-stock') }}", //la ruta nos regresa datos de la tabla products
+                    type: "GET",
+                    data: {
+                        product_id: product_id,
+                    },
+                    success: function(data) {
+                        $('#current_stock_qty').val(data);
                     }
                 })
             });

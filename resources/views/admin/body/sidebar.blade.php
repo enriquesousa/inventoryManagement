@@ -112,11 +112,11 @@
                     </ul>
                 </li>
 
-                <!-- Recibos - Invoices -->
+                <!-- Facturas - Invoices -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-article-line"></i>
-                        <span>Recibos</span>
+                        <span>Facturas</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.invoice') }}">Lista</a></li>

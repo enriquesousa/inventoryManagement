@@ -23,7 +23,8 @@ class InvoiceController extends Controller
 {
     // ListInvoice
     public function ListInvoice(){
-       
+        $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+        return view('backend.invoice.list_invoice', compact('allData'));
     }
 
 

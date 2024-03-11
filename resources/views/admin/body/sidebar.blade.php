@@ -95,6 +95,8 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.product') }}">Lista</a></li>
+                        <li><a href="{{ route('list.product.category') }}">Por Categoría</a></li>
+                        <li><a href="{{ route('list.product.supplier') }}">Por Proveedor</a></li>
                         <li><a href="{{ route('add.product') }}">Agregar</a></li>
                     </ul>
                 </li>

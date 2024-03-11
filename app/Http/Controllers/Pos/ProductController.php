@@ -21,6 +21,18 @@ class ProductController extends Controller
         return view('backend.product.list_product',compact('products'));
     }
 
+    // ListProductCategory
+    public function ListProductCategory(){
+        $products = Product::orderBy('category_id','DESC')->orderBy('supplier_id','DESC')->get();
+        return view('backend.product.list_product',compact('products'));
+    }
+
+    // ListProductSupplier
+    public function ListProductSupplier(){
+        $products = Product::orderBy('supplier_id','DESC')->orderBy('category_id','DESC')->get();
+        return view('backend.product.list_product',compact('products'));
+    }
+
     // AddProduct
     public function AddProduct(){
         $suppliers = Supplier::latest()->get();

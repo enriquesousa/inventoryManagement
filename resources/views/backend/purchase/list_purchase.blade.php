@@ -10,8 +10,19 @@
                         <h4 class="mb-sm-0">Lista de <strong>Compras</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('add.purchase') }}" class="btn btn-success waves-effect waves-light"><i
-                                    class="fas fa-plus-circle"></i> Agregar Compra</a>
+
+                            <a href="{{ route('add.purchase') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="fas fa-plus-circle"></i>
+                                 Agregar Compra</a>
+
+                            <a href="{{ route('list.product') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="ri-file-list-line"></i>
+                                 Lista de Productos</a>                                    
+
+                            <a href="{{ route('pending.purchase') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="fas fa-check-circle"></i>
+                                 Aprobar Compras</a>
+
                         </div>
 
                     </div>

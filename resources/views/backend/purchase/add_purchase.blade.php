@@ -40,7 +40,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Fecha</label>
                                         <input class="form-control example-date-input" name="date" type="date"
-                                            id="date">
+                                            id="date" value="{{ $date }}">
                                     </div>
                                 </div>
 
@@ -49,7 +49,7 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Compra #</label>
                                         <input class="form-control example-date-input" name="purchase_no" type="text"
-                                            id="purchase_no">
+                                            id="purchase_no" value="{{ $compra_numero }}">
                                     </div>
                                 </div>
 
@@ -151,7 +151,7 @@
                                 <br>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info" id="storeButton"> Comprar</button>
+                                    <button type="submit" class="btn btn-info" id="storeButton"><i class="ri-shopping-cart-line"></i> Comprar</button>
                                 </div>
 
                             </form>

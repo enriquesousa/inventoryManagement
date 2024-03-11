@@ -10,9 +10,29 @@
                         <h4 class="mb-sm-0">Lista de <strong>Productos</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('add.product') }}" class="btn btn-success waves-effect waves-light"><i
-                                    class="fas fa-plus-circle"></i> Agregar Producto</a>
+
+                            <a href="{{ route('list.product.category') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="ri-list-check"></i> 
+                                 Por Categoría</a>
+
+                            <a href="{{ route('list.product.supplier') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="ri-list-check"></i>
+                                 Por Proveedor</a>                                    
+
                         </div>
+
+                        <div class="page-title-right">
+
+                            <a href="{{ route('add.product') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="fas fa-plus-circle"></i> 
+                                 Agregar Producto</a>
+
+                            <a href="{{ route('add.purchase') }}" class="btn btn-success waves-effect waves-light">
+                                <i class="fas fa-plus-circle"></i>
+                                 Agregar Compra</a>                                    
+
+                        </div>
+
 
                     </div>
                 </div>

@@ -27,7 +27,7 @@
                 <div class="col-lg-12">
                     <div class="card">
 
-                        {{-- Compra --}}
+                        {{-- Datos de la Factura --}}
                         <div class="card-body">
 
                             <h4 class="card-title">Agregar <strong>Factura</strong></h4>
@@ -109,7 +109,7 @@
 
                         </div>
 
-                        {{-- Tabla --}}
+                        {{-- Tabla de Detalles de la Factura --}}
                         <div class="card-body">
 
                             <form method="post" action="{{ route('store.purchase') }}">
@@ -118,13 +118,12 @@
                                 <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">
                                     <thead>
                                         <tr>
-                                            <th>Categoría</th>
+                                            <th width="15%">Categoría</th>
                                             <th>Nombre Producto</th>
-                                            <th>Piezas/KG</th>
-                                            <th>Precio Unitario</th>
-                                            <th>Descripción</th>
-                                            <th>Precio Total</th>
-                                            <th>Acción</th>
+                                            <th width="7%">Piezas/KG</th>
+                                            <th width="10%">Precio Unitario</th>
+                                            <th width="15%">Precio Total</th>
+                                            <th width="7%">Acción</th>
                                         </tr>
                                     </thead>
 
@@ -135,7 +134,8 @@
                                     {{-- Total de las Compras - estimated_amount --}}
                                     <tbody>
                                         <tr>
-                                            <td colspan="5"></td>
+                                            <td colspan="3"></td>
+                                            <td class="text-end"><h6><strong>Gran Total:</strong></h6></td>
                                             <td>
                                                 <input type="text" name="estimated_amount" value="0"
                                                     id="estimated_amount" class="form-control estimated_amount" readonly
@@ -148,8 +148,17 @@
                                 </table>
                                 <br>
 
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="description">Descripción</label>
+                                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Escriba una Descripción al Detalle de la Factura"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <br>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info" id="storeButton"> Comprar</button>
+                                    <button type="submit" class="btn btn-info" id="storeButton"><i class="ri-save-line"></i> Guardar Factura</button>
                                 </div>
 
                             </form>
@@ -169,9 +178,8 @@
 
         <tr class="delete_add_more_item" id="delete_add_more_item">
 
-            <input type="hidden" name="date[]" value="@{{date}}">
-            <input type="hidden" name="purchase_no[]" value="@{{purchase_no}}">
-            <input type="hidden" name="supplier_id[]" value="@{{supplier_id}}">
+            <input type="hidden" name="date" value="@{{date}}">
+            <input type="hidden" name="invoice_no" value="@{{invoice_no}}">
         
             <td>
                 <input type="hidden" name="category_id[]" value="@{{category_id}}">
@@ -184,7 +192,7 @@
             </td>
         
             <td>
-                <input type="number" min="1" class="form-control buying_qty text-right" name="buying_qty[]" value=""> 
+                <input type="number" min="1" class="form-control selling_qty text-right" name="selling_qty[]" value=""> 
             </td>
         
             <td>
@@ -192,11 +200,7 @@
             </td>
         
             <td>
-                <input type="text" class="form-control" name="description[]"> 
-            </td>
-        
-            <td>
-                <input type="number" class="form-control buying_price text-right" name="buying_price[]" value="0" readonly> 
+                <input type="number" class="form-control selling_price text-right" name="selling_price[]" value="0" readonly> 
             </td>
         
             <td>
@@ -214,8 +218,7 @@
             $(document).on("click", ".addeventmore", function() {
 
                 var date = $('#date').val();
-                var purchase_no = $('#purchase_no').val();
-                var supplier_id = $('#supplier_id').val();
+                var invoice_no = $('#invoice_no').val();
                 var category_id = $('#category_id').val();
                 var category_name = $('#category_id').find('option:selected').text();
                 var product_id = $('#product_id').val();
@@ -230,21 +233,6 @@
                     return false;
                 }
 
-                if (purchase_no == '') {
-                    $.notify("El numero de compra es Requerido", {
-                        globalPosition: 'top right',
-                        className: 'error'
-                    });
-                    return false;
-                }
-
-                if (supplier_id == '') {
-                    $.notify("El Proveedor es Requerido", {
-                        globalPosition: 'top right',
-                        className: 'error'
-                    });
-                    return false;
-                }
 
                 if (category_id == '') {
                     $.notify("La Categoría es Requerida", {
@@ -267,8 +255,7 @@
 
                 var data = {
                     date: date,
-                    purchase_no: purchase_no,
-                    supplier_id: supplier_id,
+                    invoice_no: invoice_no,
                     category_id: category_id,
                     category_name: category_name,
                     product_id: product_id,
@@ -283,18 +270,18 @@
                 totalAmountPrice();
             });
 
-            $(document).on('keyup click', '.unit_price,.buying_qty', function() {
+            $(document).on('keyup click', '.unit_price,.selling_qty', function() {
                 var unit_price = $(this).closest("tr").find("input.unit_price").val();
-                var qty = $(this).closest("tr").find("input.buying_qty").val();
+                var qty = $(this).closest("tr").find("input.selling_qty").val();
                 var total = unit_price * qty;
-                $(this).closest("tr").find("input.buying_price").val(total);
+                $(this).closest("tr").find("input.selling_price").val(total);
                 totalAmountPrice();
             });
 
             // Calculate sum of Amount in Invoice 
             function totalAmountPrice() {
                 var sum = 0;
-                $(".buying_price").each(function() {
+                $(".selling_price").each(function() {
                     var value = $(this).val();
                     if (!isNaN(value) && value.length != 0) {
                         sum += parseFloat(value);

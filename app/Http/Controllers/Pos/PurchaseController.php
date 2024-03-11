@@ -29,8 +29,23 @@ class PurchaseController extends Controller
         $suppliers = Supplier::all();
         $categories = Category::all();
         $units = Unit::all();
+        $date = date('Y-m-d');
 
-        return view('backend.purchase.add_purchase', compact('suppliers', 'categories', 'units'));
+        $compra_numero = Purchase::orderBy('purchase_no', 'desc')->first();
+        if ($compra_numero == null) {
+            $first_reg = '1';
+            $compra_numero = str_pad($first_reg, 4, '0', STR_PAD_LEFT);
+            $compra_numero = 'C-'.$compra_numero;
+        }else{
+            $compra_numero = Purchase::orderBy('purchase_no', 'desc')->first();
+            $compra_numero = $compra_numero->purchase_no;
+            $int = intval(preg_replace('/[^0-9]+/', '', $compra_numero), 10); // strip out any non-numeric characters
+            $compra_numero = $int+1;
+            $compra_numero = str_pad($compra_numero, 4, '0', STR_PAD_LEFT);
+            $compra_numero = 'C-'.$compra_numero;
+        }
+
+        return view('backend.purchase.add_purchase', compact('suppliers', 'categories', 'units', 'date', 'compra_numero'));
     }
 
     // StorePurchase

@@ -178,8 +178,10 @@
                                 </div>
                                 <br>
 
-                                {{-- Estatus de Pagos - paid_status --}}
+                                {{-- Estatus de Pagos - Seleccionar Cliente --}}
                                 <div class="row">
+
+                                    {{-- Estatus de Pagos - paid_status --}}
                                     <div class="form-group col-md-3">
                                         <label>Estatus de Pago</label>
                                         <select name="paid_status" id="paid_status" class="form-select">
@@ -192,6 +194,21 @@
                                         <input type="text" name="paid_amount" class="form-control paid_amount"
                                             placeholder="Entree el Monto" style="display:none;">
                                     </div>
+
+                                    {{-- Seleccionar Cliente --}}
+                                    <div class="form-group col-md-9">
+                                        <label> Customer Name  </label>
+                                        <select name="customer_id" id="customer_id" class="form-select">
+                                            <option value="">Select Customer </option>
+                                            @foreach($customers as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }} - {{ $item->mobile_no }}</option>
+                                            @endforeach
+                                            <option value="0">New Customer </option>
+                                        </select>
+                                    </div> 
+                                    </div>
+                                    <br>
+
                                 </div>
                                 <br>
 
@@ -393,7 +410,7 @@
                     success: function(data) {
                         var html = '<option value="">Seleccionar Producto</option>';
                         $.each(data, function(key, v) {
-                            html += '<option value=" ' + v.id + ' "> ' + v.name +
+                            html += '<option value=" ' + v.id + ' "> ' + v.name + ' - ' + v.supplier.name +
                                 '</option>';
                         });
                         $('#product_id').html(html);

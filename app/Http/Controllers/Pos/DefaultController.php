@@ -42,15 +42,18 @@ class DefaultController extends Controller
         $supplier_id = $request->supplier_id;
 
         $allProduct = Product::where('supplier_id',$supplier_id)->where('category_id',$category_id)->get();
-        
+        // dd($allProduct);
+
         return response()->json($allProduct);
     }
 
     // GetProductCategory
     public function GetProductCategory(Request $request){
+
         $category_id = $request->category_id;
-        $allProduct = Product::where('category_id',$category_id)->get();
-        
+        $allProduct = Product::with('supplier')->where('category_id',$category_id)->get();
+        // dd($allProduct); // usar with('supplier') para obtener el nombre del proveedor
+
         return response()->json($allProduct);
     }
 

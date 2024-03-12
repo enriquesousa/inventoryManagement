@@ -393,8 +393,13 @@
 
             {{-- PERFIL - Código para poder traer datos del usuario para desplegar foto de perfil y nombre de usuario --}}
             @php
-                $id = Auth::user()->id;
-                $adminData = App\Models\User::find($id);
+                if (Auth::check()){
+                    $id = Auth::user()->id;
+                    $adminData = App\Models\User::find($id);
+                }
+                else{
+                    return redirect('login')->with('error_message', 'Por favor inicia sesión');
+                }
             @endphp
             
             <!-- Perfil de usuario -->

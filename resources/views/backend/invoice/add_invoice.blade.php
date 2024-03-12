@@ -131,8 +131,22 @@
 
                                     </tbody>
 
-                                    {{-- Total de las Compras - estimated_amount --}}
+                                    {{-- Descuento y Total de las Compras - estimated_amount --}}
                                     <tbody>
+
+                                        {{-- Descuento --}}
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td class="text-end"><h6><strong>Descuento:</strong></h6></td>
+                                            <td>
+                                                <input type="text" name="discount_amount" 
+                                                    id="discount_amount" class="form-control estimated_amount"
+                                                    placeholder="Descuento" >
+                                            </td>
+                                            <td></td>
+                                        </tr>
+
+                                        {{-- Total --}}
                                         <tr>
                                             <td colspan="3"></td>
                                             <td class="text-end"><h6><strong>Gran Total:</strong></h6></td>
@@ -143,6 +157,7 @@
                                             </td>
                                             <td></td>
                                         </tr>
+
                                     </tbody>
 
                                 </table>
@@ -275,11 +290,16 @@
                 var qty = $(this).closest("tr").find("input.selling_qty").val();
                 var total = unit_price * qty;
                 $(this).closest("tr").find("input.selling_price").val(total);
-                totalAmountPrice();
+                $('#discount_amount').trigger('keyup'); // descuento
             });
+
+            $(document).on('keyup click', '#discount_amount', function() {
+                totalAmountPrice();
+            })
 
             // Calculate sum of Amount in Invoice 
             function totalAmountPrice() {
+
                 var sum = 0;
                 $(".selling_price").each(function() {
                     var value = $(this).val();
@@ -287,6 +307,12 @@
                         sum += parseFloat(value);
                     }
                 });
+
+                // Si hay descuento aplicarlo
+                var discount_amount = parseFloat($('#discount_amount').val());
+                if(!isNaN(discount_amount) && discount_amount.length != 0){
+                    sum -= parseFloat(discount_amount);
+                }
 
                 $('#estimated_amount').val(formatCurrency(sum));
             };

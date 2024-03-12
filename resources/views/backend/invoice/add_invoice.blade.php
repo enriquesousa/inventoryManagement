@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+
     {{-- Jquery CDN Para poder usar JS --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -41,7 +42,8 @@
                                     <div class="md-3">
                                         <label for="example-text-input" class="form-label">Factura #</label>
                                         <input class="form-control example-date-input" name="invoice_no" type="text"
-                                            value="{{ $invoice_no }}" id="invoice_no" readonly style="background-color: lightgray">
+                                            value="{{ $invoice_no }}" id="invoice_no" readonly
+                                            style="background-color: lightgray">
                                     </div>
                                 </div>
 
@@ -137,11 +139,12 @@
                                         {{-- Descuento --}}
                                         <tr>
                                             <td colspan="3"></td>
-                                            <td class="text-end"><h6><strong>Descuento:</strong></h6></td>
+                                            <td class="text-end">
+                                                <h6><strong>Descuento:</strong></h6>
+                                            </td>
                                             <td>
-                                                <input type="text" name="discount_amount" 
-                                                    id="discount_amount" class="form-control estimated_amount"
-                                                    placeholder="Descuento" >
+                                                <input type="text" name="discount_amount" id="discount_amount"
+                                                    class="form-control estimated_amount" placeholder="Descuento">
                                             </td>
                                             <td></td>
                                         </tr>
@@ -149,7 +152,9 @@
                                         {{-- Total --}}
                                         <tr>
                                             <td colspan="3"></td>
-                                            <td class="text-end"><h6><strong>Gran Total:</strong></h6></td>
+                                            <td class="text-end">
+                                                <h6><strong>Gran Total:</strong></h6>
+                                            </td>
                                             <td>
                                                 <input type="text" name="estimated_amount" value="0"
                                                     id="estimated_amount" class="form-control estimated_amount" readonly
@@ -163,17 +168,38 @@
                                 </table>
                                 <br>
 
+                                {{-- description --}}
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="description">Descripción</label>
-                                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Escriba una Descripción al Detalle de la Factura"></textarea>
+                                        <textarea class="form-control" id="description" name="description" rows="3"
+                                            placeholder="Escriba una Descripción al Detalle de la Factura"></textarea>
                                     </div>
                                 </div>
+                                <br>
+
+                                {{-- Estatus de Pagos - paid_status --}}
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label>Estatus de Pago</label>
+                                        <select name="paid_status" id="paid_status" class="form-select">
+                                            <option value="">Seleccionar Estatus</option>
+                                            <option value="full_paid">Pagar Todo</option>
+                                            <option value="full_due">Deber Todo</option>
+                                            <option value="partial_paid">Pago Parcial</option>
+
+                                        </select>
+                                        <input type="text" name="paid_amount" class="form-control paid_amount"
+                                            placeholder="Entree el Monto" style="display:none;">
+                                    </div>
+                                </div>
+                                <br>
 
 
                                 <br>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info" id="storeButton"><i class="ri-save-line"></i> Guardar Factura</button>
+                                    <button type="submit" class="btn btn-info" id="storeButton"><i
+                                            class="ri-save-line"></i> Guardar Factura</button>
                                 </div>
 
                             </form>
@@ -310,7 +336,7 @@
 
                 // Si hay descuento aplicarlo
                 var discount_amount = parseFloat($('#discount_amount').val());
-                if(!isNaN(discount_amount) && discount_amount.length != 0){
+                if (!isNaN(discount_amount) && discount_amount.length != 0) {
                     sum -= parseFloat(discount_amount);
                 }
 
@@ -393,6 +419,18 @@
                     }
                 })
             });
+        });
+    </script>
+
+    {{-- JS para el manejo de estado de pago --}}
+    <script type="text/javascript">
+        $(document).on('change','#paid_status', function(){
+            var paid_status = $(this).val();
+            if (paid_status == 'partial_paid') {
+                $('.paid_amount').show();
+            }else{
+                $('.paid_amount').hide();
+            }
         });
     </script>
 

@@ -398,7 +398,7 @@
                     $adminData = App\Models\User::find($id);
                 }
                 else{
-                    return redirect('login')->with('error_message', 'Por favor inicia sesión');
+                    return redirect('/');
                 }
             @endphp
             

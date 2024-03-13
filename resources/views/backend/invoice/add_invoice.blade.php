@@ -98,14 +98,10 @@
                                 {{-- Add More --}}
                                 <div class="col-md-1">
                                     <div class="md-3">
-                                        <label for="example-text-input" class="form-label" style="margin-top:43px;">
-                                        </label>
-                                        <i
-                                            class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore">
-                                            Agregar</i>
+                                        <label for="example-text-input" class="form-label" style="margin-top:43px;"></label>
+                                        <i class="btn btn-secondary btn-rounded waves-effect waves-light fas fa-plus-circle addeventmore"> Agregar</i>
                                     </div>
                                 </div>
-
 
                             </div>
 
@@ -130,7 +126,7 @@
                                     </thead>
 
                                     <tbody id="addRow" class="addRow">
-
+                                        {{-- Aquí se cargan los datos de la tabla con el  Handlebars Template --}}
                                     </tbody>
 
                                     {{-- Descuento y Total de las Compras - estimated_amount --}}
@@ -226,9 +222,9 @@
                                 </div>
 
                                 <br>
+                                {{-- Botón Guardar Factura --}}
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-info" id="storeButton"><i
-                                            class="ri-save-line"></i> Guardar Factura</button>
+                                    <button type="submit" class="btn btn-info" id="storeButton"><i class="ri-save-line"></i> Guardar Factura</button>
                                 </div>
 
                             </form>

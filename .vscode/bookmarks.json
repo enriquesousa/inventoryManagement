@@ -44,7 +44,7 @@
 			"path": "resources/views/backend/invoice/add_invoice.blade.php",
 			"bookmarks": [
 				{
-					"line": 424,
+					"line": 420,
 					"column": 105,
 					"label": "para usar relacion v.supplier.name y desplegar nombre del proveedor"
 				}

@@ -69,7 +69,8 @@ class InvoiceController extends Controller
 
         } else {
 
-            $granTotal = InvoiceController::getAmount($request->estimated_amount);
+            $granTotal = getAmount($request->estimated_amount); // función global
+            // $granTotal = InvoiceController::getAmount($request->estimated_amount);
             // dd($request->paid_amount, $granTotal);
 
             if ($request->paid_amount > $granTotal) {
@@ -123,7 +124,8 @@ class InvoiceController extends Controller
                         $payment = new Payment();
                         $payment_details = new PaymentDetail();
 
-                        $granTotal = InvoiceController::getAmount($request->estimated_amount);
+                        $granTotal = getAmount($request->estimated_amount); // función global
+                        // $granTotal = InvoiceController::getAmount($request->estimated_amount);
 
                         $payment->invoice_id = $invoice->id;
                         $payment->customer_id = $customer_id;
@@ -166,19 +168,6 @@ class InvoiceController extends Controller
         return redirect()->route('list.invoice')->with($notification);  
     }
 
-    // Convertir Currency a Numero Float
-    public function getAmount($money)
-    {
-        $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
-        $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
-
-        $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
-
-        $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
-        $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
-
-        return (float) str_replace(',', '.', $removedThousandSeparator);
-    }
 
 
 }

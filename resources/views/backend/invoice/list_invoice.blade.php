@@ -37,7 +37,7 @@
                                         <th>Factura #</th>
                                         <th>Fecha</th>
                                         <th>Descripción</th>
-                                        <th>Acción</th>
+                                        <th>Total</th>
                                     </tr>
                                 </thead>
 
@@ -51,7 +51,7 @@
                                             <td>{{ $key + 1 }}</td>
 
                                             {{-- Cliente --}}
-                                            <td> </td>
+                                            <td>{{ $item->payment->customer->name }}</td>
 
                                             {{-- Factura --}}
                                             <td>{{ $item->invoice_no }}</td>
@@ -63,20 +63,9 @@
                                             {{-- Descripción --}}
                                             <td>{{ $item->description }}</td>
 
-                                            
 
-                                            {{-- Acciones --}}
-                                            <td>
-                                            
-                                                {{-- Delete --}}
-                                                <a href="{{ route('delete.purchase', $item->id) }}" 
-                                                    class="btn btn-danger sm" 
-                                                    title="Eliminar"
-                                                    id="delete">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </a>
-
-                                            </td>
+                                            {{-- Total --}}
+                                            <td>{{ formatMoneda($item->payment->total_amount) }}</td>
 
                                         </tr>
                                     @endforeach

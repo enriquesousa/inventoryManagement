@@ -19,7 +19,7 @@ use App\Models\InvoiceDetail;
 use App\Models\Payment;
 use App\Models\PaymentDetail;
 
-use illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
@@ -57,6 +57,8 @@ class InvoiceController extends Controller
     public function StoreInvoice(Request $request)
     {
 
+        
+
         if ($request->category_id == null) {
 
             $notification = array(
@@ -67,7 +69,10 @@ class InvoiceController extends Controller
 
         } else {
 
-            if ($request->paid_amount > $request->estimated_amount) {
+            $granTotal = InvoiceController::getAmount($request->estimated_amount);
+            // dd($request->paid_amount, $granTotal);
+
+            if ($request->paid_amount > $granTotal) {
 
                 $notification = array(
                     'message' => 'El máximo de pago es: ' . $request->estimated_amount,
@@ -112,18 +117,68 @@ class InvoiceController extends Controller
                             $customer_id = $customer->id;
                         } else{
                             $customer_id = $request->customer_id;
-                        } 
+                        }
+                        
+
+                        $payment = new Payment();
+                        $payment_details = new PaymentDetail();
+
+                        $granTotal = InvoiceController::getAmount($request->estimated_amount);
+
+                        $payment->invoice_id = $invoice->id;
+                        $payment->customer_id = $customer_id;
+                        $payment->paid_status = $request->paid_status;
+                        $payment->discount_amount = $request->discount_amount;
+                        $payment->total_amount = $granTotal;
+
+                        if ($request->paid_status == 'full_paid') {
+                            $payment->paid_amount = $granTotal;
+                            $payment->due_amount = '0';
+                            $payment_details->current_paid_amount = $granTotal;
+                        } elseif ($request->paid_status == 'full_due') {
+                            $payment->paid_amount = '0';
+                            $payment->due_amount = $granTotal;
+                            $payment_details->current_paid_amount = '0';
+                        }elseif ($request->paid_status == 'partial_paid') {
+                            $payment->paid_amount = $request->paid_amount;
+                            $payment->due_amount = $granTotal - $request->paid_amount;
+                            $payment_details->current_paid_amount = $request->paid_amount;
+                        }
+                        $payment->save();
+
+                        $payment_details->invoice_id = $invoice->id; 
+                        $payment_details->date = date('Y-m-d',strtotime($request->date));
+                        $payment_details->save(); 
 
                     }
 
                 });
 
 
-            }
-        }
+            } // end else
+
+        } // end else
+
+        $notification = array(
+            'message' => 'Datos de la factura guardado con éxito', 
+            'alert-type' => 'success'
+        );
+        return redirect()->route('list.invoice')->with($notification);  
     }
 
+    // Convertir Currency a Numero Float
+    public function getAmount($money)
+    {
+        $cleanString = preg_replace('/([^0-9\.,])/i', '', $money);
+        $onlyNumbersString = preg_replace('/([^0-9])/i', '', $money);
 
+        $separatorsCountToBeErased = strlen($cleanString) - strlen($onlyNumbersString) - 1;
+
+        $stringWithCommaOrDot = preg_replace('/([,\.])/', '', $cleanString, $separatorsCountToBeErased);
+        $removedThousandSeparator = preg_replace('/(\.|,)(?=[0-9]{3,}$)/', '',  $stringWithCommaOrDot);
+
+        return (float) str_replace(',', '.', $removedThousandSeparator);
+    }
 
 
 }

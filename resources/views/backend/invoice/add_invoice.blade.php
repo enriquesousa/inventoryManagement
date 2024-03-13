@@ -197,21 +197,33 @@
 
                                     {{-- Seleccionar Cliente --}}
                                     <div class="form-group col-md-9">
-                                        <label> Customer Name  </label>
+                                        <label>Cliente</label>
                                         <select name="customer_id" id="customer_id" class="form-select">
-                                            <option value="">Select Customer </option>
+                                            <option value="">Seleccionar Cliente</option>
                                             @foreach($customers as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }} - {{ $item->mobile_no }}</option>
                                             @endforeach
-                                            <option value="0">New Customer </option>
+                                            <option value="0">Cliente Nuevo</option>
                                         </select>
                                     </div> 
-                                    </div>
-                                    <br>
 
                                 </div>
                                 <br>
 
+                                <!-- Forma para agregar un nuevo cliente - Hide Add Customer Form -->
+                                <div class="row new_customer" style="display:none">
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Entre nombre del cliente">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Entre Teléfono del cliente">
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Entre Correo Electrónico">
+                                    </div>
+                                </div>
 
                                 <br>
                                 <div class="form-group">
@@ -439,8 +451,9 @@
         });
     </script>
 
-    {{-- JS para el manejo de estado de pago --}}
+    {{-- JS para el manejo de estado de pago y Para mostrar formulario de cliente nuevo --}}
     <script type="text/javascript">
+
         $(document).on('change','#paid_status', function(){
             var paid_status = $(this).val();
             if (paid_status == 'partial_paid') {
@@ -449,6 +462,16 @@
                 $('.paid_amount').hide();
             }
         });
+
+        $(document).on('change','#customer_id', function(){
+            var customer_id = $(this).val();
+            if (customer_id == '0') {
+                $('.new_customer').show();
+            }else{
+                $('.new_customer').hide();
+            }
+        });
+
     </script>
 
 @endsection

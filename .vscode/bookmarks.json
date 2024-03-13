@@ -44,7 +44,12 @@
 			"path": "resources/views/backend/invoice/add_invoice.blade.php",
 			"bookmarks": [
 				{
-					"line": 420,
+					"line": 293,
+					"column": 81,
+					"label": "str limit en js"
+				},
+				{
+					"line": 423,
 					"column": 105,
 					"label": "para usar relacion v.supplier.name y desplegar nombre del proveedor"
 				}
@@ -57,6 +62,16 @@
 					"line": 53,
 					"column": 90,
 					"label": "para usar relacion v.supplier.name en factura y desplegar nombre del proveedor usar with()"
+				}
+			]
+		},
+		{
+			"path": "resources/views/backend/invoice/list_invoice.blade.php",
+			"bookmarks": [
+				{
+					"line": 63,
+					"column": 89,
+					"label": "str trim en blade"
 				}
 			]
 		}

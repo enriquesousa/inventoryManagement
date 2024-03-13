@@ -32,12 +32,12 @@
 
                                 <thead>
                                     <tr>
-                                        <th>Serie</th>
-                                        <th>Cliente</th>
-                                        <th>Factura #</th>
-                                        <th>Fecha</th>
+                                        <th width="5%">Serie</th>
+                                        <th width="15%">Cliente</th>
+                                        <th width="10%">Factura #</th>
+                                        <th width="10%">Fecha</th>
                                         <th>Descripción</th>
-                                        <th>Total</th>
+                                        <th width="10%">Total</th>
                                     </tr>
                                 </thead>
 
@@ -61,7 +61,7 @@
                                             <td>{{ date('d-m-Y', strtotime($item->date)) }}</td>
 
                                             {{-- Descripción --}}
-                                            <td>{{ $item->description }}</td>
+                                            <td>{{ mb_strimwidth($item->description, 0, 50, '...') }}</td>
 
 
                                             {{-- Total --}}

@@ -168,7 +168,7 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label for="description">Descripción</label>
-                                        <textarea class="form-control" id="description" name="description" rows="3"
+                                        <textarea id="descriptionTextArea" class="form-control" id="description" name="description" rows="3"
                                             placeholder="Escriba una Descripción al Detalle de la Factura"></textarea>
                                     </div>
                                 </div>
@@ -290,6 +290,8 @@
                 var product_id = $('#product_id').val();
                 var product_name = $('#product_id').find('option:selected').text();
 
+                // actualizar descripción con categorías.
+                $("#descriptionTextArea").append(category_name+" - "+ product_name.substring(0, 8) + "... , ");
 
                 if (date == '') {
                     $.notify("La Fecha es Requerida", {
@@ -329,6 +331,7 @@
                 };
                 var html = template(data);
                 $("#addRow").append(html);
+
             });
 
             $(document).on("click", ".removeeventmore", function() {

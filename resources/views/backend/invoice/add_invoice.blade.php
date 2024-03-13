@@ -114,7 +114,7 @@
                         {{-- Tabla de Detalles de la Factura --}}
                         <div class="card-body">
 
-                            <form method="post" action="{{ route('store.purchase') }}">
+                            <form method="post" action="{{ route('store.invoice') }}">
                                 @csrf
 
                                 <table class="table-sm table-bordered" width="100%" style="border-color: #ddd;">

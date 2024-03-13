@@ -22,13 +22,15 @@ use App\Models\PaymentDetail;
 class InvoiceController extends Controller
 {
     // ListInvoice
-    public function ListInvoice(){
+    public function ListInvoice()
+    {
         $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
         return view('backend.invoice.list_invoice', compact('allData'));
     }
 
     // AddInvoice
-    public function AddInvoice(){
+    public function AddInvoice()
+    {
 
         $categories = Category::all();
         $customers = Customer::all();
@@ -37,20 +39,47 @@ class InvoiceController extends Controller
         if ($invoice_data == null) {
             $first_reg = '1';
             $invoice_no = str_pad($first_reg, 4, '0', STR_PAD_LEFT);
-        }else{
+        } else {
             $invoice_data = Invoice::orderBy('id', 'desc')->first();
             $invoice_no = $invoice_data->invoice_no;
-            $invoice_no = $invoice_no+1;
+            $invoice_no = $invoice_no + 1;
             $invoice_no = str_pad($invoice_no, 4, '0', STR_PAD_LEFT);
         }
-        
+
         $date = date('Y-m-d');
 
         return view('backend.invoice.add_invoice', compact('categories', 'invoice_no', 'date', 'customers'));
     }
 
+    // StoreInvoice
+    public function StoreInvoice(Request $request)
+    {
+
+        if ($request->category_id == null) {
+
+            $notification = array(
+                'message' => 'No haz seleccionado un producto',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+
+        } else {
+
+            if ($request->paid_amount > $request->estimated_amount) {
+
+                $notification = array(
+                    'message' => 'El máximo de pago es: ' . $request->estimated_amount,
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification);
+
+            } else {
+
+            }
+        }
+    }
 
 
 
-    
+
 }

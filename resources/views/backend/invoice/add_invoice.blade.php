@@ -14,7 +14,7 @@
                         <h4 class="mb-sm-0">Agregar <strong>Factura</strong></h4>
                         <div class="page-title-right">
 
-                            <a href="{{ route('list.purchase') }}" class="btn btn-success waves-effect waves-light"><i
+                            <a href="{{ route('list.invoice') }}" class="btn btn-success waves-effect waves-light"><i
                                     class="dripicons-return"></i> Regresar a Lista de Facturas</a>
 
                         </div>

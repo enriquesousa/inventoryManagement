@@ -129,7 +129,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/list/invoice', 'ListInvoice')->name('list.invoice');
         Route::get('/add/invoice', 'AddInvoice')->name('add.invoice');
         Route::post('/store/invoice', 'StoreInvoice')->name('store.invoice');
-    
+        Route::get('/pending/list/invoice', 'PendingListInvoice')->name('pending.list.invoice');
     });
     
 

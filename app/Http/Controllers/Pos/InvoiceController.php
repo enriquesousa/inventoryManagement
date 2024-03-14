@@ -173,8 +173,27 @@ class InvoiceController extends Controller
             'message' => 'Datos de la factura guardado con éxito', 
             'alert-type' => 'success'
         );
-        return redirect()->route('list.invoice')->with($notification);  
+        return redirect()->route('pending.list.invoice')->with($notification);  
     }
+
+    // DeleteInvoice
+    public function DeleteInvoice($id){
+
+        $invoice = Invoice::findOrFail($id);
+        $invoice->delete();
+        InvoiceDetail::where('invoice_id',$invoice->id)->delete(); 
+        Payment::where('invoice_id',$invoice->id)->delete(); 
+        PaymentDetail::where('invoice_id',$invoice->id)->delete(); 
+
+        $notification = array(
+            'message' => 'Factura eliminada con éxito', 
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+    }
+
+
 
 
 

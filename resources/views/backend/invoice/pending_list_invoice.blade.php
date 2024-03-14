@@ -90,7 +90,7 @@
                                                     </a>
 
                                                     {{-- Delete --}}
-                                                    <a href="{{ route('delete.purchase', $item->id) }}" 
+                                                    <a href="{{ route('delete.invoice', $item->id) }}" 
                                                         class="btn btn-danger sm" 
                                                         title="Eliminar"
                                                         id="delete">

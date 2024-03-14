@@ -65,8 +65,6 @@ class InvoiceController extends Controller
     public function StoreInvoice(Request $request)
     {
 
-        
-
         if ($request->category_id == null) {
 
             $notification = array(
@@ -194,6 +192,11 @@ class InvoiceController extends Controller
     }
 
 
+    // ApprovedInvoice
+    public function ApprovedInvoice($id){
+       $invoice = Invoice::findOrFail($id);
+       return view('backend.invoice.approved_invoice',compact('invoice'));
+    }
 
 
 

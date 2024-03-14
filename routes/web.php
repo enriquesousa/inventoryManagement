@@ -122,7 +122,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/get-product', 'GetProduct')->name('get-product');
         Route::get('/get-product-category', 'GetProductCategory')->name('get-product-category');
         Route::get('/check-product-stock', 'GetProductStock')->name('check-product-stock');
-    });
+    }); 
     
     
     Route::controller(InvoiceController::class)->group(function () {
@@ -131,6 +131,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/store/invoice', 'StoreInvoice')->name('store.invoice');
         Route::get('/pending/list/invoice', 'PendingListInvoice')->name('pending.list.invoice');
         Route::get('/delete/invoice/{id}', 'DeleteInvoice')->name('delete.invoice');
+        Route::get('/approved/invoice/{id}', 'ApprovedInvoice')->name('approve.invoice');
     });
     
 

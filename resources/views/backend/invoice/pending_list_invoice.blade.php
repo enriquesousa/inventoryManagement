@@ -83,7 +83,7 @@
                                                 @if ($item->status == '0')
 
                                                     {{-- Aprobar --}}
-                                                    <a href="{{ route('delete.purchase', $item->id) }}" 
+                                                    <a href="{{ route('approve.invoice', $item->id) }}" 
                                                         class="btn btn-info sm" 
                                                         title="Aprobar">
                                                         <i class="fas fa-check"></i>

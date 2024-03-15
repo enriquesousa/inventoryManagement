@@ -79,7 +79,9 @@
                             </div>
 
                             {{-- Tabla 2: Detalles de la Factura --}}
-                            <form>
+                            <form method="post" action="">
+                                @csrf
+                                
                                 <div class="table-responsive">
                                     <table border="1" class="table table-dark" width="100%">
                                         <thead>
@@ -87,29 +89,75 @@
                                                 <th class="text-center">#</th>
                                                 <th class="text-center">Categoría</th>
                                                 <th class="text-center">Nombre Producto</th>
-                                                <th class="text-center">En Almacén</th>
+                                                <th class="text-center" style="background-color: #8B008B">En Almacén</th>
                                                 <th class="text-center">Cantidad</th>
                                                 <th class="text-center">Precio Unitario</th>
                                                 <th class="text-center">Total</th>
                                             </tr>
     
                                         </thead>
+
+                                        @php
+                                            $total_sum = '0';
+                                        @endphp
+
                                         <tbody>
+
                                             @foreach ($invoice['invoice_details'] as $key => $details)
+
                                                 <tr>
                                                     <td class="text-center">{{ $key + 1 }}</td>
                                                     <td class="text-center">{{ $details['category']['name'] }}</td>
                                                     <td class="text-center">{{ $details['product']['name'] }}</td>
-                                                    <td class="text-center">{{ $details['product']['quantity'] }}</td>
+                                                    <td class="text-center" style="background-color: #8B008B">{{ $details['product']['quantity'] }}</td>
                                                     <td class="text-center">{{ $details->selling_qty }}</td>
                                                     <td class="text-center">{{ formatMoneda($details->unit_price) }}</td>
                                                     <td class="text-center">{{ formatMoneda($details->selling_price) }}</td>
                                                 </tr>
+
+                                                @php
+                                                    $total_sum += $details->selling_price;
+                                                @endphp
+
                                             @endforeach
+
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td class="text-center" style="color: yellow">Sub Total</td>
+                                                <td class="text-center">{{ formatMoneda($total_sum) }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td class="text-center" style="color: yellow">Descuento</td>
+                                                <td class="text-center"> {{ formatMoneda($payment->discount_amount) }} </td>
+                                            </tr>
+                                    
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td class="text-center" style="color: yellow">Monto Pagado</td>
+                                                <td class="text-center">{{ formatMoneda($payment->paid_amount) }} </td>
+                                            </tr>
+                                    
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td class="text-center" style="color: yellow">Monto Deuda</td>
+                                                <td class="text-center"> {{ formatMoneda($payment->due_amount) }} </td>
+                                            </tr>
+                                    
+                                            <tr>
+                                                <td colspan="5"></td>
+                                                <td class="text-center" style="color: yellow">Gran Total</td>
+                                                <td class="text-center">{{ formatMoneda($payment->total_amount) }}</td>
+                                            </tr>
+
                                         </tbody>
     
                                     </table>
                                 </div>
+
+                                <button type="submit" class="btn btn-info">Aprobar Factura</button>
+
                             </form>
 
 

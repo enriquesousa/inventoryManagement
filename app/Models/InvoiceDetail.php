@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class InvoiceDetail extends Model
 {
     use HasFactory;
-
     protected $guarded = [];
+
+    // Relación con Productos
+    public function product(){
+        return $this->belongsTo(Product::class,'product_id','id');
+    }
+
+    // Relación con Categorías
+    public function category(){
+        return $this->belongsTo(Category::class,'category_id','id');
+    }    
+
 }

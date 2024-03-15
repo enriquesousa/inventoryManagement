@@ -194,7 +194,7 @@ class InvoiceController extends Controller
 
     // ApprovedInvoice
     public function ApprovedInvoice($id){
-       $invoice = Invoice::findOrFail($id);
+       $invoice = Invoice::with('invoice_details')->findOrFail($id);
        return view('backend.invoice.approved_invoice',compact('invoice'));
     }
 

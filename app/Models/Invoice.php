@@ -18,6 +18,10 @@ class Invoice extends Model
         return $this->belongsTo(Payment::class, 'id', 'invoice_id');
     }
 
+    // Relación tiene muchos, 'invoice_id' es de InvoiceDetail y 'id' es de Invoice
+    public function invoice_details(){
+        return $this->hasMany(InvoiceDetail::class,'invoice_id','id');
+    }
 
 
 }

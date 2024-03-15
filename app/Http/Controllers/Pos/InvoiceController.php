@@ -223,7 +223,33 @@ class InvoiceController extends Controller
                 return redirect()->back()->with($notification); 
             }
 
-        } // End foreach 
+        } // end foreach
+
+        // Actualizar Status
+        $invoice = Invoice::findOrFail($id);
+        $invoice->updated_by = Auth::user()->id;
+        $invoice->status = '1';
+
+        // Actualizar la existencia de los productos
+        DB::transaction(function() use($request,$invoice,$id){
+
+            foreach($request->selling_qty as $key => $val){
+
+                $invoice_details = InvoiceDetail::where('id',$key)->first();
+                $product = Product::where('id',$invoice_details->product_id)->first();
+                $product->quantity = ((float)$product->quantity) - ((float)$request->selling_qty[$key]);
+                $product->save();
+
+            } // end foreach
+
+            $invoice->save();
+        });
+
+        $notification = array(
+            'message' => 'Factura aprobada con éxito', 
+            'alert-type' => 'success'
+        );
+        return redirect()->route('pending.list.invoice')->with($notification);  
        
     }
 

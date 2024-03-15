@@ -79,7 +79,7 @@
                             </div>
 
                             {{-- Tabla 2: Detalles de la Factura --}}
-                            <form method="post" action="">
+                            <form method="post" action="{{ route('store.approved.invoice', $invoice->id) }}">
                                 @csrf
                                 
                                 <div class="table-responsive">
@@ -92,7 +92,7 @@
                                                 <th class="text-center" style="background-color: #8B008B">En Almacén</th>
                                                 <th class="text-center">Cantidad</th>
                                                 <th class="text-center">Precio Unitario</th>
-                                                <th class="text-center">Total</th>
+                                                <th class="text-center" style="color: yellow">Total</th>
                                             </tr>
     
                                         </thead>
@@ -106,10 +106,21 @@
                                             @foreach ($invoice['invoice_details'] as $key => $details)
 
                                                 <tr>
+
+                                                    <input type="hidden" name="category_id[]" value="{{ $details->category_id }}">
+                                                    <input type="hidden" name="product_id[]" value="{{ $details->product_id }}">
+                                                    <input type="hidden" name="selling_qty[{{ $details->id }}]" value="{{ $details->selling_qty }}">
+
                                                     <td class="text-center">{{ $key + 1 }}</td>
                                                     <td class="text-center">{{ $details['category']['name'] }}</td>
                                                     <td class="text-center">{{ $details['product']['name'] }}</td>
-                                                    <td class="text-center" style="background-color: #8B008B">{{ $details['product']['quantity'] }}</td>
+
+                                                    @if ($details['product']['quantity'] > $details['selling_qty'])
+                                                        <td class="text-center">{{ $details['product']['quantity'] }}</td>
+                                                    @else
+                                                        <td class="text-center" style="background-color: #8B008B">{{ $details['product']['quantity'] }}</td>
+                                                    @endif
+
                                                     <td class="text-center">{{ $details->selling_qty }}</td>
                                                     <td class="text-center">{{ formatMoneda($details->unit_price) }}</td>
                                                     <td class="text-center">{{ formatMoneda($details->selling_price) }}</td>

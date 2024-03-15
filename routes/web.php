@@ -132,6 +132,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/pending/list/invoice', 'PendingListInvoice')->name('pending.list.invoice');
         Route::get('/delete/invoice/{id}', 'DeleteInvoice')->name('delete.invoice');
         Route::get('/approved/invoice/{id}', 'ApprovedInvoice')->name('approve.invoice');
+        Route::post('/store/approved/invoice/{id}', 'StoreApprovedInvoice')->name('store.approved.invoice');
     });
     
 

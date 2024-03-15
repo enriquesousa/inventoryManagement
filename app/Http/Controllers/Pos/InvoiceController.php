@@ -200,4 +200,33 @@ class InvoiceController extends Controller
 
 
 
+    // StoreApprovedInvoice
+    public function StoreApprovedInvoice(Request $request, $id){
+
+        foreach($request->selling_qty as $key => $val){
+
+            // dd($key, $val);
+
+            $invoice_details = InvoiceDetail::where('id',$key)->first();
+            // dd($invoice_details);
+
+            // Buscar en productos la existencia de la cantidad que tenemos en inventario
+            $product = Product::where('id',$invoice_details->product_id)->first();
+
+            if($product->quantity < $request->selling_qty[$key]){
+
+                $notification = array(
+                    'message' => 'Inválido. La cantidad solicitada es mayor que la existente', 
+                    'alert-type' => 'error'
+                );
+
+                return redirect()->back()->with($notification); 
+            }
+
+        } // End foreach 
+       
+    }
+
+
+
 }

@@ -21,14 +21,50 @@
             </div>
             <!-- end page title -->
 
+
+            {{-- Buscar datos en Modelo en blade --}}
+            @php
+                $payment = App\Models\Payment::where('invoice_id',$invoice->id)->first();
+            @endphp    
+
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="card-title">Aprobar <strong>Factura</strong></h4>
-                            <p class="card-title-desc">Aprobar <code>Factura</code>.</p>
+                            <h4 class="card-title">Aprobar <strong>Factura #: {{ $invoice->invoice_no }}</h4>
+                            <p class="card-title-desc">Fecha: <code>{{ date('d-m-Y', strtotime($invoice->date)) }}</code></p>
 
+                            <div class="table-responsive">
+                                <table class="table table-dark" width="100%">
+
+                                    <tbody>
+
+                                        <tr>
+                                            <td><p> Información del <strong>Cliente</strong> </p></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td><p><strong>Nombre: </strong>{{ $payment->customer->name }}</p></td>
+                                            <td><p><strong>Teléfono: <strong>{{ $payment->customer->mobile_no }}</p></td>
+                                            <td><p><strong>Correo: <strong>{{ $payment->customer->email }}</p></td>
+                                        </tr>
+                                        
+                            
+                                        <tr>
+                                            <td></td>
+                                            <td colspan="3"><p> Descripción: <strong> {{ $invoice->description  }} </strong> </p></td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>
                          
 
                         </div>

@@ -74,6 +74,16 @@
 					"label": "str trim en blade"
 				}
 			]
+		},
+		{
+			"path": "resources/views/backend/invoice/approved_invoice.blade.php",
+			"bookmarks": [
+				{
+					"line": 24,
+					"column": 48,
+					"label": "Buscar datos en Modelo en blade"
+				}
+			]
 		}
 	]
 }

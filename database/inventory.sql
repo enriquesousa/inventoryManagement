@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2024 at 10:49 AM
+-- Generation Time: Mar 15, 2024 at 08:46 AM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -337,7 +337,7 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `
 (12, 13, 5, 5, 'TV LG 65 pulgadas 4K Ultra HD Smart TV LED 65UR7800PSB', 10, 1, 1, NULL, '2024-03-06 04:15:39', '2024-03-11 20:44:27'),
 (13, 12, 1, 3, 'CEMENTO PORTLAND GRIS 50 KG', 20, 1, 1, NULL, '2024-03-06 04:22:33', '2024-03-11 21:06:01'),
 (14, 12, 1, 3, 'CEMENTO IMPERCEM GRIS CEMEX 50 KG', 12, 1, 1, NULL, '2024-03-06 04:23:20', '2024-03-11 21:05:59'),
-(15, 12, 1, 3, 'CEMENTO PORTLAND BLANCO 50 KG', 15, 1, 1, NULL, '2024-03-06 04:23:55', '2024-03-11 21:05:57'),
+(15, 12, 1, 3, 'CEMENTO PORTLAND BLANCO 50 KG', 0, 1, 1, NULL, '2024-03-06 04:23:55', '2024-03-11 21:05:57'),
 (16, 11, 5, 2, 'Cámara Mirrorless Canon EOS R50 RF-S 18-45mm F4.5-6.3 IS STM', 10, 1, 1, NULL, '2024-03-06 04:25:26', '2024-03-11 21:05:55'),
 (17, 11, 5, 2, 'Cámara Fotográfica Canon EOS Rebel T7 más Lente EF-S18-55mm', 8, 1, 1, NULL, '2024-03-06 04:25:53', '2024-03-11 21:05:53'),
 (18, 11, 5, 2, 'Cámara Instantánea FUJIFILM INSTAX MINI 12 Rosa (Blossom Pink) instax mini 12', 15, 1, 1, NULL, '2024-03-06 04:26:23', '2024-03-11 21:05:51'),
@@ -490,7 +490,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `profile_image`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Enrique', 'Enrique', '20240213172015.jpg', 'enrique.sousa@gmail.com', '2024-02-12 10:49:20', '$2y$12$tGrSLmZBWexHYoFQgy/Ddu8JB5GytYgQn2GEYYazAvOTb9wHLzpiS', '9TJf0ZabIZ7s5lXO4gvHhNeMo2raGBemlANxbev1dY0kSYvvKSnAOCUDTZV7', '2024-02-12 06:25:21', '2024-02-14 18:06:55'),
+(1, 'Enrique', 'Enrique', '20240213172015.jpg', 'enrique.sousa@gmail.com', '2024-02-12 10:49:20', '$2y$12$tGrSLmZBWexHYoFQgy/Ddu8JB5GytYgQn2GEYYazAvOTb9wHLzpiS', 'a2fQThUoGtkw3FfnfSSfch75eDTYBxXChArslmfdQ8RWFJbfMCinpcoCwaDn', '2024-02-12 06:25:21', '2024-02-14 18:06:55'),
 (2, 'Demo', 'demo', NULL, 'demo@gmail.com', NULL, '$2y$12$rT8WD7pnIOP3GgHQd1ZOmOA8aVqYHr1xcVWJX78wIPPHOOUjMb6PC', NULL, '2024-02-12 08:17:39', '2024-02-12 08:17:39'),
 (3, 'Demo2', 'demo2', NULL, 'demo2@gmail.com', '2024-02-12 11:28:59', '$2y$12$Q12xGpPypCNeLTz/snaZW.I/hj8BS9KnV/vaJEQx4NRJB0AgTwq9q', NULL, '2024-02-12 11:28:47', '2024-02-12 11:28:59'),
 (4, 'Test Nombre', 'test', NULL, 'test@gmail.com', '2024-02-13 05:11:28', '$2y$12$AzePxfA7NjLXSlYbJwUBc.Tgpbyz0i6o2Qi3XKbg1/HU7BnNmXNlG', 'VoAveRkAr3KBhpMl4Pl8C7chJEaMuTWemZPAiJ4qgb69Q9nkT1WvHS1P2Xkq', '2024-02-13 05:10:41', '2024-02-13 05:11:28');

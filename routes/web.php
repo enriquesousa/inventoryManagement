@@ -133,6 +133,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/invoice/{id}', 'DeleteInvoice')->name('delete.invoice');
         Route::get('/approved/invoice/{id}', 'ApprovedInvoice')->name('approve.invoice');
         Route::post('/store/approved/invoice/{id}', 'StoreApprovedInvoice')->name('store.approved.invoice');
+        Route::get('/print/list/invoice', 'PrintListInvoice')->name('print.list.invoice');
     });
     
 

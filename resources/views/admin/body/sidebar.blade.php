@@ -129,6 +129,7 @@
                         <li><a href="{{ route('list.invoice') }}">Lista</a></li>
                         <li><a href="{{ route('add.invoice') }}">Agregar</a></li>
                         <li><a href="{{ route('pending.list.invoice') }}">Aprobar</a></li>
+                        <li><a href="{{ route('print.list.invoice') }}">Imprimir</a></li>
                     </ul>
                 </li>
 

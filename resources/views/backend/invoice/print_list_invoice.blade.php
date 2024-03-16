@@ -68,7 +68,7 @@
                                             <td>{{ formatMoneda($item->payment->total_amount) }}</td>
 
                                             <td>
-                                                <a href="{{ route('approve.invoice', $item->id) }}" 
+                                                <a href="{{ route('print.invoice', $item->id) }}" 
                                                     class="btn btn-info sm" 
                                                     title="Imprimir">
                                                     <i class="fa fa-print"></i>

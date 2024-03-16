@@ -97,11 +97,11 @@
     
                                         </thead>
 
-                                        @php
-                                            $total_sum = '0';
-                                        @endphp
-
                                         <tbody>
+
+                                            @php
+                                                $total_sum = '0';
+                                            @endphp
 
                                             @foreach ($invoice['invoice_details'] as $key => $details)
 

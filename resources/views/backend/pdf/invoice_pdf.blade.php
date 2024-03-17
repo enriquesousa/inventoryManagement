@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="col-6 mt-4 text-end">
                                             <address>
-                                                <strong>Fecha:</strong><br>
+                                                <strong>Fecha</strong><br>
                                                 {{ formatFecha1($invoice->date) }}<br><br>
                                             </address>
                                         </div>
@@ -137,10 +137,10 @@
 
                                                     <thead>
                                                         <tr>
-                                                            <td><strong>#</strong></td>
-                                                            <td class="text-center"><strong>Categoría</strong></td>
+                                                            <td class="text-center" width="5%"><strong>#</strong></td>
+                                                            <td class="text-center" width="10%"><strong>Categoría</strong></td>
                                                             <td class="text-center"><strong>Nombre Producto</strong></td>
-                                                            <td class="text-center"><strong>En Almacén</strong></td>
+                                                            {{-- <td class="text-center"><strong>En Almacén</strong></td> --}}
                                                             <td class="text-center"><strong>Cantidad</strong></td>
                                                             <td class="text-center"><strong>Precio Unitario</strong></td>
                                                             <td class="text-center"><strong>Total</strong></td>
@@ -160,7 +160,7 @@
                                                                 <td class="text-center">{{ $key + 1 }}</td>
                                                                 <td class="text-center">{{ $details['category']['name'] }}</td>
                                                                 <td class="text-center">{{ $details['product']['name'] }}</td>
-                                                                <td class="text-center">{{ $details['product']['quantity'] }}</td>
+                                                                {{-- <td class="text-center">{{ $details['product']['quantity'] }}</td> --}}
                                                                 <td class="text-center">{{ $details->selling_qty }}</td>
                                                                 <td class="text-center">{{ formatMoneda($details->unit_price) }}</td>
                                                                 <td class="text-end">{{ formatMoneda($details->selling_price) }}</td>
@@ -172,11 +172,8 @@
 
                                                         @endforeach
 
-
- 
-
+                                                        {{-- Subtotal --}}
                                                         <tr>
-                                                            <td class="thick-line"></td>
                                                             <td class="thick-line"></td>
                                                             <td class="thick-line"></td>
                                                             <td class="thick-line"></td>
@@ -184,23 +181,47 @@
                                                             <td class="thick-line text-center">
                                                                 <strong>Subtotal</strong>
                                                             </td>
-                                                            <td class="thick-line text-end">$670.99</td>
+                                                            <td class="thick-line text-end">{{ formatMoneda($total_sum) }}</td>
                                                         </tr>
 
+                                                        {{-- Descuento --}}
                                                         <tr>
-                                                            <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line text-center">
-                                                                <strong>Shipping</strong>
+                                                                <strong>Descuento</strong>
                                                             </td>
-                                                            <td class="no-line text-end">$15</td>
+                                                            <td class="no-line text-end">{{ formatMoneda($payment->discount_amount) }}</td>
                                                         </tr>
 
+                                                        {{-- Monto Pagado --}}
                                                         <tr>
                                                             <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line text-center">
+                                                                <strong>Monto Pagado</strong>
+                                                            </td>
+                                                            <td class="no-line text-end">{{ formatMoneda($payment->paid_amount) }}</td>
+                                                        </tr>
+
+                                                        {{-- Monto Deuda --}}
+                                                        <tr>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line"></td>
+                                                            <td class="no-line text-center">
+                                                                <strong>Monto Deuda</strong>
+                                                            </td>
+                                                            <td class="no-line text-end">{{ formatMoneda($payment->due_amount) }}</td>
+                                                        </tr>
+
+                                                        {{-- Total --}}
+                                                        <tr>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
                                                             <td class="no-line"></td>
@@ -209,7 +230,7 @@
                                                                 <strong>Total</strong>
                                                             </td>
                                                             <td class="no-line text-end">
-                                                                <h4 class="m-0">$685.99</h4>
+                                                                <h6 class="m-0">{{ formatMoneda($payment->total_amount) }}</h6>
                                                             </td>
                                                         </tr>
 
@@ -223,7 +244,7 @@
                                                         class="btn btn-success waves-effect waves-light"><i
                                                             class="fa fa-print"></i></a>
                                                     <a href="#"
-                                                        class="btn btn-primary waves-effect waves-light ms-2">Send</a>
+                                                        class="btn btn-primary waves-effect waves-light ms-2">Descargar</a>
                                                 </div>
                                             </div>
                                         </div>

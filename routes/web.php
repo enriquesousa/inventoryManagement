@@ -136,6 +136,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/print/list/invoice', 'PrintListInvoice')->name('print.list.invoice');
         Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
         Route::get('/daily/invoice/report', 'DailyInvoiceReport')->name('daily.invoice.report');
+        Route::get('/daily/invoice/pdf', 'DailyInvoicePdf')->name('daily.invoice.pdf');
     });
     
 

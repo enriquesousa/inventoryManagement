@@ -34,7 +34,7 @@
                             <p class="card-title-desc">Llene el <code>formulario</code> para agregar una nueva factura.</p>
 
 
-                            <form action="" method="" id="myForm" target="_blank">
+                            <form action="{{ route('daily.invoice.pdf') }}" method="GET" id="myForm" target="_blank">
 
                                 <div class="row">
 

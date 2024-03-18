@@ -130,6 +130,7 @@
                         <li><a href="{{ route('add.invoice') }}">Agregar</a></li>
                         <li><a href="{{ route('pending.list.invoice') }}">Aprobar</a></li>
                         <li><a href="{{ route('print.list.invoice') }}">Imprimir</a></li>
+                        <li><a href="{{ route('daily.invoice.report') }}">Reporte Diario</a></li>
                     </ul>
                 </li>
 

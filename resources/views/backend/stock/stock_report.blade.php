@@ -24,7 +24,7 @@
                                     <p class="card-title-desc">Lista de <code>Inventario</code>.</p>
                                 </div>    
                                 <div class="col-6" style="text-align: right;">
-                                    <a href="{{ route('add.product') }}" class="btn btn-success waves-effect waves-light">
+                                    <a href="{{ route('stock.report.pdf') }}" target="_blank" class="btn btn-success waves-effect waves-light">
                                         <i class="fa fa-print"></i> 
                                          Imprimir</a>
                                 </div>    

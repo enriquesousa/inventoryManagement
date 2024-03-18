@@ -22,7 +22,11 @@ class StockController extends Controller
         return view('backend.stock.stock_report',compact('allData'));
     }
 
-
+    // StockReportPdf
+    public function StockReportPdf(){
+        $allData = Product::orderBy('supplier_id','DESC')->orderBy('category_id','DESC')->get();
+        return view('backend.pdf.stock_report_pdf',compact('allData'));
+    }
 
 
 }

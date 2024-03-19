@@ -109,7 +109,7 @@
 			"path": "resources/views/backend/stock/supplier_product_wise_report.blade.php",
 			"bookmarks": [
 				{
-					"line": 75,
+					"line": 80,
 					"column": 110,
 					"label": "colocar boton en blade"
 				}

@@ -81,9 +81,7 @@
                                 </div>
                             </div>
 
-                            
-
-                            {{-- Fechas del Reporte --}}
+                            {{-- Nombre Proveedor - Fechas del Reporte --}}
                             <div class="row">
                                 <div class="col-6">
                                     <div>

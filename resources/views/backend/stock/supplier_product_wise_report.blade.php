@@ -40,19 +40,24 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
 
-                                    <strong>Reporte de Proveedores</strong>
+                                    <strong>Reporte por Proveedor</strong>
                                     <input type="radio" name="supplier_product_wise" value="supplier_wise"
                                         class="search_value">
                                     &nbsp;&nbsp;
 
-                                    <strong>Reporte de Productos</strong>
+                                    <strong>Reporte por Producto</strong>
                                     <input type="radio" name="supplier_product_wise" value="product_wise"
                                         class="search_value">
 
                                 </div>
                             </div>
 
+                            <div>
+                                <hr>
+                            </div>
+                            <br>
 
+                            {{-- show_supplier --}}
                             <div class="show_supplier" style="display: none">
 
                                 <form method="GET" action="{{ route('supplier.wise.pdf') }}" id="myForm" target="_blank">
@@ -73,6 +78,51 @@
 
                                         {{-- Botón Buscar --}}
                                         <div class="col-sm-4" style="padding-top: 28px;">
+                                            <button type="submit" class="btn btn-primary">Buscar</button>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                            {{-- show_product --}}
+                            <div class="show_product" style="display: none">
+
+                                <form method="GET" action="{{ route('supplier.wise.pdf') }}" id="myForm" target="_blank">
+
+                                    <div class="row">
+
+                                        {{-- Category Name --}}
+                                        <div class="col-md-3">
+                                            <div class="md-3">
+                                                <label for="example-text-input" class="form-label">Categoría</label>
+                                                <select name="category_id" id="category_id" class="form-select select2"
+                                                    aria-label="Default select example">
+                                                    <option selected="">Seleccionar una Categoría</option>
+                                                    @foreach ($categories as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        {{-- Product Name --}}
+                                        <div class="col-md-7">
+                                            <div class="md-3">
+                                                <label for="example-text-input" class="form-label">Producto</label>
+                                                <select name="product_id" id="product_id" class="form-select select2"
+                                                    aria-label="Default select example">
+                                                    <option selected="">Seleccionar un producto</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        {{-- Botón Buscar --}}
+                                        <div class="col-sm-2" style="padding-top: 28px;">
                                             <button type="submit" class="btn btn-primary">Buscar</button>
                                         </div>
 
@@ -126,7 +176,7 @@
         });
     </script>
 
-    {{-- JS para mostrar u ocultar el div show_supplier --}}
+    {{-- JS para mostrar u ocultar show_supplier o show_product--}}
     <script type="text/javascript">
 
         $(document).on('change','.search_value', function(){
@@ -147,6 +197,30 @@
             }
         });
 
+    </script>
+
+    {{-- JS para desplegar productos on change de categoría  --}}
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('change', '#category_id', function() {
+                var category_id = $(this).val();
+                $.ajax({
+                    url: "{{ route('get-product-category') }}", //la ruta nos regresa datos de la tabla products
+                    type: "GET",
+                    data: {
+                        category_id: category_id,
+                    },
+                    success: function(data) {
+                        var html = '<option value="">Seleccionar Producto</option>';
+                        $.each(data, function(key, v) {
+                            html += '<option value=" ' + v.id + ' "> ' + v.name + ' - ' + v.supplier.name +
+                                '</option>';
+                        });
+                        $('#product_id').html(html);
+                    }
+                })
+            });
+        });
     </script>
 
 @endsection

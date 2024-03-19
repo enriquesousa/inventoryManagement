@@ -109,9 +109,24 @@
 			"path": "resources/views/backend/stock/supplier_product_wise_report.blade.php",
 			"bookmarks": [
 				{
-					"line": 67,
+					"line": 75,
 					"column": 110,
 					"label": "colocar boton en blade"
+				}
+			]
+		},
+		{
+			"path": "resources/views/backend/product/add_product.blade.php",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 43,
+					"label": "validacion js incluir arriba ajax jquery"
+				},
+				{
+					"line": 110,
+					"column": 47,
+					"label": "validacion js"
 				}
 			]
 		}

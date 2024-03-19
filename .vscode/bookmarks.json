@@ -44,6 +44,11 @@
 			"path": "resources/views/backend/invoice/add_invoice.blade.php",
 			"bookmarks": [
 				{
+					"line": 100,
+					"column": 115,
+					"label": "para colocar padding usar style=\"margin-top:43px;\""
+				},
+				{
 					"line": 293,
 					"column": 81,
 					"label": "str limit en js"
@@ -97,6 +102,16 @@
 					"line": 77,
 					"column": 57,
 					"label": "date en blade con funcion global"
+				}
+			]
+		},
+		{
+			"path": "resources/views/backend/stock/supplier_product_wise_report.blade.php",
+			"bookmarks": [
+				{
+					"line": 67,
+					"column": 110,
+					"label": "colocar boton en blade"
 				}
 			]
 		}

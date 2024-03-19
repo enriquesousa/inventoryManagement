@@ -146,7 +146,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('stock.report') }}">Lista Inventario</a></li>
-                        <li><a href="{{ route('add.invoice') }}">Por Proveedor/Productos</a></li>
+                        <li><a href="{{ route('stock.supplier.wise') }}">Por Proveedor/Productos</a></li>
                     </ul>
                 </li>
 

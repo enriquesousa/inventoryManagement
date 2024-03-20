@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// Todas las rutas de administrador protegidas con el middleware auth
 Route::middleware('auth')->group(function () {
    
     

@@ -30,7 +30,7 @@
                                 </div>    
                             </div>
 
-                            <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                            <table id="datatable" class="table table-bordered dt-responsive"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
@@ -40,7 +40,9 @@
                                         <th width="5%">Unidades</th>
                                         <th>Categoría</th>
                                         <th>Nombre Producto</th>
-                                        <th width="10%">Cantidad</th>
+                                        <th width="5%">Cantidad Comprada</th>
+                                        <th width="5%">Cantidad Vendida</th>
+                                        <th width="5%">En Almacén</th>
                                     </tr>
                                 </thead>
 
@@ -48,6 +50,20 @@
                                 <tbody>
 
                                     @foreach ($allData as $key => $item)
+
+
+                                        @php
+                                            $cantidadComprada = App\Models\Purchase::where('category_id', $item->category_id)
+                                                ->where('product_id', $item->id)
+                                                ->where('status', '1')
+                                                ->sum('buying_qty');
+
+                                            $cantidadVendida = App\Models\InvoiceDetail::where('category_id', $item->category_id)
+                                                ->where('product_id', $item->id)
+                                                ->where('status', '1')
+                                                ->sum('selling_qty');
+                                        @endphp
+
                                         <tr>
 
                                             {{-- Serie --}}
@@ -64,6 +80,12 @@
 
                                             {{-- Nombre Producto --}}
                                             <td>{{ mb_strimwidth($item->name, 0, 50, '...') }}</td>
+
+                                            {{-- Cantidad Comprada --}}
+                                            <td class="text-center">{{ $cantidadComprada }}</td>
+
+                                            {{-- Cantidad Vendida --}}
+                                            <td class="text-center">{{ $cantidadVendida }}</td>
 
                                             {{-- Cantidad (stock) --}}
                                             <td class="text-center">{{ $item->quantity }}</td>

@@ -65,6 +65,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.customer') }}">Lista</a></li>
                         <li><a href="{{ route('add.customer') }}">Agregar</a></li>
+                        <li><a href="{{ route('credit.customer') }}">Crédito</a></li>
                     </ul>
                 </li>
 

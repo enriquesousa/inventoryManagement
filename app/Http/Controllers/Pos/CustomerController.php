@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Customer;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
-
 use Intervention\Image\ImageManager;
 
 class CustomerController extends Controller
@@ -139,6 +139,14 @@ class CustomerController extends Controller
         return redirect()->back()->with($notification);
     }
     
+
+    // CreditCustomer
+    public function CreditCustomer(){
+       $allData = Payment::whereIn('paid_status', ['full_due', 'partial_paid'])->get();
+       return view('backend.customer.credit_customer', compact('allData'));
+    }
+
+
 
     
 }

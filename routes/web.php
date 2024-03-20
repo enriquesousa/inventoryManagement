@@ -75,6 +75,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/customer', 'UpdateCustomer')->name('update.customer');
         Route::get('/show/customer/{id}', 'ShowCustomer')->name('show.customer');
         Route::get('/delete/customer/{id}', 'DeleteCustomer')->name('delete.customer');
+        Route::get('/credit/customer', 'CreditCustomer')->name('credit.customer');
     });
     
     Route::controller(UnitController::class)->group(function () {

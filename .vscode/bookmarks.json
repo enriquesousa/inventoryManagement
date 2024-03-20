@@ -129,6 +129,16 @@
 					"label": "validacion js"
 				}
 			]
+		},
+		{
+			"path": "resources/views/backend/customer/list_customer.blade.php",
+			"bookmarks": [
+				{
+					"line": 63,
+					"column": 48,
+					"label": "image in blade"
+				}
+			]
 		}
 	]
 }

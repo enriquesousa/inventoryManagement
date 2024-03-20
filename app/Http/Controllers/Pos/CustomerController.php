@@ -72,7 +72,10 @@ class CustomerController extends Controller
         if($request->file('customer_image')){
 
             $image = $request->file('customer_image');
-            unlink(public_path($old_image)); // para borrar la imagen anterior
+
+            if($old_image){
+                unlink(public_path($old_image)); // Si existe imagen anterior,borrar la imagen.
+            }
 
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             $image = ImageManager::imagick()->read($image);

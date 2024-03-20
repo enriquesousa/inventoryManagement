@@ -120,6 +120,7 @@ class InvoiceController extends Controller
                             $customer->name = $request->name;
                             $customer->mobile_no = $request->mobile_no;
                             $customer->email = $request->email;
+                            $customer->created_by = Auth::user()->id;
                             $customer->save();
                             $customer_id = $customer->id;
                         } else{

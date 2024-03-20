@@ -60,7 +60,9 @@
 
                                             {{-- Imagen --}}
                                             <td>
-                                                <img src="{{ asset($item->customer_image) }}" style="width: 60px; height: 50px;">
+
+                                                <img src="{{ !empty($item->customer_image) ? asset($item->customer_image) : url('upload/no_image.jpg') }}" style="width: 60px; height: 50px;">
+
                                             </td>
 
                                             {{-- Correo --}}
@@ -86,6 +88,7 @@
 
                                             {{-- Acciones --}}
                                             <td>
+
                                                 {{-- Edit --}}
                                                 <a href="{{ route('edit.customer', $item->id) }}" class="btn btn-info sm"
                                                     title="Editar"><i class="fas fa-edit"></i></a>

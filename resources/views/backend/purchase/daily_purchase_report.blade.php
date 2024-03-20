@@ -11,11 +11,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Reporte de Facturas por <strong>Rango de Fechas</strong></h4>
+                        <h4 class="mb-sm-0">Reporte de Compras por <strong>Rango de Fechas</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('list.invoice') }}" class="btn btn-success waves-effect waves-light"><i
-                                    class="dripicons-return"></i> Regresar a Lista de Facturas</a>
+                            <a href="{{ route('list.purchase') }}" class="btn btn-success waves-effect waves-light"><i
+                                    class="dripicons-return"></i> Regresar a Lista de Compras</a>
                         </div>
                     </div>
                 </div>
@@ -30,11 +30,11 @@
                         {{-- Datos de la Factura --}}
                         <div class="card-body">
 
-                            <h4 class="card-title">Reporte de Facturas por <strong>Rango de Fechas</strong></h4>
-                            <p class="card-title-desc">Entre un <code>rango de fechas</code> para ver un reporte de facturas emitidas.</p>
+                            <h4 class="card-title">Reporte de Compras por <strong>Rango de Fechas</strong></h4>
+                            <p class="card-title-desc">Entre un <code>rango de fechas</code> para ver un reporte de compras realizadas.</p>
 
 
-                            <form action="{{ route('daily.invoice.pdf') }}" method="GET" id="myForm" target="_blank">
+                            <form action="{{ route('daily.purchase.pdf') }}" method="GET" id="myForm" target="_blank">
 
                                 <div class="row">
 

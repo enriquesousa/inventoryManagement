@@ -34,7 +34,7 @@
 			"path": "resources/views/backend/purchase/list_purchase.blade.php",
 			"bookmarks": [
 				{
-					"line": 75,
+					"line": 70,
 					"column": 136,
 					"label": "date en vista"
 				}

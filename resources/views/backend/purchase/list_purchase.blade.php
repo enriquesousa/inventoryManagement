@@ -38,17 +38,17 @@
                             <h4 class="card-title">Lista de <strong>Compras</strong></h4>
                             <p class="card-title-desc">Listado de <code>Compras</code>.</p>
 
-                            <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                            <table id="datatable" class="table table-bordered dt-responsive"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
                                     <tr>
-                                        <th>Serie</th>
-                                        <th>Compra #</th>
+                                        <th width="5%">Serie</th>
+                                        <th width="5%">Compra #</th>
                                         <th>Fecha</th>
                                         <th>Proveedor</th>
                                         <th>Categoría</th>
-                                        <th>Cantidad</th>
+                                        <th width="5%">Cantidad</th>
                                         <th>Producto</th>
                                         <th>Estatus</th>
                                         <th>Acción</th>
@@ -63,11 +63,6 @@
 
                                             {{-- Serie --}}
                                             <td>{{ $key + 1 }}</td>
-
-                                            {{-- Imagen --}}
-                                            {{-- <td>
-                                                <img src="{{ asset($item->portfolio_image) }}" style="width: 60px; height: 50px;"></td>
-                                            <td> --}}
 
                                             {{-- Compra # --}}
                                             <td>{{ $item->purchase_no }}</td>

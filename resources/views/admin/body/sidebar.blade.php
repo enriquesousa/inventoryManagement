@@ -116,6 +116,7 @@
                         <li><a href="{{ route('list.purchase') }}">Lista</a></li>
                         <li><a href="{{ route('add.purchase') }}">Agregar</a></li>
                         <li><a href="{{ route('pending.purchase') }}">Aprobar</a></li>
+                        <li><a href="{{ route('daily.purchase.report') }}">Reporte por Fechas</a></li>
                     </ul>
                 </li>
 
@@ -130,7 +131,7 @@
                         <li><a href="{{ route('add.invoice') }}">Agregar</a></li>
                         <li><a href="{{ route('pending.list.invoice') }}">Aprobar</a></li>
                         <li><a href="{{ route('print.list.invoice') }}">Imprimir</a></li>
-                        <li><a href="{{ route('daily.invoice.report') }}">Reporte Diario</a></li>
+                        <li><a href="{{ route('daily.invoice.report') }}">Reporte por Fechas</a></li>
                     </ul>
                 </li>
 

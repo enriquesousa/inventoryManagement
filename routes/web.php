@@ -115,6 +115,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/purchase/{id}', 'DeletePurchase')->name('delete.purchase');
         Route::get('/pending/purchase', 'PendingPurchase')->name('pending.purchase');
         Route::get('/approved/purchase/{id}', 'ApprovedPurchase')->name('approve.purchase');
+        Route::get('/daily/purchase/report', 'DailyPurchaseReport')->name('daily.purchase.report');
+        Route::get('/daily/purchase/pdf', 'DailyPurchasePdf')->name('daily.purchase.pdf');
     });
     
     // DefaultController - Para las rutas Ajax

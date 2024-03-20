@@ -40,9 +40,9 @@
                                         <th width="5%">Unidades</th>
                                         <th>Categoría</th>
                                         <th>Nombre Producto</th>
-                                        <th width="5%">Cantidad Comprada</th>
-                                        <th width="5%">Cantidad Vendida</th>
-                                        <th width="5%">En Almacén</th>
+                                        <th class="text-center" width="5%">C. Entrada</th>
+                                        <th class="text-center" width="5%">C. Salida</th>
+                                        <th class="text-center" width="5%">C. Almacén</th>
                                     </tr>
                                 </thead>
 
@@ -82,13 +82,13 @@
                                             <td>{{ mb_strimwidth($item->name, 0, 50, '...') }}</td>
 
                                             {{-- Cantidad Comprada --}}
-                                            <td class="text-center">{{ $cantidadComprada }}</td>
+                                            <td class="text-center"><span class="btn btn-success">{{ $cantidadComprada }}</span></td>
 
                                             {{-- Cantidad Vendida --}}
-                                            <td class="text-center">{{ $cantidadVendida }}</td>
+                                            <td class="text-center"><span class="btn btn-info">{{ $cantidadVendida }}</span></td>
 
                                             {{-- Cantidad (stock) --}}
-                                            <td class="text-center">{{ $item->quantity }}</td>
+                                            <td class="text-center"><span class="btn btn-danger">{{ $item->quantity }}</span></td>
 
                                         </tr>
                                     @endforeach

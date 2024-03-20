@@ -115,7 +115,9 @@
                                                             <td class="text-center" width="5%"><strong>Unidades</strong></td>
                                                             <td class="text-center"><strong>Categoría</strong></td>
                                                             <td class="text-center"><strong>Nombre Producto</strong></td>
-                                                            <td class="text-center" width="10%"><strong>Cantidad</strong></td>
+                                                            <td class="text-center" width="5%"><strong>C. Entrada</strong></td>
+                                                            <td class="text-center" width="5%"><strong>C. Salida</strong></td>
+                                                            <td class="text-center" width="5%"><strong>C. Almacén</strong></td>
                                                         </tr>
                                                     </thead>
 
@@ -123,6 +125,18 @@
 
 
                                                         @foreach ($allData as $key => $item)
+
+                                                            @php
+                                                                $cantidadComprada = App\Models\Purchase::where('category_id', $item->category_id)
+                                                                    ->where('product_id', $item->id)
+                                                                    ->where('status', '1')
+                                                                    ->sum('buying_qty');
+                    
+                                                                $cantidadVendida = App\Models\InvoiceDetail::where('category_id', $item->category_id)
+                                                                    ->where('product_id', $item->id)
+                                                                    ->where('status', '1')
+                                                                    ->sum('selling_qty');
+                                                            @endphp                                                        
 
                                                             <tr>
 
@@ -141,8 +155,14 @@
                                                                 {{-- Nombre Producto --}}
                                                                 <td class="text-left">{{ mb_strimwidth($item->name, 0, 50, '...') }}</td>
 
+                                                                {{-- Cantidad Entrada --}}
+                                                                <td class="text-center" width="5%">{{ $cantidadComprada }}</td>
+
+                                                                {{-- Cantidad Salida --}}
+                                                                <td class="text-center" width="5%">{{ $cantidadVendida }}</td>
+
                                                                 {{-- Cantidad (stock) --}}
-                                                                <td class="text-center" width="10%">{{ $item->quantity }}</td>
+                                                                <td class="text-center" width="5%">{{ $item->quantity }}</td>
 
                                                             </tr>
 

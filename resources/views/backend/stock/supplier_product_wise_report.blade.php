@@ -52,6 +52,7 @@
                                 </div>
                             </div>
 
+                            {{-- Linea Separadora --}}
                             <div>
                                 <hr>
                             </div>
@@ -90,7 +91,7 @@
                             {{-- show_product --}}
                             <div class="show_product" style="display: none">
 
-                                <form method="GET" action="{{ route('supplier.wise.pdf') }}" id="myForm" target="_blank">
+                                <form method="GET" action="{{ route('product.wise.pdf') }}" id="myForm" target="_blank">
 
                                     <div class="row">
 

@@ -42,6 +42,11 @@ class StockController extends Controller
         return view('backend.pdf.supplier_product_wise_report_pdf',compact('allData'));
     }
 
+    // ProductWisePdf
+    public function ProductWisePdf(Request $request){
+        $product = Product::where('category_id',$request->category_id)->where('id',$request->product_id)->first();
+        return view('backend.pdf.product_wise_report_pdf',compact('product'));
+    }
 
 
 

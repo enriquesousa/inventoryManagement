@@ -139,6 +139,26 @@
 					"label": "image in blade"
 				}
 			]
+		},
+		{
+			"path": "resources/views/backend/pdf/customer_credit_pdf.blade.php",
+			"bookmarks": [
+				{
+					"line": 157,
+					"column": 0,
+					"label": "print fecha en reporte de adeudos"
+				}
+			]
+		},
+		{
+			"path": "resources/views/backend/pdf/product_wise_report_pdf.blade.php",
+			"bookmarks": [
+				{
+					"line": 147,
+					"column": 67,
+					"label": "print fecha en reporte"
+				}
+			]
 		}
 	]
 }

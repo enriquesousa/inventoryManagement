@@ -11,7 +11,7 @@
                         <h4 class="mb-sm-0">Estado de Crédito del <strong>Cliente</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('add.customer') }}" class="btn btn-success waves-effect waves-light"><i
+                            <a href="{{ route('credit.customer.print.pdf') }}" target="_blank" class="btn btn-success waves-effect waves-light"><i
                                     class="fa fa-print"></i> Imprimir Reporte</a>
                         </div>
 

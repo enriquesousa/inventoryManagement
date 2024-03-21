@@ -159,6 +159,23 @@ class CustomerController extends Controller
         return view('backend.customer.edit_customer_invoice', compact('payment'));
     }
 
+    // UpdateCustomerInvoice
+    public function UpdateCustomerInvoice(Request $request, $invoice_id){
+
+        if ($request->new_paid_amount < $request->paid_amount) {
+
+            $notification = array(
+                'message' => 'El pago no puede ser mayor al monto deuda',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+            
+        }else{
+
+        }  
+       
+    }
+
 
     
 }

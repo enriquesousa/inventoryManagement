@@ -37,8 +37,8 @@
                                         <th class="text-left">Cliente</th>
                                         <th class="text-center" width="5%">Factura #</th>
                                         <th class="text-center" width="15%">Fecha</th>
-                                        <th class="text-center" width="10%">Debe</th>
-                                        <th class="text-center" width="15%">Acción</th>
+                                        <th class="text-left" width="10%">Debe</th>
+                                        <th class="text-left" width="15%">Acción</th>
                                     </tr>
                                 </thead>
 
@@ -68,16 +68,16 @@
                                             <td>
 
                                                 {{-- Edit --}}
-                                                <a href="{{ route('edit.customer', $item->id) }}" class="btn btn-info sm"
-                                                    title="Editar"><i class="fas fa-edit"></i></a>
+                                                <a href="{{ route('edit.customer.invoice', $item->invoice_id) }}" 
+                                                    class="btn btn-info sm"  
+                                                    title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
 
                                                 {{-- Details --}}
                                                 <a href="{{ route('show.customer', $item->id) }}" class="btn btn-success sm"
                                                     title="Detalle"><i class="fas fa-eye"></i></a>
-
-                                                {{-- Delete --}}
-                                                <a href="{{ route('delete.customer', $item->id) }}" class="btn btn-danger sm" title="Eliminar"
-                                                    id="delete"><i class="fas fa-trash-alt"></i></a>
+                                           
                                             </td>
 
                                         </tr>

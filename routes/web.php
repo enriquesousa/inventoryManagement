@@ -77,6 +77,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/delete/customer/{id}', 'DeleteCustomer')->name('delete.customer');
         Route::get('/credit/customer', 'CreditCustomer')->name('credit.customer');
         Route::get('/credit/customer/print/pdf', 'CreditCustomerPrintPdf')->name('credit.customer.print.pdf');
+        route::get('/edit/customer/invoice/{invoice_id}', 'EditCustomerInvoice')->name('edit.customer.invoice');
     });
     
     Route::controller(UnitController::class)->group(function () {

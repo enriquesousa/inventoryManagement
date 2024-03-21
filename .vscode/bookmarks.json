@@ -159,6 +159,16 @@
 					"label": "print fecha en reporte"
 				}
 			]
+		},
+		{
+			"path": "app/Http/Controllers/Pos/CustomerController.php",
+			"bookmarks": [
+				{
+					"line": 181,
+					"column": 88,
+					"label": "eloquent encontrar un registro y modificar campo"
+				}
+			]
 		}
 	]
 }

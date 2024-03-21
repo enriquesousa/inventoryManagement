@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2024 at 03:10 PM
+-- Generation Time: Mar 21, 2024 at 10:05 AM
 -- Server version: 10.11.6-MariaDB-0+deb12u1
 -- PHP Version: 8.2.7
 
@@ -82,8 +82,9 @@ INSERT INTO `customers` (`id`, `name`, `customer_image`, `mobile_no`, `email`, `
 (9, 'Jeremy Curry', 'upload/customer_images/1792746466421824.jpg', '(302) 535-8365', 'jelakiti@mailinator.com', '69 Jeffrey Dr Magnolia, Delaware(DE), 19962', 1, 1, NULL, '2024-03-06 03:37:40', NULL),
 (10, 'Grant Whitfield', 'upload/customer_images/1792746547533931.jpg', '(410) 835-2259', 'soni@mailinator.com', '36405 Old Ocean City Rd #14 Willards, Maryland(MD), 21874', 1, 1, 1, '2024-03-06 03:38:42', '2024-03-06 03:38:58'),
 (11, 'Kimberly Taylor', 'upload/customer_images/1792746610754363.jpg', '(410) 835-2259', 'hudosyb@mailinator.com', '36405 Old Ocean City Rd #14 Willards, Maryland(MD), 21874', 1, 1, NULL, '2024-03-06 03:39:58', NULL),
-(15, 'Ancle Jhony', NULL, '(910) 893-4029', 'anclejhony@gmail.com', NULL, 1, NULL, NULL, '2024-03-13 16:12:24', '2024-03-13 16:12:24'),
-(16, 'Test', NULL, '(910) 893-4055', 'test@test.com', NULL, 1, NULL, NULL, '2024-03-14 01:56:38', '2024-03-14 01:56:38');
+(15, 'Ancle Jhony', 'upload/customer_images/1794057626222113.jpg', '(910) 893-4029', 'anclejhony@gmail.com', 'CDMX', 1, NULL, 1, '2024-03-13 16:12:24', '2024-03-20 14:58:00'),
+(16, 'Test', NULL, '(910) 893-4055', 'test@test.com', NULL, 1, NULL, NULL, '2024-03-14 01:56:38', '2024-03-14 01:56:38'),
+(17, 'Julio Antonio Sousa', NULL, '6646289328', 'julio@gmail.com', NULL, 1, NULL, NULL, '2024-03-20 04:28:40', '2024-03-20 04:28:40');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,9 @@ INSERT INTO `invoices` (`id`, `invoice_no`, `date`, `description`, `status`, `cr
 (8, '0001', '2024-03-13', 'Computadoras -  MacBook... , Fotografía -  Cámara ... ,', 0, 1, NULL, '2024-03-13 16:12:24', '2024-03-13 16:12:24'),
 (9, '0002', '2024-03-13', 'Televisiones -  TV Sams... , Teléfono Inteligente - Seleccio... , Teléfono Inteligente -  Smartph... ,', 0, 1, NULL, '2024-03-13 16:16:21', '2024-03-13 16:16:21'),
 (10, '0003', '2024-03-13', 'Teléfono Inteligente -  Smartph... , Teléfono Inteligente -  Celular... ,', 1, 1, 1, '2024-03-14 01:05:48', '2024-03-15 22:07:48'),
-(11, '0004', '2024-03-13', 'Cemento -  CEMENTO... , Cemento -  CEMENTO... , Cemento -  CEMENTO... ,', 1, 1, 1, '2024-03-14 01:51:38', '2024-03-15 22:06:27');
+(11, '0004', '2024-03-13', 'Cemento -  CEMENTO... , Cemento -  CEMENTO... , Cemento -  CEMENTO... ,', 1, 1, 1, '2024-03-14 01:51:38', '2024-03-15 22:06:27'),
+(13, '0005', '2024-03-19', 'Teléfono Inteligente -  BG50 Bl... ,', 1, 1, 1, '2024-03-20 04:28:40', '2024-03-20 04:29:08'),
+(14, '0006', '2024-03-20', 'Cemento -  Test Pr... ,', 1, 1, 1, '2024-03-20 15:32:18', '2024-03-20 15:32:54');
 
 -- --------------------------------------------------------
 
@@ -174,7 +177,9 @@ INSERT INTO `invoice_details` (`id`, `date`, `invoice_id`, `category_id`, `produ
 (18, '2024-03-13', 10, 6, 9, 2, 3600, 7200, 1, '2024-03-14 01:05:48', '2024-03-14 01:05:48'),
 (19, '2024-03-13', 11, 3, 13, 5, 450, 2250, 1, '2024-03-14 01:51:38', '2024-03-14 01:51:38'),
 (20, '2024-03-13', 11, 3, 14, 3, 500, 1500, 1, '2024-03-14 01:51:38', '2024-03-14 01:51:38'),
-(21, '2024-03-13', 11, 3, 15, 2, 600, 1200, 1, '2024-03-14 01:51:38', '2024-03-14 01:51:38');
+(21, '2024-03-13', 11, 3, 15, 2, 600, 1200, 1, '2024-03-14 01:51:38', '2024-03-14 01:51:38'),
+(23, '2024-03-19', 13, 6, 26, 1, 1600, 1600, 1, '2024-03-20 04:28:40', '2024-03-20 04:29:08'),
+(24, '2024-03-20', 14, 3, 27, 5, 600, 3000, 1, '2024-03-20 15:32:18', '2024-03-20 15:32:54');
 
 -- --------------------------------------------------------
 
@@ -244,10 +249,12 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `invoice_id`, `customer_id`, `paid_status`, `paid_amount`, `due_amount`, `total_amount`, `discount_amount`, `created_at`, `updated_at`) VALUES
-(8, 8, 15, 'partial_paid', 23000, 700, 23700, 600, '2024-03-13 16:12:24', '2024-03-13 16:12:24'),
+(8, 8, 15, 'partial_paid', 23200, 500, 23700, 600, '2024-03-13 16:12:24', '2024-03-21 16:55:39'),
 (9, 9, 1, 'partial_paid', 24500, 500, 25000, 600, '2024-03-13 16:16:21', '2024-03-13 16:16:21'),
 (10, 10, 11, 'partial_paid', 15000, 900, 15900, 500, '2024-03-14 01:05:48', '2024-03-14 01:05:48'),
-(11, 11, 4, 'partial_paid', 4000, 850, 4850, 100, '2024-03-14 01:51:38', '2024-03-14 01:51:38');
+(11, 11, 4, 'full_paid', 4850, 0, 4850, 100, '2024-03-14 01:51:38', '2024-03-21 16:57:41'),
+(13, 13, 17, 'partial_paid', 1000, 550, 1550, 50, '2024-03-20 04:28:40', '2024-03-20 04:28:40'),
+(14, 14, 15, 'full_paid', 2950, 0, 2950, 50, '2024-03-20 15:32:18', '2024-03-20 15:32:18');
 
 -- --------------------------------------------------------
 
@@ -280,7 +287,12 @@ INSERT INTO `payment_details` (`id`, `invoice_id`, `current_paid_amount`, `date`
 (8, 8, 23000, '2024-03-13', NULL, '2024-03-13 16:12:24', '2024-03-13 16:12:24'),
 (9, 9, 24500, '2024-03-13', NULL, '2024-03-13 16:16:21', '2024-03-13 16:16:21'),
 (10, 10, 15000, '2024-03-13', NULL, '2024-03-14 01:05:48', '2024-03-14 01:05:48'),
-(11, 11, 4000, '2024-03-13', NULL, '2024-03-14 01:51:38', '2024-03-14 01:51:38');
+(11, 11, 4000, '2024-03-13', NULL, '2024-03-14 01:51:38', '2024-03-14 01:51:38'),
+(13, 13, 1000, '2024-03-19', NULL, '2024-03-20 04:28:40', '2024-03-20 04:28:40'),
+(14, 14, 2950, '2024-03-20', NULL, '2024-03-20 15:32:18', '2024-03-20 15:32:18'),
+(15, 8, 100, '2024-03-20', 1, '2024-03-21 16:51:15', '2024-03-21 16:51:15'),
+(16, 8, 100, '2024-03-21', 1, '2024-03-21 16:55:39', '2024-03-21 16:55:39'),
+(17, 11, 850, '2024-03-21', 1, '2024-03-21 16:57:41', '2024-03-21 16:57:41');
 
 -- --------------------------------------------------------
 
@@ -330,9 +342,9 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `
 (5, 10, 5, 7, 'Lámina antiderrapante fundida calibre 1/4\"', 10, 1, 1, NULL, '2024-03-06 04:10:10', '2024-03-11 20:38:14'),
 (6, 10, 5, 7, 'Lámina galvanizada y pintada', 10, 1, 1, NULL, '2024-03-06 04:10:57', '2024-03-11 20:38:12'),
 (7, 17, 5, 6, 'Smartphone Samsung Galaxy A24 128 GB Negro Desbloqueado', 6, 1, 1, NULL, '2024-03-06 04:12:44', '2024-03-15 22:07:48'),
-(8, 15, 5, 6, 'Smartphone Samsung Galaxy A05 Plateado 64GB Desbloqueado', 5, 1, 1, NULL, '2024-03-06 04:13:21', '2024-03-11 21:06:03'),
+(8, 15, 5, 6, 'Smartphone Samsung Galaxy A05 Plateado 64GB Desbloqueado', 3, 1, 1, NULL, '2024-03-06 04:13:21', '2024-03-11 21:06:03'),
 (9, 17, 5, 6, 'Celular SAMSUNG Galaxy A15 4G 6GB 128GB 6.5\" FHD+ 90 Hz 50MP Blue Black', 6, 1, 1, NULL, '2024-03-06 04:13:52', '2024-03-15 22:07:48'),
-(10, 16, 5, 5, 'TV Samsung 75 Pulgadas 4K Ultra HD Smart TV LED UN75CU7000FXZX', 10, 1, 1, 1, '2024-03-06 04:14:41', '2024-03-11 20:39:25'),
+(10, 16, 5, 5, 'TV Samsung 75 Pulgadas 4K Ultra HD Smart TV LED UN75CU7000FXZX', 8, 1, 1, 1, '2024-03-06 04:14:41', '2024-03-11 20:39:25'),
 (11, 14, 5, 5, 'TV Hisense 50 Pulgadas Ultra HD 4K 50A65KV', 5, 1, 1, NULL, '2024-03-06 04:15:09', '2024-03-11 15:49:35'),
 (12, 13, 5, 5, 'TV LG 65 pulgadas 4K Ultra HD Smart TV LED 65UR7800PSB', 10, 1, 1, NULL, '2024-03-06 04:15:39', '2024-03-11 20:44:27'),
 (13, 12, 1, 3, 'CEMENTO PORTLAND GRIS 50 KG', 15, 1, 1, NULL, '2024-03-06 04:22:33', '2024-03-15 22:06:27'),
@@ -341,13 +353,15 @@ INSERT INTO `products` (`id`, `supplier_id`, `unit_id`, `category_id`, `name`, `
 (16, 11, 5, 2, 'Cámara Mirrorless Canon EOS R50 RF-S 18-45mm F4.5-6.3 IS STM', 10, 1, 1, NULL, '2024-03-06 04:25:26', '2024-03-11 21:05:55'),
 (17, 11, 5, 2, 'Cámara Fotográfica Canon EOS Rebel T7 más Lente EF-S18-55mm', 8, 1, 1, NULL, '2024-03-06 04:25:53', '2024-03-11 21:05:53'),
 (18, 11, 5, 2, 'Cámara Instantánea FUJIFILM INSTAX MINI 12 Rosa (Blossom Pink) instax mini 12', 15, 1, 1, NULL, '2024-03-06 04:26:23', '2024-03-11 21:05:51'),
-(19, 16, 5, 1, 'MacBook Air Apple MGN63LA/A M1 8GB RAM 256GB SSD', 13, 1, 1, NULL, '2024-03-06 04:27:12', '2024-03-11 21:09:14'),
+(19, 16, 5, 1, 'MacBook Air Apple MGN63LA/A M1 8GB RAM 256GB SSD', 8, 1, 1, NULL, '2024-03-06 04:27:12', '2024-03-11 21:09:14'),
 (20, 16, 5, 1, 'Laptop HP 15-fd0000la Intel Core i3 8 Núcleos 8GB RAM 512GB SSD Azul', 15, 1, 1, NULL, '2024-03-06 04:27:53', '2024-03-11 21:09:12'),
 (21, 16, 5, 1, 'Laptop Lenovo IdeaPad IP Slim3 15AMN8 R5 8 GB RAM 512 GB SSD Azul', 15, 1, 1, NULL, '2024-03-06 04:28:23', '2024-03-11 21:09:10'),
 (22, 8, 5, 2, 'Cámara Instantánea FUJIFILM INSTAX MINI 12 Rosa (Blossom Pink) instax mini 12', 11, 1, 1, NULL, '2024-03-08 19:43:07', '2024-03-11 15:47:19'),
 (23, 8, 5, 5, 'TV LG 65 pulgadas 4K Ultra HD Smart TV LED 65UR7800PSB', 10, 1, 1, NULL, '2024-03-08 19:43:55', '2024-03-11 21:09:16'),
 (24, 8, 5, 6, 'Celular SAMSUNG Galaxy A15 4G 6GB 128GB 6.5\" FHD+ 90 Hz 50MP Blue Black', 5, 1, 1, NULL, '2024-03-08 19:44:50', '2024-03-11 20:16:43'),
-(25, 8, 5, 6, 'Smartphone Samsung Galaxy A05', 8, 1, 1, 1, '2024-03-08 19:45:19', '2024-03-11 20:16:41');
+(25, 8, 5, 6, 'Smartphone Samsung Galaxy A05', 8, 1, 1, 1, '2024-03-08 19:45:19', '2024-03-11 20:16:41'),
+(26, 18, 5, 6, 'BG50 Blue 2GB', 9, 1, 1, NULL, '2024-03-20 04:23:19', '2024-03-20 04:29:08'),
+(27, 18, 1, 3, 'Test Product', 5, 1, 1, NULL, '2024-03-20 15:28:00', '2024-03-20 15:32:54');
 
 -- --------------------------------------------------------
 
@@ -404,7 +418,9 @@ INSERT INTO `purchases` (`id`, `supplier_id`, `category_id`, `product_id`, `purc
 (27, 16, 1, 19, 'C-5677', '2024-03-11', 'Las Mejores Laptops del Mercado', 10, 22450, 224500, 1, 1, NULL, '2024-03-11 21:09:04', '2024-03-11 21:09:14'),
 (28, 16, 1, 20, 'C-5677', '2024-03-11', 'Las Mejores Laptops del Mercado', 15, 19500, 292500, 1, 1, NULL, '2024-03-11 21:09:04', '2024-03-11 21:09:12'),
 (29, 16, 1, 21, 'C-5677', '2024-03-11', 'Las Mejores Laptops del Mercado', 15, 18456, 276840, 1, 1, NULL, '2024-03-11 21:09:04', '2024-03-11 21:09:10'),
-(30, 12, 3, 15, 'C-5677', '2024-03-15', 'Nueva compra de cemento', 10, 500, 5000, 1, 1, NULL, '2024-03-15 22:04:36', '2024-03-15 22:04:49');
+(30, 12, 3, 15, 'C-5677', '2024-03-15', 'Nueva compra de cemento', 10, 500, 5000, 1, 1, NULL, '2024-03-15 22:04:36', '2024-03-15 22:04:49'),
+(31, 18, 6, 26, 'C-5677', '2024-03-19', 'El mejor telefono inteligente de tijuana', 10, 1200, 12000, 1, 1, NULL, '2024-03-20 04:25:38', '2024-03-20 04:26:06'),
+(32, 18, 3, 27, 'C-5677', '2024-03-20', 'Cemento Test', 10, 450, 4500, 1, 1, NULL, '2024-03-20 15:29:09', '2024-03-20 15:29:27');
 
 -- --------------------------------------------------------
 
@@ -439,7 +455,8 @@ INSERT INTO `suppliers` (`id`, `name`, `mobile_no`, `email`, `address`, `status`
 (14, 'Love Cassesso', '(407) 884-8771', 'love_cassesso@love.com', '752 Parkside Pointe Blvd Apopka, Florida(FL), 32712', 1, 1, NULL, '2024-03-06 04:01:19', NULL),
 (15, 'Cup Kasper', '(818) 754-8930', 'cup_kasper@gmail.com', '3930 Laurel Canyon Blvd Studio City, California(CA), 91604', 1, 1, NULL, '2024-03-06 04:01:48', NULL),
 (16, 'Fieldswop', '(302) 535-8365', 'fieldswop@wop.com', '69 Jeffrey Dr Magnolia, Delaware(DE), 19962', 1, 1, NULL, '2024-03-06 04:02:13', NULL),
-(17, 'ErEckwortzel', '(910) 893-4045', 'erEckwortzel@gmail.com', '69 Jeffrey Dr Magnolia, Delaware(DE), 19962', 1, 1, NULL, '2024-03-06 04:02:40', NULL);
+(17, 'ErEckwortzel', '(910) 893-4045', 'erEckwortzel@gmail.com', '69 Jeffrey Dr Magnolia, Delaware(DE), 19962', 1, 1, NULL, '2024-03-06 04:02:40', NULL),
+(18, 'Rafael Contreras', '6648091965', 'lastrescaliforniazzz1978@hotmail.com', 'Zona Centro', 1, 1, NULL, '2024-03-20 04:19:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -491,7 +508,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `profile_image`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Enrique', 'Enrique', '20240213172015.jpg', 'enrique.sousa@gmail.com', '2024-02-12 10:49:20', '$2y$12$tGrSLmZBWexHYoFQgy/Ddu8JB5GytYgQn2GEYYazAvOTb9wHLzpiS', 'DNbzF2iNZAzNQOSAvgKNFn4j80G0JcfMBygcIi9sNFUP4Ixrckb7OYsEM6mb', '2024-02-12 06:25:21', '2024-02-14 18:06:55'),
+(1, 'Enrique', 'Enrique', '20240213172015.jpg', 'enrique.sousa@gmail.com', '2024-02-12 10:49:20', '$2y$12$tGrSLmZBWexHYoFQgy/Ddu8JB5GytYgQn2GEYYazAvOTb9wHLzpiS', 'nPzffRFETUmwu8tbn7pUJxEmkYfCuzHJUsWeuuRMoxK6HqEXMhLnr113ijMp', '2024-02-12 06:25:21', '2024-02-14 18:06:55'),
 (2, 'Demo', 'demo', NULL, 'demo@gmail.com', NULL, '$2y$12$rT8WD7pnIOP3GgHQd1ZOmOA8aVqYHr1xcVWJX78wIPPHOOUjMb6PC', NULL, '2024-02-12 08:17:39', '2024-02-12 08:17:39'),
 (3, 'Demo2', 'demo2', NULL, 'demo2@gmail.com', '2024-02-12 11:28:59', '$2y$12$Q12xGpPypCNeLTz/snaZW.I/hj8BS9KnV/vaJEQx4NRJB0AgTwq9q', NULL, '2024-02-12 11:28:47', '2024-02-12 11:28:59'),
 (4, 'Test Nombre', 'test', NULL, 'test@gmail.com', '2024-02-13 05:11:28', '$2y$12$AzePxfA7NjLXSlYbJwUBc.Tgpbyz0i6o2Qi3XKbg1/HU7BnNmXNlG', 'VoAveRkAr3KBhpMl4Pl8C7chJEaMuTWemZPAiJ4qgb69Q9nkT1WvHS1P2Xkq', '2024-02-13 05:10:41', '2024-02-13 05:11:28');
@@ -609,7 +626,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -621,13 +638,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `invoice_details`
 --
 ALTER TABLE `invoice_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -639,13 +656,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `payment_details`
 --
 ALTER TABLE `payment_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -657,19 +674,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `units`

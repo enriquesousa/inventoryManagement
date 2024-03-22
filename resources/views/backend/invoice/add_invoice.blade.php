@@ -34,7 +34,6 @@
                             <h4 class="card-title">Agregar <strong>Factura</strong></h4>
                             <p class="card-title-desc">Llene el <code>formulario</code> para agregar una nueva factura.</p>
 
-
                             <div class="row">
 
                                 {{-- Factura No --}}

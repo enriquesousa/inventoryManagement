@@ -216,7 +216,7 @@
                                                     <div class="md-3">
                                                         <label for="example-text-input" class="form-label">Fecha</label>
                                                         <input class="form-control example-date-input" name="date" type="date"
-                                                            id="date" placeholder="YYYY-MM-DD">
+                                                            id="date" value="{{ $date }}" placeholder="YYYY-MM-DD">
                                                     </div>
                                                 </div>
 

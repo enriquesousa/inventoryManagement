@@ -157,7 +157,8 @@ class CustomerController extends Controller
     // EditCustomerInvoice
     public function EditCustomerInvoice($invoice_id){
         $payment = Payment::where('invoice_id', $invoice_id)->first();
-        return view('backend.customer.edit_customer_invoice', compact('payment'));
+        $date = date('Y-m-d');
+        return view('backend.customer.edit_customer_invoice', compact('payment', 'date'));
     }
 
     // UpdateCustomerInvoice
@@ -221,6 +222,12 @@ class CustomerController extends Controller
     public function CustomerInvoiceDetailsPdf($invoice_id){
         $payment = Payment::where('invoice_id', $invoice_id)->first();
         return view('backend.pdf.invoice_details_pdf', compact('payment'));
+    }
+
+    // PaidCustomer
+    public function PaidCustomer(){
+        $allData = Payment::where('paid_status', '!=', 'full_due')->get();
+        return view('backend.customer.paid_customer', compact('allData'));
     }
 
 

@@ -44,17 +44,17 @@
 			"path": "resources/views/backend/invoice/add_invoice.blade.php",
 			"bookmarks": [
 				{
-					"line": 100,
+					"line": 99,
 					"column": 115,
 					"label": "para colocar padding usar style=\"margin-top:43px;\""
 				},
 				{
-					"line": 293,
+					"line": 292,
 					"column": 81,
 					"label": "str limit en js"
 				},
 				{
-					"line": 423,
+					"line": 422,
 					"column": 105,
 					"label": "para usar relacion v.supplier.name y desplegar nombre del proveedor"
 				}
@@ -164,7 +164,7 @@
 			"path": "app/Http/Controllers/Pos/CustomerController.php",
 			"bookmarks": [
 				{
-					"line": 189,
+					"line": 190,
 					"column": 88,
 					"label": "eloquent encontrar un registro y modificar campo"
 				}

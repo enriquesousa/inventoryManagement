@@ -66,6 +66,7 @@
                         <li><a href="{{ route('list.customer') }}">Lista</a></li>
                         <li><a href="{{ route('add.customer') }}">Agregar</a></li>
                         <li><a href="{{ route('credit.customer') }}">Con Adeudo</a></li>
+                        <li><a href="{{ route('paid.customer') }}">Entradas</a></li>
                     </ul>
                 </li>
 

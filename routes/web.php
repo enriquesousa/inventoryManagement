@@ -80,6 +80,7 @@ Route::middleware('auth')->group(function () {
         route::get('/edit/customer/invoice/{invoice_id}', 'EditCustomerInvoice')->name('edit.customer.invoice');
         route::post('/customer/update/invoice/{invoice_id}', 'UpdateCustomerInvoice')->name('customer.update.invoice');
         route::get('/customer/invoice/details/pdf/{invoice_id}', 'CustomerInvoiceDetailsPdf')->name('customer.invoice.details.pdf');
+        route::get('/paid/customer', 'PaidCustomer')->name('paid.customer');
     });
     
     Route::controller(UnitController::class)->group(function () {

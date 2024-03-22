@@ -65,7 +65,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.customer') }}">Lista</a></li>
                         <li><a href="{{ route('add.customer') }}">Agregar</a></li>
-                        <li><a href="{{ route('credit.customer') }}">Crédito</a></li>
+                        <li><a href="{{ route('credit.customer') }}">Con Adeudo</a></li>
                     </ul>
                 </li>
 
@@ -143,7 +143,8 @@
                 <!-- Inventario -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class=" ri-windows-line"></i>
+                        {{-- <i class="ri-hotel-line"></i> --}}
+                        <img src="{{ asset('backend/assets/icons/inventario.svg') }}" alt="" height="20">
                         <span>Inventario</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">

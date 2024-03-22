@@ -75,8 +75,11 @@
                                                 </a>
 
                                                 {{-- Details --}}
-                                                <a href="{{ route('show.customer', $item->id) }}" class="btn btn-success sm"
-                                                    title="Detalle"><i class="fas fa-eye"></i></a>
+                                                <a href="{{ route('customer.invoice.details.pdf', $item->invoice_id) }}" 
+                                                    class="btn btn-success sm"
+                                                    title="Detalle">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
                                            
                                             </td>
 

@@ -163,6 +163,14 @@ class CustomerController extends Controller
     // UpdateCustomerInvoice
     public function UpdateCustomerInvoice(Request $request, $invoice_id){
 
+        if ($request->paid_amount == null) {
+            $notification = array(
+                'message' => 'El monto de pago parcial no puede ser nulo',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+
         if ($request->new_paid_amount < $request->paid_amount) {
 
             $notification = array(
@@ -207,6 +215,14 @@ class CustomerController extends Controller
         }  
        
     }
+
+
+    // CustomerInvoiceDetailsPdf
+    public function CustomerInvoiceDetailsPdf($invoice_id){
+        $payment = Payment::where('invoice_id', $invoice_id)->first();
+        return view('backend.pdf.invoice_details_pdf', compact('payment'));
+    }
+
 
 
     

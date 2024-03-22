@@ -41,6 +41,7 @@
                                 <div class="avatar-sm">
                                     <span class="avatar-title bg-light text-primary rounded-3">
                                         <i class="ri-shopping-cart-2-line font-size-24"></i>
+                                        {{-- <img src="{{ asset('backend/assets/icons/inventario.svg') }}" alt="" height="24"> --}}
                                     </span>
                                 </div>
                             </div>

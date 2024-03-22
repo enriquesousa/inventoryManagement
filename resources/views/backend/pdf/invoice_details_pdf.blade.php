@@ -233,6 +233,31 @@
                                                             </td>
                                                         </tr>
 
+
+
+                                                        {{-- Historial de Pagos --}}
+                                                        <tr>
+                                                            <td colspan="7" style="text-align: center; font-weight: bold;">Historial de Pagos</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td colspan="4" style="text-align: center; font-weight: bold;">Fecha</td>
+                                                            <td colspan="3" style="text-align: center; font-weight: bold;">Monto</td>
+                                                        </tr>
+
+                                                        @php
+                                                            $payment_details =  App\Models\PaymentDetail::where('invoice_id', $payment->invoice_id)->get();    
+                                                        @endphp
+
+                                                        @foreach ($payment_details as $key => $item)
+                                                            <tr>
+                                                                <td colspan="4" style="text-align: center; font-weight: bold;">{{ formatFecha1($item->date) }}</td>
+                                                                <td colspan="3" style="text-align: center; font-weight: bold;">{{ formatMoneda($item->current_paid_amount) }}</td>
+                                                            </tr>
+                                                        @endforeach
+
+
+
                                                     </tbody>
                                                 </table>
                                             </div>

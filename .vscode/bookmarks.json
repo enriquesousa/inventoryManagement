@@ -100,8 +100,8 @@
 			"bookmarks": [
 				{
 					"line": 77,
-					"column": 57,
-					"label": "date en blade con funcion global"
+					"column": 55,
+					"label": "date en blade con funcion global format fecha"
 				}
 			]
 		},

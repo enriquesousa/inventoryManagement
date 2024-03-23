@@ -40,12 +40,12 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
 
-                                    <strong>Reporte Deudores</strong>
+                                    <strong>Reporte de Adeudos por Cliente</strong>
                                     <input type="radio" name="customer_wise_report" value="customer_wise_credit"
                                         class="search_value">
                                     &nbsp;&nbsp;
 
-                                    <strong>Reporte Acreedores</strong>
+                                    <strong>Reporte de Entradas por Cliente</strong>
                                     <input type="radio" name="customer_wise_report" value="customer_wise_paid"
                                         class="search_value">
 
@@ -86,10 +86,8 @@
 
                             {{-- show_paid --}}
                             <div class="show_paid" style="display: none">
-
-                                <form method="GET" action="{{ route('supplier.wise.pdf') }}" id="myForm"
+                                <form method="GET" action="{{ route('customer.wise.paid.report') }}" id="myForm"
                                     target="_blank">
-
                                     <div class="row">
 
                                         {{-- Seleccionar Cliente --}}
@@ -109,9 +107,7 @@
                                         </div>
 
                                     </div>
-
                                 </form>
-
                             </div>
 
                         </div>

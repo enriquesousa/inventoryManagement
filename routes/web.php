@@ -84,6 +84,7 @@ Route::middleware('auth')->group(function () {
         route::get('/paid/customer/print/pdf', 'PaidCustomerPrintPdf')->name('paid.customer.print.pdf');
         route::get('/customer/wise/report', 'CustomerWiseReport')->name('customer.wise.report');
         route::get('/customer/wise/credit/report', 'CustomerWiseCreditReport')->name('customer.wise.credit.report');
+        route::get('/customer/wise/paid/report', 'CustomerWisePaidReport')->name('customer.wise.paid.report');
     });
     
     Route::controller(UnitController::class)->group(function () {

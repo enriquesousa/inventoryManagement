@@ -81,6 +81,7 @@
                                             <div class="p-2">
                                                 <h5 class="float-end font-size-16"><strong>Factura # {{ $payment->invoice->invoice_no }} </strong></h5>
                                                 <h3 class="font-size-16"><strong>Detalles de la Factura</strong></h3>
+                                                <h4 class="float-end font-size-14">Fecha: {{ date('d-M-Y', strtotime($payment->invoice->date)) }}</h4>
                                             </div>
 
                                             {{-- Tabla Detalles de la Factura --}}

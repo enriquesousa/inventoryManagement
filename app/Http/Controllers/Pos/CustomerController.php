@@ -248,6 +248,11 @@ class CustomerController extends Controller
         return view('backend.pdf.customer_wise_credit_report', compact('allData'));
     }
 
+    // CustomerWisePaidReport
+    public function CustomerWisePaidReport(Request $request){
+        $allData = Payment::where('customer_id', $request->customer_id)->where('paid_status', '!=', 'full_due')->get();
+        return view('backend.pdf.customer_wise_paid_report', compact('allData'));
+    }
 
 
     

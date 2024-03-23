@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+
     {{-- Jquery CDN Para poder usar JS --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -59,10 +60,8 @@
 
                             {{-- show_credit --}}
                             <div class="show_credit" style="display: none">
-
-                                <form method="GET" action="{{ route('supplier.wise.pdf') }}" id="myForm"
+                                <form method="GET" action="{{ route('customer.wise.credit.report') }}" id="myForm"
                                     target="_blank">
-
                                     <div class="row">
 
                                         {{-- Seleccionar Cliente --}}
@@ -82,9 +81,7 @@
                                         </div>
 
                                     </div>
-
                                 </form>
-
                             </div>
 
                             {{-- show_paid --}}

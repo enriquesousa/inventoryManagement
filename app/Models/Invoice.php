@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Payment;
+use App\Models\InvoiceDetail;
 
 class Invoice extends Model
 {
@@ -15,8 +16,9 @@ class Invoice extends Model
 
     // relación del id con invoice_id de Payment
     public function payment(){
-        return $this->belongsTo(Payment::class, 'id', 'invoice_id');
+        return $this->belongsTo(Payment::class,'id','invoice_id');
     }
+   
 
     // Relación tiene muchos, 'invoice_id' es de InvoiceDetail y 'id' es de Invoice
     public function invoice_details(){

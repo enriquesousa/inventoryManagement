@@ -230,6 +230,12 @@ class CustomerController extends Controller
         return view('backend.customer.paid_customer', compact('allData'));
     }
 
+    // PaidCustomerPrintPdf
+    public function PaidCustomerPrintPdf(){
+        $allData = Payment::where('paid_status', '!=', 'full_due')->get();
+        return view('backend.pdf.customer_paid_pdf', compact('allData'));
+    }
+
 
 
     

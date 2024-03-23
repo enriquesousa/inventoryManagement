@@ -11,8 +11,12 @@
                         <h4 class="mb-sm-0">Lista Entradas de <strong>Clientes</strong></h4>
 
                         <div class="page-title-right">
-                            <a href="{{ route('credit.customer.print.pdf') }}" target="_blank" class="btn btn-success waves-effect waves-light"><i
-                                class="fa fa-print"></i> Imprimir Reporte</a>
+                            <a href="{{ route('paid.customer.print.pdf') }}"
+                                target="_blank" 
+                                class="btn btn-success waves-effect waves-light">
+                                <i class="fa fa-print"></i> 
+                                Imprimir Reporte
+                            </a>
                         </div>
 
                     </div>
@@ -68,9 +72,10 @@
                                             <td>
                                                
                                                 {{-- Details --}}
-                                                <a href="{{ route('show.customer', $item->id) }}" 
+                                                <a href="{{ route('customer.invoice.details.pdf', $item->invoice_id) }}" 
                                                     class="btn btn-success sm"
-                                                    title="Detalle">
+                                                    title="Detalle"
+                                                    target="_blank">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                               

@@ -81,6 +81,7 @@ Route::middleware('auth')->group(function () {
         route::post('/customer/update/invoice/{invoice_id}', 'UpdateCustomerInvoice')->name('customer.update.invoice');
         route::get('/customer/invoice/details/pdf/{invoice_id}', 'CustomerInvoiceDetailsPdf')->name('customer.invoice.details.pdf');
         route::get('/paid/customer', 'PaidCustomer')->name('paid.customer');
+        route::get('/paid/customer/print/pdf', 'PaidCustomerPrintPdf')->name('paid.customer.print.pdf');
     });
     
     Route::controller(UnitController::class)->group(function () {

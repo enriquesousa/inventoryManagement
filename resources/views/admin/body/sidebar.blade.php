@@ -67,6 +67,7 @@
                         <li><a href="{{ route('add.customer') }}">Agregar</a></li>
                         <li><a href="{{ route('credit.customer') }}">Con Adeudo</a></li>
                         <li><a href="{{ route('paid.customer') }}">Entradas</a></li>
+                        <li><a href="{{ route('customer.wise.report') }}">Por Deudor/Acreedor</a></li>
                     </ul>
                 </li>
 

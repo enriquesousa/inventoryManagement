@@ -236,6 +236,12 @@ class CustomerController extends Controller
         return view('backend.pdf.customer_paid_pdf', compact('allData'));
     }
 
+    // CustomerWiseReport
+    public function CustomerWiseReport(){
+       $customers = Customer::all();
+       return view('backend.customer.customer_wise_report', compact('customers'));
+    }
+
 
 
     

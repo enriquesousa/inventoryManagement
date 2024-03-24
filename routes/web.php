@@ -140,6 +140,7 @@ Route::middleware('auth')->group(function () {
     
     
     Route::controller(InvoiceController::class)->group(function () {
+        Route::get('/todas/invoice', 'TodasInvoice')->name('todas.invoice');
         Route::get('/list/invoice', 'ListInvoice')->name('list.invoice');
         Route::get('/add/invoice', 'AddInvoice')->name('add.invoice');
         Route::post('/store/invoice', 'StoreInvoice')->name('store.invoice');
@@ -151,6 +152,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
         Route::get('/daily/invoice/report', 'DailyInvoiceReport')->name('daily.invoice.report');
         Route::get('/daily/invoice/pdf', 'DailyInvoicePdf')->name('daily.invoice.pdf');
+        Route::get('/por/mes/invoice', 'PorMesInvoice')->name('por.mes.invoice');
+        Route::get('/facturas/por/mes', 'FacturasPorMes')->name('facturas.por.mes');
     });
 
 

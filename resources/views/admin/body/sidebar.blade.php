@@ -130,19 +130,21 @@
                         <span>Facturas</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('list.invoice') }}">Lista</a></li>
+                        <li><a href="{{ route('todas.invoice') }}">Todas</a></li>
+                        <li><a href="{{ route('list.invoice') }}">Lista Aprobadas</a></li>
+                        <li><a href="{{ route('pending.list.invoice') }}">Por Aprobar</a></li>
                         <li><a href="{{ route('add.invoice') }}">Agregar</a></li>
-                        <li><a href="{{ route('pending.list.invoice') }}">Aprobar</a></li>
                         <li><a href="{{ route('print.list.invoice') }}">Imprimir</a></li>
-                        <li><a href="{{ route('daily.invoice.report') }}">Reporte por Fechas</a></li>
+                        <li><a href="{{ route('daily.invoice.report') }}">Reporte PDF por Fechas</a></li>
+                        <li><a href="{{ route('por.mes.invoice') }}">Por Mes</a></li>
                     </ul>
                 </li>
 
 
-                <!-- * Inventarios -->
+                <!-- * REPORTES -->
                 <li class="menu-title">Reportes</li>
                 
-                <!-- Inventario -->
+                <!-- Reporte de Inventario -->
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         {{-- <i class="ri-hotel-line"></i> --}}
@@ -155,6 +157,32 @@
                     </ul>
                 </li>
 
+                <!-- Reporte de Facturas -->
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <img src="{{ asset('backend/assets/icons/factura.svg') }}" alt="" height="20">
+                        <span>Facturas</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('todas.invoice') }}">Todas</a></li>
+                        <li><a href="{{ route('print.list.invoice') }}">Imprimir</a></li>
+                        <li><a href="{{ route('daily.invoice.report') }}">Reporte PDF por Fechas</a></li>
+                    </ul>
+                </li>
+
+                 <!-- * ROLES y PERMISOS -->
+                 <li class="menu-title">ROLES y PERMISOS</li>
+                
+                 <!-- Roles y Permisos -->
+                 <li>
+                     <a href="javascript: void(0);" class="has-arrow waves-effect">
+                         <img src="{{ asset('backend/assets/icons/roles.svg') }}" alt="" height="20">
+                         <span>Roles y Permisos</span>
+                     </a>
+                     <ul class="sub-menu" aria-expanded="false">
+                         <li><a href="{{ route('stock.report') }}">Lista Permisos</a></li>
+                     </ul>
+                 </li>
 
 
 

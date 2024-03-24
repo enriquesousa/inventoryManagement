@@ -74,14 +74,9 @@
 			"path": "resources/views/backend/invoice/list_invoice.blade.php",
 			"bookmarks": [
 				{
-					"line": 63,
-					"column": 89,
-					"label": "str trim en blade"
-				},
-				{
-					"line": 67,
-					"column": 58,
-					"label": "money en blade"
+					"line": 76,
+					"column": 1,
+					"label": ""
 				}
 			]
 		},
@@ -167,6 +162,21 @@
 					"line": 190,
 					"column": 88,
 					"label": "eloquent encontrar un registro y modificar campo"
+				}
+			]
+		},
+		{
+			"path": "resources/views/backend/invoice/por_mes_invoice.blade.php",
+			"bookmarks": [
+				{
+					"line": 46,
+					"column": 48,
+					"label": "select valor por default"
+				},
+				{
+					"line": 65,
+					"column": 68,
+					"label": "select dejamos vacio option selected para poder validarlo"
 				}
 			]
 		}

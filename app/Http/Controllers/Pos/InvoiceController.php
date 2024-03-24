@@ -23,6 +23,13 @@ use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
+
+    // TodasInvoice, todas las facturas aprobadas y por aprobar
+    public function TodasInvoice(){
+        $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+        return view('backend.invoice.todas_invoice', compact('allData'));
+    }
+
     // ListInvoice
     public function ListInvoice()
     {
@@ -30,6 +37,17 @@ class InvoiceController extends Controller
         return view('backend.invoice.list_invoice', compact('allData'));
     }
 
+    // PorMesInvoice
+    public function PorMesInvoice(){
+       return view('backend.invoice.por_mes_invoice');
+    }
+
+    // FacturasPorMes
+    public function FacturasPorMes(Request $request){
+       $allData = Invoice::orderBy('date', 'desc')->orderBy('id', 'desc')->whereYear('date', $request->año)->whereMonth('date', $request->mes)->get();
+       return view('backend.invoice.list_por_mes', compact('allData'));
+    }
+    
     // PendingListInvoice
     public function PendingListInvoice()
     {

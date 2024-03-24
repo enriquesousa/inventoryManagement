@@ -10,6 +10,14 @@
                         <h4 class="mb-sm-0">Lista de <strong>Facturas</strong></h4>
 
                         <div class="page-title-right">
+                            <a href="{{ route('todas.invoice') }}"
+                                class="btn btn-success waves-effect waves-light">
+                                <i class="ri-list-check"></i>
+                                Todas las Facturas
+                            </a>
+                        </div>
+
+                        <div class="page-title-right">
                             <a href="{{ route('add.invoice') }}" class="btn btn-success waves-effect waves-light"><i
                                     class="fas fa-plus-circle"></i> Agregar Factura</a>
                         </div>
@@ -38,6 +46,7 @@
                                         <th width="10%">Fecha</th>
                                         <th>Descripción</th>
                                         <th width="10%">Total</th>
+                                        <th width="10%">Estatus</th>
                                     </tr>
                                 </thead>
 
@@ -63,9 +72,17 @@
                                             {{-- Descripción --}}
                                             <td>{{ mb_strimwidth($item->description, 0, 50, '...') }}</td>
 
-
                                             {{-- Total --}}
                                             <td>{{ formatMoneda($item->payment->total_amount) }}</td>
+
+                                            {{-- Estatus --}}
+                                            <td>
+                                                @if ($item->status == '0')
+                                                    <span class="btn btn-warning">Pendiente</span>
+                                                @elseif($item->status == '1')
+                                                    <span class="btn btn-success">Aprobada</span>
+                                                @endif
+                                            </td>
 
                                         </tr>
                                     @endforeach

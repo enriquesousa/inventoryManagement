@@ -16,17 +16,6 @@ use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\StockController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -43,9 +32,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-// Todas las rutas de administrador protegidas con el middleware auth
+/*
+|--------------------------------------------------------------------------
+| Todas las rutas de administrador protegidas con el middleware auth
+|--------------------------------------------------------------------------
+*/
 Route::middleware('auth')->group(function () {
-   
     
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/logout', 'AdminDestroy')->name('admin.logout');
@@ -170,9 +162,6 @@ Route::middleware('auth')->group(function () {
 
 
 });
-
-
-
 
 
 

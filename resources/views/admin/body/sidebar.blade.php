@@ -180,7 +180,7 @@
                          <span>Roles y Permisos</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
-                         <li><a href="{{ route('stock.report') }}">Lista Permisos</a></li>
+                         <li><a href="{{ route('all.permission') }}">Lista Permisos</a></li>
                      </ul>
                  </li>
 

@@ -14,6 +14,7 @@ use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\InvoiceController;
 use App\Http\Controllers\Pos\StockController;
+use App\Http\Controllers\Pos\RoleController;
 
 
 Route::get('/', function () {
@@ -157,8 +158,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/product/wise/pdf', 'ProductWisePdf')->name('product.wise.pdf');
        
     });
-    
 
+
+
+    // Roles y Permisos
+    Route::controller(RoleController::class)->group(function () {
+        Route::get('/all/permission', 'AllPermission')->name('all.permission');
+    });
 
 
 });

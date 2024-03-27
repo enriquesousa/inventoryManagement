@@ -66,18 +66,23 @@
                                         <p class="text-white-50">El usuario: {{ Auth::user()->name }}, ya ha iniciado
                                             sesión</p>
 
-                                        <span class="text-muted"><i
-                                                class="ri-record-circle-line align-middle font-size-14 text-success"></i>En
-                                            Linea</span>
+                                        <span class="text-muted">
+                                            <i class="ri-record-circle-line align-middle font-size-14 text-success"></i>
+                                            En Linea
+                                        </span>
                                         <br>
                                         <br>
-                                        <a href="{{ route('dashboard') }}" class="btn btn-success">Ir a Panel de
-                                            Control</a>
+
+                                        <a href="{{ route('inicio') }}" 
+                                            class="btn btn-success">
+                                            Ir a Panel de Inicio
+                                        </a>
                                     </div>
                                 </div>
                             @endif
 
                             {{-- Botón Login --}}
+                            {{-- La ruta del login esta definida en el archivo app/Providers/RouteServiceProvider.php HOME --}}
                             <div class="form-group text-center row mt-3">
                                 <div class="col-12">
                                     @if (Auth::check())

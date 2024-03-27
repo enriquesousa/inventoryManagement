@@ -21,9 +21,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', function () {
+Route::get('/inicio', function () {
     return view('admin.index');
+})->middleware(['auth', 'verified'])->name('inicio');
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -164,6 +169,8 @@ Route::middleware('auth')->group(function () {
     // Roles y Permisos
     Route::controller(RoleController::class)->group(function () {
         Route::get('/all/permission', 'AllPermission')->name('all.permission');
+        Route::get('/add/permission', 'AddPermission')->name('add.permission');
+        Route::post('/store/permission', 'StorePermission')->name('store.permission');
     });
 
 

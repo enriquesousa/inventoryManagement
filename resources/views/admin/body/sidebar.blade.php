@@ -35,12 +35,21 @@
                 <!-- * MENU -->
                 <li class="menu-title">Menu</li>
 
-                <!-- Dashboard -->
+                <!-- Dashboard Inicio -->
+                <li>
+                    <a href="{{ route('inicio') }}" class="waves-effect">
+                        <i class="ri-dashboard-line"></i>
+                        {{-- <span class="badge rounded-pill bg-success float-end">3</span> --}}
+                        <span>Panel Inicio</span>
+                    </a>
+                </li>
+
+                <!-- Dashboard Control -->
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
                         {{-- <span class="badge rounded-pill bg-success float-end">3</span> --}}
-                        <span>Panel</span>
+                        <span>Panel Control</span>
                     </a>
                 </li>
 
@@ -103,9 +112,9 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('list.product') }}">Lista</a></li>
+                        <li><a href="{{ route('add.product') }}">Agregar</a></li>
                         <li><a href="{{ route('list.product.category') }}">Por Categoría</a></li>
                         <li><a href="{{ route('list.product.supplier') }}">Por Proveedor</a></li>
-                        <li><a href="{{ route('add.product') }}">Agregar</a></li>
                     </ul>
                 </li>
 
@@ -130,7 +139,7 @@
                         <span>Facturas</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('todas.invoice') }}">Todas</a></li>
+                        <li><a href="{{ route('todas.invoice') }}">Lista Todas</a></li>
                         <li><a href="{{ route('list.invoice') }}">Lista Aprobadas</a></li>
                         <li><a href="{{ route('pending.list.invoice') }}">Por Aprobar</a></li>
                         <li><a href="{{ route('add.invoice') }}">Agregar</a></li>
@@ -176,11 +185,11 @@
                  <!-- Roles y Permisos -->
                  <li>
                      <a href="javascript: void(0);" class="has-arrow waves-effect">
-                         <img src="{{ asset('backend/assets/icons/roles.svg') }}" alt="" height="20">
-                         <span>Roles y Permisos</span>
+                        <img src="{{ asset('backend/assets/icons/lock.svg') }}" alt="" height="20">
+                        <span>Roles y Permisos</span>
                      </a>
                      <ul class="sub-menu" aria-expanded="false">
-                         <li><a href="{{ route('all.permission') }}">Lista Permisos</a></li>
+                        <li><a href="{{ route('all.permission') }}">Lista Permisos</a></li>
                      </ul>
                  </li>
 

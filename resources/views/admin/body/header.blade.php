@@ -37,6 +37,309 @@
                 </div>
             </form> --}}
 
+           
+
+            {{-- Mega Menu --}}
+            <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
+                <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
+                    aria-haspopup="false" aria-expanded="false">
+                    Mega Menu
+                    <i class="mdi mdi-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu dropdown-megamenu">
+                    <div class="row">
+
+                        <div class="col-sm-8">
+                            <div class="row">
+
+                                <div class="col-md-4">
+
+                                    <h5 class="font-size-14">PANELES</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('inicio') }}">
+                                                <i class="ri-dashboard-line"></i>
+                                                <span>Panel Inicio</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('dashboard') }}">
+                                                <i class="ri-dashboard-line"></i>
+                                                <span>Panel Control</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">PROVEEDORES</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('list.supplier') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.supplier') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">UNIDADES</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('list.unit') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.unit') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">CATEGORÍAS</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('list.category') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.category') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <h5 class="font-size-14">CLIENTES</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('list.customer') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.customer') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('credit.customer') }}">
+                                                <i class="ri-money-dollar-box-line"></i>
+                                                <span>Con Adeudo</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('paid.customer') }}">
+                                                <i class="ri-currency-line"></i>
+                                                <span>Entradas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('customer.wise.report') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Por Deudor o Acreedor</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">PRODUCTOS</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('list.product') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.product') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('list.product.category') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Por Categoría</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('list.product.supplier') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Por Proveedor</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <h5 class="font-size-14">COMPRAS</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('list.purchase') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.purchase') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('pending.purchase') }}">
+                                                <i class="ri-checkbox-line"></i>
+                                                <span>Aprobar</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('daily.purchase.report') }}">
+                                                <i class="ri-calendar-todo-line"></i>
+                                                <span>Reporte por Fechas</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">FACTURAS</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('todas.invoice') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista Todas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('list.invoice') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista Aprobadas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('pending.list.invoice') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Por Aprobar</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('add.invoice') }}">
+                                                <i class="ri-file-add-line"></i>
+                                                <span>Agregar</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('print.list.invoice') }}">
+                                                <i class="ri-printer-line"></i>
+                                                <span>Imprimir</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('daily.invoice.report') }}">
+                                                <i class="ri-calendar-todo-line"></i>
+                                                <span>Reporte PDF por Fechas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('por.mes.invoice') }}">
+                                                <i class="ri-calendar-todo-line"></i>
+                                                <span>Por Mes</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-6">
+
+                                    <h5 class="font-size-14">REPORTE INVENTARIO</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('stock.report') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista Inventario</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('stock.supplier.wise') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Por Proveedor / Producto</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">REPORTE FACTURAS</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('todas.invoice') }}">
+                                                <i class="ri-file-list-3-line"></i>
+                                                <span>Lista Todas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('print.list.invoice') }}">
+                                                <i class="ri-printer-line"></i>
+                                                <span>Imprimir</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('daily.invoice.report') }}">
+                                                <i class="ri-calendar-todo-line"></i>
+                                                <span>Reporte PDF por Fechas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('por.mes.invoice') }}">
+                                                <i class="ri-calendar-todo-line"></i>
+                                                <span>Por Mes</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h5 class="font-size-14">ROLES Y PERMISOS</h5>
+                                    <ul class="list-unstyled megamenu-list">
+                                        <li>
+                                            <a href="{{ route('all.permission') }}">
+                                                <i class="ri-phone-lock-line"></i>
+                                                <span>Lista</span>
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-sm-5">
+                                    <div>
+                                        <img src="{{ asset('backend/assets/images/megamenu-img.png') }}"
+                                            alt="megamenu-img" class="img-fluid mx-auto d-block">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Menu de blocks -->
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="dropdown"
@@ -91,140 +394,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            {{-- Mega Menu --}}
-            <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
-                <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
-                    aria-haspopup="false" aria-expanded="false">
-                    Mega Menu
-                    <i class="mdi mdi-chevron-down"></i>
-                </button>
-                <div class="dropdown-menu dropdown-megamenu">
-                    <div class="row">
-                        <div class="col-sm-8">
-
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5 class="font-size-14">UI Components</h5>
-                                    <ul class="list-unstyled megamenu-list">
-                                        <li>
-                                            <a href="javascript:void(0);">Lightbox</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Range Slider</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Sweet Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Rating</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Forms</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Tables</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Charts</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <h5 class="font-size-14">Applications</h5>
-                                    <ul class="list-unstyled megamenu-list">
-                                        <li>
-                                            <a href="javascript:void(0);">Ecommerce</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Calendar</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Email</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Projects</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Tasks</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Contacts</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <h5 class="font-size-14">Extra Pages</h5>
-                                    <ul class="list-unstyled megamenu-list">
-                                        <li>
-                                            <a href="javascript:void(0);">Light Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Compact Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Horizontal layout</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Maintenance</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Coming Soon</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Timeline</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">FAQs</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <h5 class="font-size-14">UI Components</h5>
-                                    <ul class="list-unstyled megamenu-list">
-                                        <li>
-                                            <a href="javascript:void(0);">Lightbox</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Range Slider</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Sweet Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Rating</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Forms</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Tables</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Charts</a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-sm-5">
-                                    <div>
-                                        <img src="{{ asset('backend/assets/images/megamenu-img.png') }}"
-                                            alt="megamenu-img" class="img-fluid mx-auto d-block">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -414,19 +583,34 @@
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <!-- item-->
+                    
+                    {{-- Perfil --}}
                     <a class="dropdown-item" href="{{ route('admin.view.profile') }}"><i class="ri-user-line align-middle me-1"></i> Perfil</a>
+
+                    {{-- Cambiar contraseña --}}
                     <a class="dropdown-item" href="{{ route('admin.change.password') }}"><i class="ri-lock-unlock-line align-middle me-1"></i> Cambiar contraseña</a>
-                    <a class="dropdown-item d-block" href="#">
+
+                    {{-- Settings --}}
+                    {{-- <a class="dropdown-item d-block" href="#">
                             <span class="badge bg-success float-end mt-1">11</span>
-                            <i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
-                    <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i>
-                        Lock screen</a>
+                            <i class="ri-settings-2-line align-middle me-1"></i>
+                            Settings
+                    </a> --}}
+
+                    {{-- Lock Screen --}}
+                    {{-- <a class="dropdown-item" href="#">
+                        <i class="ri-lock-unlock-line align-middle me-1"></i>
+                        Lock screen
+                    </a> --}}
+
                     <div class="dropdown-divider"></div>
 
+                    {{-- Logout --}}
                     <a class="dropdown-item text-danger" href="{{ route('admin.logout') }}">
                         <i class="ri-shut-down-line align-middle me-1 text-danger"></i>
-                        Salir</a>
+                        Salir
+                    </a>
+
                 </div>
             </div>
 

@@ -9,8 +9,11 @@
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         
-                        <h4 class="mb-sm-0">Lista de <strong>Roles y Permisos</strong></h4>
-
+                        <h4 class="mb-sm-0">
+                            <span><img src="{{ asset('backend/assets/icons/lock.svg') }}" alt="" height="40"></span>
+                            Lista de <strong>Roles y Permisos</strong> 
+                        </h4>
+                        
                         {{-- Botones al centro --}}
                         <div class="page-title-center">
 
@@ -36,8 +39,11 @@
 
                         {{-- Botones al lado derecha --}}
                         <div class="page-title-right">
-                            <a href="{{ route('add.invoice') }}" class="btn btn-success waves-effect waves-light"><i
-                                    class="fas fa-plus-circle"></i> Agregar Factura</a>
+                            <a  href="{{ route('add.permission') }}" 
+                                class="btn btn-success waves-effect waves-light">
+                                <i class="fas fa-plus-circle"></i>
+                                Agregar Permisos
+                            </a>
                         </div>
 
                     </div>

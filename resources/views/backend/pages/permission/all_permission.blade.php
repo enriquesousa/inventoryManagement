@@ -19,21 +19,16 @@
 
                             <a href="{{ route('list.invoice') }}"
                                 class="btn btn-success waves-effect waves-light">
-                                <i class="ri-list-check"></i>
-                                Solo Aprobadas
+                                <i class="ri-file-excel-line"></i>
+                                Importar Excel
                             </a>
 
                             <a href="{{ route('pending.list.invoice') }}" 
                                 class="btn btn-success waves-effect waves-light">
-                                <i class="ri-list-check"></i>
-                                Aprobar Factura
+                                <i class="ri-download-2-line"></i>
+                                Exportar Excel
                             </a> 
                             
-                            <a href="{{ route('por.mes.invoice') }}" 
-                                class="btn btn-success waves-effect waves-light">
-                                <i class="ri-filter-line"></i>
-                                Por Mes
-                            </a>
 
                         </div>
 

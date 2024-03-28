@@ -16,13 +16,21 @@
                             <form class="form-horizontal mt-3">
     
                                 <div class="user-profile text-center mt-3">
+
                                     <div class="">
+
                                         {{-- <img src="{{ asset('logo/inventory.png') }}"
                                             class="rounded-circle avatar-lg img-thumbnail"
                                             alt="thumbnail"
                                         > --}}
-                                        <img src="{{ asset('logo/inventory.png') }}" class="img-fluid" alt="Responsive image">
+                                        {{-- <img src="{{ asset('logo/inventory.png') }}" class="img-fluid" alt="Responsive image"> --}}
+
+                                        <img src="{{ asset('logo/inventory.png') }}"
+                                             alt="Responsive image"
+                                             height="300">
+
                                     </div>
+
                                     <div class="mt-3">
                                         <h4 class="font-size-16 mb-1">Sistema Control de Inventario</h4>
                                     </div>
@@ -42,9 +50,9 @@
                                             <br>
                                             <br>
                                             
-                                            <a href="{{ route('dashboard') }}" 
+                                            <a href="{{ route('admin.view.profile') }}" 
                                                 class="btn btn-success">
-                                                Ir a Panel de Control
+                                                Ir a Mi Perfil
                                             </a>
                                         </div>
                                     </div>

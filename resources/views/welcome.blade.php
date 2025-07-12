@@ -133,11 +133,7 @@
 
                         </div>
 
-                            
-
-
                         <br>
-
 
                         <div class="container-fluid">
                             <div class="row">
@@ -165,9 +161,6 @@
 
                             </div>
                         </div>
-
-
-
 
                         {{-- Footer: Version de Laravel y PHP --}}
                         <div class="form-group row mt-4">

@@ -19,12 +19,12 @@
 					"label": "handlebars"
 				},
 				{
-					"line": 294,
+					"line": 297,
 					"column": 46,
 					"label": "convertir numero en moneda JS money"
 				},
 				{
-					"line": 307,
+					"line": 310,
 					"column": 31,
 					"label": "JS en vista add compras para seleccion de categorias"
 				}

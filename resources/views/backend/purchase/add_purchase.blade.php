@@ -190,7 +190,10 @@
             </td>
         
             <td>
-                <input type="number" class="form-control unit_price text-right" name="unit_price[]" value=""> 
+                {{-- <input type="number" class="form-control unit_price text-right" name="unit_price[]" value="">  --}}
+                <input type="number" placeholder="0.00" required name="unit_price[]" min="0" value="0" step="0.01" 
+                class="form-control unit_price text-right" title="Precio unitario" pattern="^\d+(?:\.\d{1,2})?$" 
+                onblur="this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'">
             </td>
         
             <td>
